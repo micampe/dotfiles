@@ -1,0 +1,16 @@
+{
+	"caret_style": "wide",
+	"color_scheme": "Packages/Color Scheme - Default/LAZY.tmTheme",
+	"fallback_encoding": "UTF-8",
+	"font_face": "Menlo",
+	"font_size": 14.0,
+	"highlight_line": true,
+	"ignored_packages":
+	[
+		"Vintage"
+	],
+	"line_padding_bottom": 1,
+	"line_padding_top": 1,
+	"theme": "Soda Light.sublime-theme",
+	"translate_tabs_to_spaces": true
+}

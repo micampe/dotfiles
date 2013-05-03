@@ -1,0 +1,69 @@
+[alias]
+    ci = commit --verbose
+    ca = commit --verbose --all
+    co = checkout
+    st = status --short --branch
+    ff = merge --ff-only
+
+    head = log -n1
+    l = log --pretty=color
+    r = log -n10 --pretty=color
+    last = log --pretty=color ORIG_HEAD..
+    graph = log --graph --all --pretty=color
+    g = log --graph --all --pretty=color
+    reset-date = !git commit --amend --date=\"$(date)\"
+
+    get-patch = !git format-patch HEAD~ --stdout > "~/Desktop/$(basename $PWD)-$(git log -1 --pretty=%B | head -1 | perl -pe 's/.*?<rdar:.*?([0-9]+)>.*/\\1/').patch"
+    copy-patch = !sh -c 'git format-patch --stdout $* | pbcopy && echo "[git format-patch $*] copied to clipboard. $(pbpaste | wc -l) lines."' -
+    copy-diff = !sh -c 'git diff $* | pbcopy && echo "[git diff $*] copied to clipboard. $(pbpaste | wc -l) lines."' -
+
+    rdar = !open 'rdar://$(git rev-parse --symbolic-full-name --abbrev-ref HEAD | egrep -o \"\\d+\" | head -1)'
+
+[pretty]
+    color = "format:%Cred%h%C(yellow)%d %Cblue%an %Cgreen%cr%Creset %s"
+
+[core]
+    excludesfile = ~/.gitignore-global
+    attributesfile = ~/.gitattributes-global
+    quotepath = false
+
+[color]
+    ui = auto
+    diff = auto
+    status = auto
+    branch = auto
+    interactive = auto
+
+[branch]
+    autosetuprebase = always
+
+[push]
+    default = current
+
+[rerere]
+    enabled = true
+
+[difftool]
+    prompt = false
+[mergetool]
+    prompt = false
+
+[diff]
+    tool = p4
+[merge]
+    tool = p4
+    conflictstyle = diff3
+
+[difftool "p4"]
+    cmd = \"p4merge.sh\" \"$LOCAL\" \"$REMOTE\"
+    trustExitCode = true
+[mergetool "p4"]
+    cmd = \"p4merge.sh\" \"$LOCAL\" \"$REMOTE\" \"$BASE\" \"$MERGED\"
+    trustExitCode = true
+
+[diff "exif"]
+    textconv = exiftool
+[diff "utf16"]
+    textconv = ~/bin/utf16-to-utf8
+[diff "plist"]
+    textconv = plutil -convert xml1 -o -

@@ -1,0 +1,32 @@
+# vim: syntax=zsh sw=2 sts=2 et ai
+
+zstyle ':prezto:*:*' case-sensitive 'no'
+zstyle ':prezto:*:*' color 'yes'
+zstyle ':prezto:*:*' aliases 'no'
+
+zstyle ':prezto:load' pmodule \
+  'environment' \
+  'dtach' \
+  'terminal' \
+  'editor' \
+  'history' \
+  'directory' \
+  'spectrum' \
+  'utility' \
+  'completion' \
+  'osx' \
+  'git' \
+  'notify' \
+  'history-substring-search' \
+  'prompt'
+
+zstyle ':prezto:module:editor' keymap 'emacs'
+zstyle ':prezto:module:editor' dot-expansion 'yes'
+zstyle ':prezto:module:terminal' auto-title 'yes'
+zstyle ':prezto:module:prompt' theme 'micampe'
+zstyle ':prezto:module:ssh-agent' forwarding 'yes'
+zstyle ':prezto:module:notify' elapsed '10'
+zstyle ':prezto:module:notify' different-window-only 'yes'
+zstyle ':prezto:module:git:status:ignore' submodules 'dirty'
+zstyle ':prezto:module:dtach' auto-start 'yes'
+zstyle ':prezto:module:dtach' detach-char '^d'
