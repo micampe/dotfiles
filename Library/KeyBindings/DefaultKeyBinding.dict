@@ -1,8 +1,0 @@
-{
-  "~-" = {
-    "<"   = ("insertText:", "\U2190");
-    "\\^" = ("insertText:", "\U2191");
-    ">"   = ("insertText:", "\U2192");
-    "v"   = ("insertText:", "\U2193");
-  };
-}
