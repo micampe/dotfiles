@@ -3,7 +3,7 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-cdpath+=(. ~/src)
+cdpath+=(. ~ ~/src)
 path=(~/bin $path)
 
 source ~/.zsh/aliases.zsh
