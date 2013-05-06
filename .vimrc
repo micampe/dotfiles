@@ -36,7 +36,6 @@ au FileType make set noexpandtab
 
 " don’t wrap git commit messages
 au FileType gitcommit set textwidth=0
-au FileType gitcommit set syntax=diff
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
