@@ -64,6 +64,6 @@
 [diff "exif"]
     textconv = exiftool
 [diff "utf16"]
-    textconv = ~/bin/utf16-to-utf8
+    textconv = iconv -f utf-16 -t utf-8
 [diff "plist"]
     textconv = plutil -convert xml1 -o -
