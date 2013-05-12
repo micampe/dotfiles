@@ -3,6 +3,9 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
+unsetopt CORRECT
+unsetopt AUTO_REMOVE_SLASH
+
 cdpath+=(. ~ ~/src)
 path=(~/bin $path)
 
