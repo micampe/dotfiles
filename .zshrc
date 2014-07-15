@@ -5,6 +5,7 @@ fi
 
 unsetopt CORRECT
 unsetopt AUTO_REMOVE_SLASH
+unsetopt SHARE_HISTORY
 
 cdpath+=(. ~ ~/src)
 path=(~/bin $path)
