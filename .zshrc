@@ -9,6 +9,7 @@ unsetopt SHARE_HISTORY
 
 cdpath+=(. ~ ~/src)
 path=(~/bin $path)
+gopath=~/src/go
 
 source ~/.zsh/aliases.zsh
 source ~/.zsh/utils.zsh
