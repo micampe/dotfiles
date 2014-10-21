@@ -13,6 +13,8 @@
     g = log --graph --all --pretty=color
     reset-date = !git commit --amend --date=\"$(date)\"
     ancestor = merge-base HEAD master
+    fixup = !sh -c 'git commit --fixup=$1' -
+    squash = !sh -c 'git commit --squash=$1' -
 
     get-patch = !git format-patch HEAD~ --stdout > "~/Desktop/$(basename $PWD)-$(git log -1 --pretty=%B | head -1 | perl -pe 's/.*?<rdar:.*?([0-9]+)>.*/\\1/').patch"
     copy-patch = !sh -c 'git format-patch --stdout $* | pbcopy && echo "[git format-patch $*] copied to clipboard. $(pbpaste | wc -l) lines."' -
