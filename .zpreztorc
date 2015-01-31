@@ -13,8 +13,10 @@ zstyle ':prezto:load' pmodule \
   'git' \
   'notify' \
   'history-substring-search' \
+  'dtach' \
   'prompt'
 
 zstyle ':prezto:module:prompt' theme 'pure'
 zstyle ':prezto:module:notify' elapsed '10'
 zstyle ':prezto:module:notify' different-window-only 'yes'
+zstyle ':prezto:module:dtach' detach-char '^d'
