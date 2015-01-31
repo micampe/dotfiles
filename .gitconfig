@@ -16,7 +16,7 @@
     fixup = !sh -c 'git commit --fixup=$1' -
     squash = !sh -c 'git commit --squash=$1' -
 
-    get-patch = !git format-patch HEAD~ --stdout > "~/Desktop/$(basename $PWD)-$(git log -1 --pretty=%B | head -1 | perl -pe 's/.*?<rdar:.*?([0-9]+)>.*/\\1/').patch"
+    get-patch = !git format-patch HEAD~ -o ~/Desktop/
     copy-patch = !sh -c 'git format-patch --stdout $* | pbcopy && echo "[git format-patch $*] copied to clipboard. $(pbpaste | wc -l) lines."' -
     copy-diff = !sh -c 'git diff $* | pbcopy && echo "[git diff $*] copied to clipboard. $(pbpaste | wc -l) lines."' -
 
