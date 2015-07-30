@@ -1,4 +1,3 @@
 *.png diff=exif
-*.strings diff=utf16
 *.plist diff=plist
 *.m diff=objc

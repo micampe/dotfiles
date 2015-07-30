@@ -21,7 +21,7 @@
     copy-diff = !sh -c 'git diff $* | pbcopy && echo "[git diff $*] copied to clipboard. $(pbpaste | wc -l) lines."' -
 
     rdar = !open 'rdar://$(git rev-parse --symbolic-full-name --abbrev-ref HEAD | egrep -o \"\\d+\" | head -1)'
-	yolo = !sh -c \"git commit -a --amend --no-edit && git push --force --dry-run\" -
+    yolo = !sh -c \"git commit -a --amend --no-edit && git push --force --dry-run\" -
 
 [pretty]
     color = "format:%Cred%h%C(yellow)%d %Cblue%an %Cgreen%cr%Creset %s"
@@ -30,6 +30,7 @@
     excludesfile = ~/.gitignore-global
     attributesfile = ~/.gitattributes-global
     quotepath = false
+    pager = "$PAGER $LESS"
 
 [color]
     ui = auto
@@ -71,3 +72,9 @@
     textconv = iconv -f utf-16 -t utf-8
 [diff "plist"]
     textconv = plutil -convert xml1 -o -
+[filter "media"]
+    clean = git media clean %f
+    smudge = git media smudge %f
+    required = true
+[credential]
+	helper = osxkeychain
