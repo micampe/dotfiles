@@ -12,9 +12,9 @@ zstyle ':prezto:load' pmodule \
   'osx' \
   'git' \
   'notify' \
-  'history-substring-search' \
   'dtach' \
-  'prompt'
+  'prompt' \
+  'history-substring-search'
 
 zstyle ':prezto:module:prompt' theme 'pure'
 zstyle ':prezto:module:notify' elapsed '10'
