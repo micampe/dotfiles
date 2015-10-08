@@ -5,22 +5,16 @@
     st = status --short --branch
     ff = merge --ff-only
 
-    head = log -n1
     l = log --pretty=color
-    r = log -n10 --pretty=color
-    last = log --pretty=color ORIG_HEAD..
-    graph = log --graph --all --pretty=color
     g = log --graph --all --pretty=color
+    head = log -n1
+    last = log --pretty=color ORIG_HEAD..
     reset-date = !git commit --amend --date=\"$(date)\"
     ancestor = merge-base HEAD master
-    fixup = !sh -c 'git commit --fixup=$1' -
-    squash = !sh -c 'git commit --squash=$1' -
-
-    get-patch = !git format-patch HEAD~ -o ~/Desktop/
-    copy-patch = !sh -c 'git format-patch --stdout $* | pbcopy && echo "[git format-patch $*] copied to clipboard. $(pbpaste | wc -l) lines."' -
-    copy-diff = !sh -c 'git diff $* | pbcopy && echo "[git diff $*] copied to clipboard. $(pbpaste | wc -l) lines."' -
 
     rdar = !open 'rdar://$(git rev-parse --symbolic-full-name --abbrev-ref HEAD | egrep -o \"\\d+\" | head -1)'
+    get-patch = !git format-patch HEAD~ -o ~/Desktop/
+
     yolo = !sh -c \"git commit -a --amend --no-edit && git push --force --dry-run\" -
 
 [pretty]
@@ -30,7 +24,7 @@
     excludesfile = ~/.gitignore-global
     attributesfile = ~/.gitattributes-global
     quotepath = false
-    pager = "$PAGER $LESS"
+    pager = less
 
 [color]
     ui = auto
@@ -39,14 +33,20 @@
     branch = auto
     interactive = auto
 
+[credential]
+    helper = osxkeychain
+
 [branch]
     autosetuprebase = always
 
 [push]
-    default = current
+    default = simple
 
 [rerere]
     enabled = true
+
+[status]
+    submodulesummary = true
 
 [difftool]
     prompt = false
@@ -67,7 +67,7 @@
     trustExitCode = true
 
 [diff "exif"]
-    textconv = /usr/local/bin/exiftool
+    textconv = exiftool
 [diff "utf16"]
     textconv = iconv -f utf-16 -t utf-8
 [diff "plist"]
@@ -76,5 +76,3 @@
     clean = git media clean %f
     smudge = git media smudge %f
     required = true
-[credential]
-	helper = osxkeychain
