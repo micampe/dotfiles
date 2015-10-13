@@ -50,30 +50,22 @@
 [status]
     submodulesummary = true
 
-[difftool]
-    prompt = false
 [mergetool]
     prompt = false
 
-[diff]
-    tool = p4
 [merge]
-    tool = p4
-    conflictstyle = diff3
-
-[difftool "p4"]
-    cmd = \"p4merge.sh\" \"$LOCAL\" \"$REMOTE\"
-    trustExitCode = true
-[mergetool "p4"]
-    cmd = \"p4merge.sh\" \"$LOCAL\" \"$REMOTE\" \"$BASE\" \"$MERGED\"
-    trustExitCode = true
+    tool = opendiff
+    log = true
 
 [diff "exif"]
     textconv = exiftool
+
 [diff "utf16"]
     textconv = iconv -f utf-16 -t utf-8
+
 [diff "plist"]
     textconv = plutil -convert xml1 -o -
+
 [filter "media"]
     clean = git media clean %f
     smudge = git media smudge %f
