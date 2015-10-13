@@ -17,6 +17,5 @@ zstyle ':prezto:load' pmodule \
   'history-substring-search'
 
 zstyle ':prezto:module:prompt' theme 'pure'
-zstyle ':prezto:module:notify' elapsed '10'
-zstyle ':prezto:module:notify' different-window-only 'yes'
 zstyle ':prezto:module:dtach' detach-char '^d'
+zstyle ':prezto:module:notify' notify-on-same-window
