@@ -12,6 +12,8 @@
     reset-date = !git commit --amend --date=\"$(date)\"
     ancestor = merge-base HEAD master
 
+    subupdate = submodule update --init --recursive
+
     rdar = !open 'rdar://$(git rev-parse --symbolic-full-name --abbrev-ref HEAD | egrep -o \"\\d+\" | head -1)'
     get-patch = !git format-patch HEAD~ -o ~/Desktop/
 
