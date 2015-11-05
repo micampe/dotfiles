@@ -8,7 +8,7 @@ unsetopt AUTO_REMOVE_SLASH
 unsetopt SHARE_HISTORY
 
 cdpath+=(. ~ ~/src)
-path=(~/bin $path)
+path=(~/.gem/ruby/2.0.0/bin ~/bin $path)
 
 source ~/.zsh/aliases.zsh
 source ~/.zsh/utils.zsh
