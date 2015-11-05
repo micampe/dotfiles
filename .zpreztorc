@@ -19,3 +19,4 @@ zstyle ':prezto:load' pmodule \
 zstyle ':prezto:module:prompt' theme 'pure'
 zstyle ':prezto:module:dtach' detach-char '^d'
 zstyle ':prezto:module:notify' notify-on-same-window
+zstyle ':prezto:module:editor' dot-expansion 'yes'
