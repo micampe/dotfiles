@@ -22,6 +22,9 @@
 [pretty]
     color = "format:%Cred%h%C(yellow)%d %Cblue%an %Cgreen%cr%Creset %s"
 
+[diff]
+    algorithm = patience
+
 [core]
     excludesfile = ~/.gitignore-global
     attributesfile = ~/.gitattributes-global
