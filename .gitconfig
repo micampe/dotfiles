@@ -33,6 +33,10 @@
 
     yolo = !sh -c \"git commit -a --amend --no-edit && git push --force --dry-run\" -
 
+[init]
+	template = ~/.git-template
+	templateDir = ~/.git-template
+
 [pretty]
     color = "format:%Cred%h%C(yellow)%d %Cblue%an %Cgreen%cr%Creset %s"
 
