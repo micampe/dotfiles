@@ -2,13 +2,6 @@
 #
 # "Install" the files from the Tilde repository by symlinking them from the
 # home directory.
-# https://github.com/janmoesen/tilde
-
-ignored_files=(
-	.gitignore
-	.gitmodules
-	install.sh
-);
 
 # Show a quick help summary.
 function usage {
@@ -79,6 +72,12 @@ $is_dry_run || target_dir="$(cd "$target_dir" > /dev/null; pwd)";
 
 # Create the array of files to symlink.
 source_files=();
+ignored_files=(
+	.gitignore
+	COPYING
+	README.md
+	install.sh
+);
 while read -d $'\0' file; do
 	file="${file#./}";
 	for ignored_file in "${ignored_files[@]}"; do
@@ -253,7 +252,7 @@ for file in "${source_files[@]}"; do
 	# "src/tilde/.bashrc" rather than "/home/janmoesen/src/tilde/.bashrc" when
 	# installing from "/home/janmoesen/src/tilde".)
 	relative_source="$relative_source_dir";
-	if [[ "$file" =~ / ]]; then
+	if [ "${relative_source:0:1}" != '/' ] && [[ "$file" =~ / ]]; then
 		# If the file is not in the repository's root, we need to go up
 		# additional levels for the relative path.
 		IFS=/ read -a file_dir_parts <<< "$(dirname "$file")";
@@ -263,8 +262,7 @@ for file in "${source_files[@]}"; do
 	fi;
 	relative_source="$relative_source/$file";
 	if ! [ -L "$target" ]; then
-		echo "Linking $file"
-		$dry_run ln -s "$relative_source" "$target";
+		$dry_run ln -vs "$relative_source" "$target";
 		has_created_links=true;
 	fi;
 done;
