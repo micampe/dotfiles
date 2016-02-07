@@ -34,8 +34,8 @@ set wildmenu
 " make uses real tabs
 au FileType make set noexpandtab
 
-" don’t wrap git commit messages
-au FileType gitcommit set textwidth=0
+" wrap git commit messages
+au FileType gitcommit set textwidth=79
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
