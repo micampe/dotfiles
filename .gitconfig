@@ -81,6 +81,9 @@
     tool = opendiff
     log = true
 
+[rebase]
+    autostash = true
+
 [diff "exif"]
     textconv = exiftool
 
