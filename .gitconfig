@@ -13,8 +13,14 @@
     ancestor = merge-base HEAD master
     amend = commit --amend
 
+    branches = branch -a
+    tags = tag
+    stashes = stash list
+    remotes = remote -v
+
     unstage = reset HEAD              # remove files from index (tracking)
     uncommit = reset --soft HEAD^     # go back before last commit, with files in uncommitted state
+    discard = checkout --
 
     # via http://blog.apiaxle.com/post/handy-git-tips-to-stop-you-getting-fired/
     snapshot = !git stash save "snapshot: $(date)" && git stash apply "stash@{0}"
