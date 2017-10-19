@@ -69,6 +69,11 @@ noremap <C-j> :bnext<cr>
 
 " --- plugins settings
 
+" jellybeans
+let g:jellybeans_overrides = {
+\    'background': { 'ctermbg': 'none', '256ctermbg': 'none' },
+\}
+
 " bufferline
 let g:bufferline_echo = 0
 autocmd VimEnter *
