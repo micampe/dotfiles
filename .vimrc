@@ -68,10 +68,15 @@ noremap <C-j> :bnext<cr>
 
 " --- plugins settings
 
-" buftabs
-let g:buftabs_in_statusline=1
-let g:buftabs_only_basename=1
-let g:buftabs_active_highlight_group="Visual"
-let g:buftabs_marker_start=" "
-let g:buftabs_marker_end=" "
-let g:buftabs_separator=" "
+" bufferline
+let g:bufferline_echo = 0
+autocmd VimEnter *
+  \ let &statusline='%{bufferline#refresh_status()}'
+    \ .bufferline#get_status_string()
+
+let g:bufferline_show_bufnr = 0
+let g:bufferline_active_buffer_left = ''
+let g:bufferline_active_buffer_right = ''
+let g:bufferline_modified = '*'
+let g:bufferline_inactive_highlight = 'StatusLine'
+let g:bufferline_active_highlight = 'Visual'
