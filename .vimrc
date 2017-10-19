@@ -1,6 +1,8 @@
 syntax on
 filetype plugin indent on
 
+execute pathogen#infect()
+
 colorscheme jellybeans
 
 set encoding=utf-8
