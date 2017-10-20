@@ -7,7 +7,6 @@ filetype plugin indent on
 colorscheme jellybeans
 
 set encoding=utf-8
-set modelines=3
 set scrolloff=3
 set hidden
 set nostartofline
@@ -15,6 +14,7 @@ set nostartofline
 set nopaste
 set pastetoggle=<F10>
 
+" Indentation
 set nowrap
 set tabstop=8
 set shiftwidth=4
@@ -27,7 +27,6 @@ set hlsearch
 set incsearch
 set ignorecase
 set smartcase
-set gdefault
 
 " Status bar
 set ruler
@@ -53,14 +52,11 @@ set undofile
 
 " --- mappings
 
-" Opens an edit command with the path of the currently edited file filled in
-map <leader>e :e <C-r>=expand("%:p:h") . "/" <cr>
-
-nnoremap <space> <C-d>
+nmap <leader>e :e <C-r>=expand("%:p:h")."/" <cr>
 
 " buffers
-noremap <leader>b :ls<cr>:buffer 
-noremap <C-a> :b#<cr>
+noremap <leader>b :ls<cr>:b 
+noremap <C-e> :b#<cr>
 noremap <C-h> :bprev<cr>
 noremap <C-l> :bnext<cr>
 noremap <C-k> :bprev<cr>
@@ -70,9 +66,7 @@ noremap <C-j> :bnext<cr>
 " --- plugins settings
 
 " jellybeans
-let g:jellybeans_overrides = {
-\    'background': { 'ctermbg': 'none', '256ctermbg': 'none' },
-\}
+let g:jellybeans_overrides = { 'background': { 'ctermbg': 'none', '256ctermbg': 'none' } }
 
 " bufferline
 let g:bufferline_echo = 0
