@@ -55,15 +55,13 @@ set undofile
 
 nmap <leader>e :edit <C-r>=expand("%:p:h")."/" <cr>
 nmap <leader>f :find <C-r>=expand("%:p:h")."/" <cr>
-nmap <leader>l :nohlsearch<cr>
+nmap <leader>u :nohlsearch<cr>
 
 " buffers
 noremap <leader>b :ls<cr>:b 
-noremap <C-e> :b#<cr>
-noremap <C-h> :bprev<cr>
-noremap <C-l> :bnext<cr>
-noremap <C-k> :bprev<cr>
-noremap <C-j> :bnext<cr>
+noremap <leader>` :b#<cr>
+noremap <C-p> :bprev<cr>
+noremap <C-n> :bnext<cr>
 
 
 " --- plugins settings
