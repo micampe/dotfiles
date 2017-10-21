@@ -10,6 +10,7 @@ set encoding=utf-8
 set scrolloff=3
 set hidden
 set nostartofline
+set path+=**
 
 set nopaste
 set pastetoggle=<F10>
@@ -52,7 +53,9 @@ set undofile
 
 " --- mappings
 
-nmap <leader>e :e <C-r>=expand("%:p:h")."/" <cr>
+nmap <leader>e :edit <C-r>=expand("%:p:h")."/" <cr>
+nmap <leader>f :find <C-r>=expand("%:p:h")."/" <cr>
+nmap <leader>l :nohlsearch<cr>
 
 " buffers
 noremap <leader>b :ls<cr>:b 
