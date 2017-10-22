@@ -63,6 +63,9 @@ noremap <leader>` :b#<cr>
 noremap <C-p> :bprev<cr>
 noremap <C-n> :bnext<cr>
 
+" disable :X
+cnoremap <expr> X (getcmdtype() is# ':' && empty(getcmdline())) ? 'x' : 'X'
+
 
 " --- plugins settings
 
