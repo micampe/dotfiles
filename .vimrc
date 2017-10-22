@@ -78,6 +78,7 @@ let g:jellybeans_overrides = { 'background': { 'ctermbg': 'none', '256ctermbg': 
 let g:bufferline_echo = 1
 let g:bufferline_show_bufnr = 0
 let g:bufferline_modified = '*'
+let g:bufferline_rotate = 1
 
 if !g:bufferline_echo
     autocmd VimEnter *
