@@ -1,3 +1,7 @@
+_has() {
+  return $(type $1 >/dev/null)
+}
+
 function ql {
     qlmanage -p "$@" >& /dev/null
 }

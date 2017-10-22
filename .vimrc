@@ -66,6 +66,11 @@ noremap <C-n> :bnext<cr>
 
 " --- plugins settings
 
+" fzf.vim
+nmap <leader>o :Files<cr>
+nmap <leader>l :Buffers<cr>
+nmap <leader>i :History<cr>
+
 " jellybeans
 let g:jellybeans_overrides = { 'background': { 'ctermbg': 'none', '256ctermbg': 'none' } }
 
