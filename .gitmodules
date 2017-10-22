@@ -37,3 +37,6 @@
 [submodule ".vim/bundle/ZoomWin"]
 	path = .vim/bundle/ZoomWin
 	url = https://github.com/vim-scripts/ZoomWin
+[submodule ".vim/bundle/vim-easyclip"]
+	path = .vim/bundle/vim-easyclip
+	url = https://github.com/svermeulen/vim-easyclip.git
