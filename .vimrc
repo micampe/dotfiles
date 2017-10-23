@@ -10,7 +10,6 @@ set encoding=utf-8
 set scrolloff=3
 set hidden
 set nostartofline
-set path+=**
 
 set nopaste
 set pastetoggle=<F10>
