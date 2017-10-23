@@ -1,6 +1,3 @@
-runtime bundle/vim-pathogen/autoload/pathogen.vim
-execute pathogen#infect()
-
 syntax on
 filetype plugin indent on
 
@@ -49,6 +46,8 @@ set directory=~/.vim/backup
 set undodir=~/.vim/backup
 set undofile
 
+
+source ~/.vim/packages.vim
 
 " --- mappings
 
