@@ -5,12 +5,11 @@ zstyle ':prezto:*:*' color 'yes'
 
 zstyle ':prezto:load' pmodule \
   'environment' \
+  'editor' \
   'history' \
   'directory' \
   'utility' \
   'completion' \
-  'osx' \
-  'git' \
   'prompt' \
   'autosuggestions'
 
