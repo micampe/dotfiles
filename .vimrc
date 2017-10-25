@@ -37,10 +37,13 @@ set wildmode=longest:full,full
 set backspace=indent,eol,start
 
 " save backups, undo and swaps in the same dir
-silent !mkdir ~/.vim/backup > /dev/null 2>&1
-set backupdir=~/.vim/backup
-set directory=~/.vim/backup
-set undodir=~/.vim/backup
+let backup_dir = '~/var/vim//'
+if !filereadable(backup_dir)
+    execute 'silent !mkdir -p ' . backup_dir . ' > /dev/null 2>&1'
+endif
+execute 'set backupdir=' . backup_dir
+execute 'set directory=' . backup_dir
+execute 'set undodir=' . backup_dir
 set undofile
 
 " mappings ---
