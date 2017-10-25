@@ -3,6 +3,13 @@ filetype plugin indent on
 
 colorscheme jellybeans
 
+au FileType make set noexpandtab
+au FileType gitcommit set textwidth=79
+
+source ~/.vim/packages.vim
+
+" options ---
+
 set encoding=utf-8
 set scrolloff=3
 set hidden
@@ -30,12 +37,6 @@ set ruler
 set laststatus=2
 set wildmenu
 
-" make uses real tabs
-au FileType make set noexpandtab
-
-" wrap git commit messages
-au FileType gitcommit set textwidth=79
-
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
@@ -46,16 +47,12 @@ set directory=~/.vim/backup
 set undodir=~/.vim/backup
 set undofile
 
-
-source ~/.vim/packages.vim
-
-" --- mappings
+" mappings ---
 
 nmap <leader>e :edit <C-r>=expand("%:p:h")."/" <cr>
 nmap <leader>f :find <C-r>=expand("%:p:h")."/" <cr>
 nmap <leader>u :nohlsearch<cr>
 
-" buffers
 noremap <leader>b :ls<cr>:b 
 noremap <leader>` :b#<cr>
 noremap <C-p> :bprev<cr>
@@ -64,16 +61,12 @@ noremap <C-n> :bnext<cr>
 " disable :X
 cnoremap <expr> X (getcmdtype() is# ':' && empty(getcmdline())) ? 'x' : 'X'
 
-
-" --- plugins settings
-
-" fzf.vim
+" fzf
 nmap <leader>o :Files<cr>
 nmap <leader>l :Buffers<cr>
 nmap <leader>i :History<cr>
 
-" jellybeans
-let g:jellybeans_overrides = { 'background': { 'ctermbg': 'none', '256ctermbg': 'none' } }
+" plugins ---
 
 " bufferline
 let g:bufferline_echo = 1
