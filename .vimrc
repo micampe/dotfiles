@@ -3,9 +3,6 @@ filetype plugin indent on
 
 colorscheme jellybeans
 
-au FileType make set noexpandtab
-au FileType gitcommit set textwidth=79
-
 source ~/.vim/packages.vim
 
 " options ---
@@ -14,9 +11,7 @@ set encoding=utf-8
 set scrolloff=3
 set hidden
 set nostartofline
-
-set nopaste
-set pastetoggle=<F10>
+set showcmd
 
 " Indentation
 set nowrap
@@ -27,15 +22,16 @@ set shiftround
 set expandtab
 
 " Searching
-set hlsearch
 set incsearch
 set ignorecase
 set smartcase
+set infercase
 
 " Status bar
 set ruler
 set laststatus=2
 set wildmenu
+set wildmode=longest:full,full
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
@@ -49,14 +45,20 @@ set undofile
 
 " mappings ---
 
+nnoremap j gj
+nnoremap k gk
+nnoremap gj j
+nnoremap gk k
+
 nmap <leader>e :edit <C-r>=expand("%:p:h")."/" <cr>
 nmap <leader>f :find <C-r>=expand("%:p:h")."/" <cr>
-nmap <leader>u :nohlsearch<cr>
+
+nmap <C-l> :set hls!<cr>
 
 noremap <leader>b :ls<cr>:b 
-noremap <leader>` :b#<cr>
-noremap <C-p> :bprev<cr>
-noremap <C-n> :bnext<cr>
+noremap <silent> <leader>` :b#<cr>
+noremap <silent> <C-p> :bprev<cr>
+noremap <silent> <C-n> :bnext<cr>
 
 " disable :X
 cnoremap <expr> X (getcmdtype() is# ':' && empty(getcmdline())) ? 'x' : 'X'
@@ -72,7 +74,7 @@ nmap <leader>i :History<cr>
 let g:bufferline_echo = 1
 let g:bufferline_show_bufnr = 0
 let g:bufferline_modified = '*'
-let g:bufferline_rotate = 1
+let g:bufferline_rotate = 0
 
 if !g:bufferline_echo
     autocmd VimEnter *
