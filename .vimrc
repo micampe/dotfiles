@@ -63,6 +63,9 @@ noremap <silent> <leader>` :b#<cr>
 noremap <silent> <C-p> :bprev<cr>
 noremap <silent> <C-n> :bnext<cr>
 
+" jump to first non-whitespace on line, jump to begining of line if already at first non-whitespace
+noremap <expr> <silent> 0 col('.') == match(getline('.'),'\S')+1 ? '0' : '^'
+
 " disable :X
 cnoremap <expr> X (getcmdtype() is# ':' && empty(getcmdline())) ? 'x' : 'X'
 
