@@ -53,8 +53,9 @@ nnoremap k gk
 nnoremap gj j
 nnoremap gk k
 
-nmap <leader>e :edit <C-r>=expand("%:p:h")."/" <cr>
-nmap <leader>f :find <C-r>=expand("%:p:h")."/" <cr>
+cnoremap <expr> %% expand("%:p:h")."/"
+nmap <leader>e :edit %%
+nmap <leader>f :find %%
 
 nmap <C-l> :set hls!<cr>
 
