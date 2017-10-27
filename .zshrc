@@ -38,8 +38,7 @@ if _has fzf; then
     export FZF_DEFAULT_COMMAND='ack -f'
   fi
 
-  if [[ -v $FZF_DEFAULT_COMMAND ]]; then
+  if [[ -v FZF_DEFAULT_COMMAND ]]; then
     export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-    export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND"
   fi
 fi
