@@ -70,8 +70,9 @@ noremap <expr> <silent> 0 col('.') == match(getline('.'),'\S')+1 ? '0' : '^'
 noremap <silent> [s :ScratchOpen<cr>
 noremap <silent> ]s :ScratchClose<cr>
 
-" disable :X
-cnoremap <expr> X (getcmdtype() is# ':' && empty(getcmdline())) ? 'x' : 'X'
+" typos
+noremap :Q :q
+noremap :X :x
 
 " fzf
 nmap <leader>o :Files<cr>
