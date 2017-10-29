@@ -17,5 +17,3 @@ zstyle ':prezto:module:prompt' theme 'pure'
 zstyle ':prezto:module:dtach' detach-char '^q'
 zstyle ':prezto:module:dtach' auto-start 'yes'
 zstyle ':prezto:module:notify' notify-on-same-window
-zstyle ':prezto:module:editor' dot-expansion 'yes'
-zstyle ':prezto:module:git:alias' skip 'yes'
