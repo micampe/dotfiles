@@ -1,0 +1,4 @@
+command alias uikit expr @import UIKit
+command alias foundation expr @import Foundation
+
+command script import /Users/micampe/opt/chisel/libexec/fblldb.py
