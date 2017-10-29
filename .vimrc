@@ -59,10 +59,10 @@ nmap <leader>f :find %%
 
 nmap <C-l> :set hls!<cr>
 
-noremap <leader>b :ls<cr>:b 
+noremap <leader>b :ls<cr>:
 noremap <silent> <leader>` :b#<cr>
-noremap <silent> <C-p> :bprev<cr>
-noremap <silent> <C-n> :bnext<cr>
+noremap <silent> <leader>[ :bprev<cr>
+noremap <silent> <leader>] :bnext<cr>
 
 " jump to first non-whitespace on line, jump to begining of line if already at first non-whitespace
 noremap <expr> <silent> 0 col('.') == match(getline('.'),'\S')+1 ? '0' : '^'
