@@ -1,1 +1,1 @@
-gem: --user-install
+install: --user-install
