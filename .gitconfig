@@ -23,6 +23,8 @@
     uncommit = reset --soft HEAD^     # go back before last commit, with files in uncommitted state
     discard = checkout --
 
+    browse = "!open $(git remote get-url origin | sed s%git@github.com:%http://github.com/%)"
+
     # via http://blog.apiaxle.com/post/handy-git-tips-to-stop-you-getting-fired/
     snapshot = !git stash save "snapshot: $(date)" && git stash apply "stash@{0}"
     snapshots = !git stash list --grep snapshot
