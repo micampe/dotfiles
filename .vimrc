@@ -71,8 +71,8 @@ noremap <silent> [s :ScratchOpen<cr>
 noremap <silent> ]s :ScratchClose<cr>
 
 " typos
-noremap :Q :q
-noremap :X :x
+cnoremap <expr> X (getcmdtype() is# ':' && empty(getcmdline())) ? 'x' : 'X'
+cnoremap <expr> Q (getcmdtype() is# ':' && empty(getcmdline())) ? 'q' : 'Q'
 
 " fzf
 nmap <leader>o :Files<cr>
