@@ -70,6 +70,15 @@ noremap <expr> <silent> 0 col('.') == match(getline('.'),'\S')+1 ? '0' : '^'
 noremap <silent> [s :ScratchOpen<cr>
 noremap <silent> ]s :ScratchClose<cr>
 
+function! s:ShowHelp(tag) abort
+  if winheight(0) * 2 < winwidth(0)
+    execute 'vertical botright help '.a:tag
+  else
+    execute 'help '.a:tag
+  endif
+endfunction
+command! -nargs=1 -complete=help Help call s:ShowHelp(<f-args>)
+
 " typos
 cnoremap <expr> X (getcmdtype() is# ':' && empty(getcmdline())) ? 'x' : 'X'
 cnoremap <expr> Q (getcmdtype() is# ':' && empty(getcmdline())) ? 'q' : 'Q'
