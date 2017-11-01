@@ -20,6 +20,8 @@ set shiftwidth=4
 set softtabstop=4
 set shiftround
 set expandtab
+set breakindent
+set showbreak=\\\\\ \ 
 
 " Searching
 set incsearch
