@@ -66,6 +66,10 @@ noremap <silent> <leader>` :b#<cr>
 noremap <silent> <leader>[ :bprev<cr>
 noremap <silent> <leader>] :bnext<cr>
 
+" change word under cursor
+nnoremap c* *Ncgn
+nnoremap c# #NcgN
+
 " jump to first non-whitespace on line, jump to begining of line if already at first non-whitespace
 noremap <expr> <silent> 0 col('.') == match(getline('.'),'\S')+1 ? '0' : '^'
 
