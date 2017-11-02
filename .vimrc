@@ -65,6 +65,7 @@ noremap <leader>b :ls<cr>:
 noremap <silent> <leader>` :b#<cr>
 noremap <silent> <leader>[ :bprev<cr>
 noremap <silent> <leader>] :bnext<cr>
+noremap <silent> <leader>bd :bnext<cr>:bdelete #<cr>
 
 " change word under cursor
 nnoremap c* *Ncgn
