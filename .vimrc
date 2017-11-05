@@ -13,6 +13,7 @@ set hidden
 set nostartofline
 set showcmd
 set mouse=a
+set autoread
 
 " Indentation
 set nowrap
