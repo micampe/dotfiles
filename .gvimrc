@@ -1,14 +1,14 @@
-set guifont=Anonymous\ Pro:h16
+set guifont=SF\ Mono:h16
 
 " Don't beep
 set visualbell
 
 " Start without toolbar and scrollbars
-set guioptions-=TrL
+set guioptions=egmc
 
 " Set default size
 set columns=90
-set lines=45
+set lines=52
 
 " Turn off cursor blinking
-set guicursor=a:blinkon0
+set guicursor+=a:blinkon0
