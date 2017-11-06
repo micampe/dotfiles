@@ -73,6 +73,10 @@ noremap <silent> <leader>bd :bnext<cr>:bdelete #<cr>
 nnoremap c* *Ncgn
 nnoremap c# #NcgN
 
+" nicer command line history navigation
+cnoremap <C-p> <up>
+cnoremap <C-n> <down>
+
 " jump to first non-whitespace on line, jump to begining of line if already at first non-whitespace
 noremap <expr> <silent> 0 col('.') == match(getline('.'),'\S')+1 ? '0' : '^'
 
