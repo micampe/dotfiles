@@ -83,10 +83,6 @@ noremap <expr> <silent> 0 col('.') == match(getline('.'),'\S')+1 ? '0' : '^'
 " vim-easyclip shadows m for :mark
 noremap gm m
 
-" vim-scratch
-noremap <silent> [s :ScratchOpen<cr>
-noremap <silent> ]s :ScratchClose<cr>
-
 function! s:ShowHelp(tag) abort
   if winheight(0) * 2 < winwidth(0)
     execute 'vertical botright help '.a:tag
@@ -104,21 +100,3 @@ cnoremap <expr> Q (getcmdtype() is# ':' && empty(getcmdline())) ? 'q' : 'Q'
 nmap <leader>o :Files<cr>
 nmap <leader>l :Buffers<cr>
 nmap <leader>i :History<cr>
-
-" plugins ---
-
-" bufferline
-let g:bufferline_echo = 1
-let g:bufferline_show_bufnr = 0
-let g:bufferline_modified = '*'
-let g:bufferline_rotate = 0
-
-if !g:bufferline_echo
-    autocmd VimEnter *
-        \ let &statusline='%{bufferline#refresh_status()}'
-            \ .bufferline#get_status_string()
-    let g:bufferline_active_buffer_left = ''
-    let g:bufferline_active_buffer_right = ''
-    let g:bufferline_inactive_highlight = 'StatusLine'
-    let g:bufferline_active_highlight = 'Visual'
-endif
