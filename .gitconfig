@@ -23,6 +23,9 @@
     uncommit = reset --soft HEAD^     # go back before last commit, with files in uncommitted state
     discard = checkout --
 
+    icdiff = difftool --tool=icdiff
+    icshow = "!f() { git icdiff $1^ $1; }; f"
+
     browse = "!open $(git remote get-url origin | sed s%git@github.com:%http://github.com/%)"
 
     # via http://blog.apiaxle.com/post/handy-git-tips-to-stop-you-getting-fired/
@@ -92,6 +95,12 @@
 
 [rebase]
     autostash = true
+
+[pager]
+    difftool = true
+
+[difftool "icdiff"]
+    cmd = icdiff $LOCAL $REMOTE
 
 [diff "exif"]
     textconv = exiftool
