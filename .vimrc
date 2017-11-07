@@ -63,11 +63,10 @@ nmap <leader>f :find %%
 
 nmap <C-l> :set hls!<cr>
 
-noremap <leader>b :ls<cr>:
-noremap <silent> <leader>` :b#<cr>
+noremap <silent> <leader>- :b#<cr>
 noremap <silent> <leader>[ :bprev<cr>
 noremap <silent> <leader>] :bnext<cr>
-noremap <silent> <leader>bd :bnext<cr>:bdelete #<cr>
+noremap <silent> <leader>bd :b#<cr>:bdelete #<cr>
 
 " change word under cursor
 nnoremap c* *Ncgn
