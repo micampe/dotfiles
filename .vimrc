@@ -82,6 +82,7 @@ noremap <expr> <silent> 0 col('.') == match(getline('.'),'\S')+1 ? '0' : '^'
 " vim-easyclip shadows m for :mark
 noremap gm m
 
+" split help vertically if there’s room
 function! s:ShowHelp(tag) abort
   if winheight(0) * 2 < winwidth(0)
     execute 'vertical botright help '.a:tag
