@@ -58,10 +58,10 @@ nnoremap gj j
 nnoremap gk k
 
 cnoremap <expr> %% expand("%:p:h")."/"
-nmap <leader>e :edit %%
-nmap <leader>f :find %%
+nnoremap <leader>e :edit %%
+nnoremap <leader>f :find %%
 
-nmap <C-l> :set hls!<cr>
+nnoremap <C-l> :set hls!<cr>
 
 noremap <silent> <leader>- :b#<cr>
 noremap <silent> <leader>[ :bprev<cr>
@@ -77,10 +77,10 @@ cnoremap <C-p> <up>
 cnoremap <C-n> <down>
 
 " jump to first non-whitespace on line, jump to begining of line if already at first non-whitespace
-noremap <expr> <silent> 0 col('.') == match(getline('.'),'\S')+1 ? '0' : '^'
+nnoremap <expr> <silent> 0 col('.') == match(getline('.'),'\S')+1 ? '0' : '^'
 
 " vim-easyclip shadows m for :mark
-noremap gm m
+nnoremap gm m
 
 " split help vertically if there’s room
 function! s:ShowHelp(tag) abort
@@ -97,6 +97,6 @@ cnoremap <expr> X (getcmdtype() is# ':' && empty(getcmdline())) ? 'x' : 'X'
 cnoremap <expr> Q (getcmdtype() is# ':' && empty(getcmdline())) ? 'q' : 'Q'
 
 " fzf
-nmap <leader>o :Files<cr>
-nmap <leader>l :Buffers<cr>
-nmap <leader>i :History<cr>
+nnoremap <leader>o :Files<cr>
+nnoremap <leader>l :Buffers<cr>
+nnoremap <leader>i :History<cr>
