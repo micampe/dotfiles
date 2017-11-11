@@ -12,7 +12,6 @@
     reset-date = !git commit --amend --date=\"$(date)\"
     ancestor = merge-base HEAD master
     amend = commit --amend
-    clean = clean -i
 
     branches = branch -a
     tags = tag
