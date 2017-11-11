@@ -79,9 +79,6 @@ cnoremap <C-n> <down>
 " jump to first non-whitespace on line, jump to begining of line if already at first non-whitespace
 nnoremap <expr> <silent> 0 col('.') == match(getline('.'),'\S')+1 ? '0' : '^'
 
-" vim-easyclip shadows m for :mark
-nnoremap gm m
-
 " split help vertically if there’s room
 function! s:ShowHelp(tag) abort
   if winheight(0) * 2 < winwidth(0)
@@ -95,6 +92,11 @@ command! -nargs=1 -complete=help Help call s:ShowHelp(<f-args>)
 " typos
 cnoremap <expr> X (getcmdtype() is# ':' && empty(getcmdline())) ? 'x' : 'X'
 cnoremap <expr> Q (getcmdtype() is# ':' && empty(getcmdline())) ? 'q' : 'Q'
+
+" plugins ---
+
+" vim-easyclip shadows m for :mark
+nnoremap gm m
 
 " fzf
 nnoremap <leader>o :Files<cr>
