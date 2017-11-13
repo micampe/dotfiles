@@ -58,8 +58,8 @@ nnoremap gj j
 nnoremap gk k
 
 cnoremap <expr> %% fnameescape(expand("%:p:h")."/")
-nnoremap <leader>e :edit %%
-nnoremap <leader>f :find %%
+nmap <leader>e :edit %%
+nmap <leader>f :find %%
 
 nnoremap <C-l> :set hls!<cr>
 
