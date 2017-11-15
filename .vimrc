@@ -1,6 +1,10 @@
 syntax on
 filetype plugin indent on
 
+let g:jellybeans_overrides = {
+\    'background': { 'ctermbg': 'none', '256ctermbg': 'none' },
+\    'MatchParen': { 'guifg': 'ffffff', 'guibg': '556779' },
+\}
 colorscheme jellybeans
 
 source ~/.vim/packages.vim
