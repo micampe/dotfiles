@@ -56,6 +56,13 @@ execute 'set directory=' . s:vim_data_dir
 execute 'set undodir=' . s:vim_undo_dir
 set undofile
 
+" make vim recognize arcanist diffs as git commits
+augroup vimrc_arcanist
+  autocmd!
+  autocmd BufRead new-commit setlocal filetype=gitcommit
+  autocmd BufRead differential-update-comments setlocal filetype=gitcommit
+augroup END
+
 " mappings ---
 
 nnoremap j gj
