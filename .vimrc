@@ -108,3 +108,6 @@ nnoremap gm m
 nnoremap <leader>o :Files<cr>
 nnoremap <leader>l :Buffers<cr>
 nnoremap <leader>i :History<cr>
+
+" gutentags
+let g:gutentags_cache_dir = s:vim_data_dir . "tags"

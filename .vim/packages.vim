@@ -15,6 +15,7 @@ call minpac#add('https://github.com/fxn/vim-monochrome.git', {'type': 'opt'})
 call minpac#add('https://github.com/nanotech/jellybeans.vim.git', {'type': 'opt'})
 
 call minpac#add('https://github.com/junegunn/fzf.vim.git')
+call minpac#add('https://github.com/ludovicchabant/vim-gutentags.git')
 call minpac#add('https://github.com/svermeulen/vim-easyclip.git')
 call minpac#add('https://github.com/tpope/vim-commentary.git')
 call minpac#add('https://github.com/tpope/vim-repeat.git')
