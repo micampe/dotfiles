@@ -16,7 +16,6 @@ set scrolloff=3
 set hidden
 set nostartofline
 set showcmd
-set mouse=a
 set autoread
 
 " Indentation
