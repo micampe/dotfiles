@@ -79,7 +79,18 @@ nnoremap <C-l> :set hls!<cr>
 noremap <silent> <leader>- :b#<cr>
 noremap <silent> <leader>[ :bprev<cr>
 noremap <silent> <leader>] :bnext<cr>
-noremap <silent> <leader>bd :b#<cr>:bdelete #<cr>
+
+" delete buffer without closing the window
+function! s:DeleteCurrentBuffer() abort
+  let b = bufnr('%')
+  if buflisted(bufnr('#'))
+    execute 'buffer #'
+  else
+    execute 'bprev'
+  endif
+  execute 'bdelete ' . b
+endfunction
+noremap <silent> <leader>bd :call <SID>DeleteCurrentBuffer()<cr>
 
 " change word under cursor
 nnoremap c* *Ncgn
