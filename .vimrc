@@ -44,15 +44,16 @@ set wildmode=longest:full,full
 set backspace=indent,eol,start
 
 " save backups, undo and swaps in the same dir
-let s:vim_data_dir = '~/var/vim//'
+let s:vim_data_dir = $HOME . '/var/vim//'
 let s:vim_undo_dir = s:vim_data_dir . 'undo//'
+
 if !isdirectory(s:vim_undo_dir)
   call mkdir(s:vim_undo_dir, 'p')
 endif
 
-execute 'set backupdir=' . s:vim_data_dir
-execute 'set directory=' . s:vim_data_dir
-execute 'set undodir=' . s:vim_undo_dir
+let &backupdir=s:vim_data_dir
+let &directory=s:vim_data_dir
+let &undodir=s:vim_undo_dir
 set undofile
 
 " make vim recognize arcanist diffs as git commits
