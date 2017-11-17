@@ -9,9 +9,9 @@ if _has fzf; then
   export FZF_DEFAULT_OPTS='--color fg:242'
 
   if _has ag ; then
-    export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
+    export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git --follow -g ""'
   elif _has ack ; then
-    export FZF_DEFAULT_COMMAND='ack -f'
+    export FZF_DEFAULT_COMMAND='ack --follow -f'
   fi
 
   if [[ -v FZF_DEFAULT_COMMAND ]]; then
