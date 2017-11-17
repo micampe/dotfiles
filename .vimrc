@@ -119,6 +119,9 @@ cnoremap <expr> Q (getcmdtype() is# ':' && empty(getcmdline())) ? 'q' : 'Q'
 
 " plugins ---
 
+" netrw
+let g:netrw_home = s:vim_data_dir
+
 " vim-easyclip shadows m for :mark
 nnoremap gm m
 
