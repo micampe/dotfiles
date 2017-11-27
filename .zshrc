@@ -4,15 +4,10 @@ export VISUAL='vim'
 export PAGER='less'
 export LESS='-F -g -i -M -R -S -w -X -z-4'
 
-typeset -gU cdpath fpath path
+# unfortunately we have to do this because
+# path_helper destroys the order of $PATH
+source "$HOME/.zshenv"
 
-cdpath+=(. ~ ~/src)
-
-path=(
-  ~/bin
-  ~/.gem/ruby/2.0.0/bin
-  $path
-)
 
 # initialize Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then

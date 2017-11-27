@@ -1,3 +1,5 @@
-typeset -gU path
+typeset -gU cdpath fpath path
 
-path=(~/bin $path)
+cdpath=(. ~ ~/src)
+
+path=(~/bin ~/.gem/ruby/*/bin $path)
