@@ -8,22 +8,18 @@ export LESS='-F -g -i -M -R -S -w -X -z-4'
 # path_helper destroys the order of $PATH
 source "$HOME/.zshenv"
 
-
-# initialize Prezto.
-if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-fi
+source "$HOME/.zprezto/init.zsh"
 
 unsetopt CORRECT
 unsetopt AUTO_REMOVE_SLASH
 unsetopt SHARE_HISTORY
 
-source ~/.zsh/aliases.zsh
-source ~/.zsh/utils.zsh
-source ~/.zsh/fzf.zsh
+source "$HOME/.zsh/aliases.zsh"
+source "$HOME/.zsh/utils.zsh"
+source "$HOME/.zsh/fzf.zsh"
 
-if [[ -f ~/.zsh/pep-utils.zsh ]]; then
-    source ~/.zsh/pep-utils.zsh
+if [[ -f "$HOME/.zsh/pep-utils.zsh" ]]; then
+    source "$HOME/.zsh/pep-utils.zsh"
 fi
 
 export PURE_GIT_DIRTY=' %F{88}●'
