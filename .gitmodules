@@ -1,6 +1,6 @@
 [submodule ".zprezto"]
 	path = .zprezto
-	url = git@github.com:micampe/prezto.git
+	url = https://github.com/sorin-ionescu/prezto.git
 [submodule ".vim/pack/minpac/opt/minpac"]
 	path = .vim/pack/minpac/opt/minpac
 	url = https://github.com/k-takata/minpac.git
