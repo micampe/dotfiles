@@ -79,6 +79,7 @@ nnoremap <C-l> :set hls!<cr>
 noremap <silent> <leader>- :b#<cr>
 noremap <silent> <leader>[ :bprev<cr>
 noremap <silent> <leader>] :bnext<cr>
+noremap <leader>l :ls<cr>:buffer 
 
 " delete buffer without closing the window
 function! s:DeleteCurrentBuffer() abort
@@ -127,7 +128,7 @@ nnoremap gm m
 
 " fzf
 nnoremap <leader>o :Files<cr>
-nnoremap <leader>l :Buffers<cr>
+nnoremap <leader>k :Buffers<cr>
 nnoremap <leader>i :History<cr>
 
 " gutentags
