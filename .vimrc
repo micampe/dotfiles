@@ -7,8 +7,6 @@ let g:jellybeans_overrides = {
 \}
 colorscheme jellybeans
 
-source ~/.vim/packages.vim
-
 " options ---
 
 set encoding=utf-8
