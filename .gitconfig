@@ -39,6 +39,9 @@
 
     subupdate = submodule update --init --recursive
 
+    # via https://www.sethvargo.com/checkout-a-github-pull-request/
+    pr = "!f() { git fetch origin pull/$1/head:pr-$1 && git checkout pr-$1; }; f"
+
     rdar = !open 'rdar://$(git rev-parse --symbolic-full-name --abbrev-ref HEAD | egrep -o \"\\d+\" | head -1)'
     get-patch = !git format-patch HEAD~ -o ~/Desktop/
 
