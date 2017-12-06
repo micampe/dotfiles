@@ -1,11 +1,27 @@
 syntax on
 filetype plugin indent on
 
-let g:jellybeans_overrides = {
-\    'background': { 'ctermbg': 'none', '256ctermbg': 'none' },
-\    'MatchParen': { 'guifg': 'ffffff', 'guibg': '556779' },
-\}
-colorscheme jellybeans
+if has("gui_running")
+  set guifont=SF\ Mono:h16
+
+  " Start without toolbar and scrollbars
+  set guioptions=egmc
+
+  " Turn off cursor blinking
+  set guicursor+=a:blinkon0
+
+  " Set default size
+  set columns=90
+  set lines=52
+
+  colorscheme iceberg
+else
+  let g:jellybeans_overrides = {
+        \  'background': { 'ctermbg': 'none', '256ctermbg': 'none' },
+        \  'MatchParen': { 'guifg': 'ffffff', 'guibg': '556779' },
+        \}
+  colorscheme jellybeans
+endif
 
 " options ---
 
@@ -13,8 +29,8 @@ set encoding=utf-8
 set scrolloff=3
 set hidden
 set nostartofline
-set showcmd
 set autoread
+set mouse=
 
 " Indentation
 set nowrap
@@ -35,6 +51,7 @@ set infercase
 " Status bar
 set ruler
 set laststatus=2
+set showcmd
 set wildmenu
 set wildmode=longest:full,full
 
