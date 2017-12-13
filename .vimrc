@@ -56,6 +56,9 @@ set showcmd
 set wildmenu
 set wildmode=longest:full,full
 
+" set the complete char for mappings
+set wildcharm=<c-z>
+
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
@@ -86,9 +89,20 @@ nnoremap k gk
 nnoremap gj j
 nnoremap gk k
 
+" MRU command-line completion
+function! s:MRUComplete(ArgLead, CmdLine, CursorPos)
+  return filter(copy(v:oldfiles), 'v:val =~ a:ArgLead')
+endfunction
+
+command! -nargs=1 -complete=customlist,<sid>MRUComplete ME :edit <args>
+command! -nargs=1 -complete=customlist,<sid>MRUComplete MS :split <args>
+command! -nargs=1 -complete=customlist,<sid>MRUComplete MV :vsplit <args>
+
+nnoremap <leader>r :ME <c-z>
+
 cnoremap <expr> %% fnameescape(expand("%:p:h")."/")
-nmap <leader>e :edit %%
-nmap <leader>f :find %%
+nmap <leader>e :edit %%<c-z>
+nmap <leader>f :find %%<c-z>**/*
 
 nnoremap <C-l> :set hls!<cr>
 
