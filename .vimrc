@@ -28,6 +28,7 @@ endif
 set encoding=utf-8
 set scrolloff=3
 set hidden
+set splitright
 set nostartofline
 set autoread
 set mouse=
@@ -122,7 +123,7 @@ nnoremap <expr> <silent> 0 col('.') == match(getline('.'),'\S')+1 ? '0' : '^'
 " split help vertically if there’s room
 function! s:ShowHelp(tag) abort
   if winheight(0) * 2 < winwidth(0)
-    execute 'vertical botright help '.a:tag
+    execute 'vertical help '.a:tag
   else
     execute 'help '.a:tag
   endif
