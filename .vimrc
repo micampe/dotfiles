@@ -128,6 +128,10 @@ noremap <silent> <leader>bd :call <SID>DeleteCurrentBuffer()<cr>
 nnoremap c* *Ncgn
 nnoremap c# #NcgN
 
+" nN always search in the same direction
+noremap <expr> n 'Nn'[v:searchforward]
+noremap <expr> N 'Nn'[!v:searchforward]
+
 " nicer command line history navigation
 cnoremap <C-p> <up>
 cnoremap <C-n> <down>
