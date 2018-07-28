@@ -105,6 +105,7 @@ nmap <leader>e :edit %%<c-z>
 nmap <leader>f :find %%<c-z>**/*
 
 nnoremap <C-l> :set hls!<cr>
+nnoremap <C-k> :set wrap!<cr>
 
 noremap <silent> <leader>- :b#<cr>
 noremap <silent> <leader>[ :bprev<cr>
