@@ -1,3 +1,5 @@
+" options ---
+
 syntax on
 filetype plugin indent on
 
@@ -22,8 +24,6 @@ else
         \}
   colorscheme jellybeans
 endif
-
-" options ---
 
 set encoding=utf-8
 set scrolloff=3
@@ -75,6 +75,15 @@ let &directory=s:vim_data_dir
 let &undodir=s:vim_undo_dir
 set undofile
 
+" netrw
+let g:netrw_home = s:vim_data_dir
+
+" vim-easyclip shadows m for :mark
+nnoremap gm m
+
+" gutentags
+let g:gutentags_cache_dir = s:vim_data_dir . "tags"
+
 " make vim recognize arcanist diffs as git commits
 augroup vimrc_arcanist
   autocmd!
@@ -82,21 +91,13 @@ augroup vimrc_arcanist
   autocmd BufRead differential-update-comments setlocal filetype=gitcommit
 augroup END
 
+
 " mappings ---
 
 nnoremap j gj
 nnoremap k gk
 nnoremap gj j
 nnoremap gk k
-
-" MRU command-line completion
-function! s:MRUComplete(ArgLead, CmdLine, CursorPos)
-  return filter(copy(v:oldfiles), 'v:val =~ a:ArgLead')
-endfunction
-
-command! -nargs=1 -complete=customlist,<sid>MRUComplete ME :edit <args>
-command! -nargs=1 -complete=customlist,<sid>MRUComplete MS :split <args>
-command! -nargs=1 -complete=customlist,<sid>MRUComplete MV :vsplit <args>
 
 nnoremap <leader>r :ME <c-z>
 
@@ -113,16 +114,11 @@ noremap <silent> <leader>] :bnext<cr>
 noremap <leader>L :ls<cr>:buffer<space>
 nnoremap <leader>l :buffer <c-z>
 
-" delete buffer without closing the window
-function! s:DeleteCurrentBuffer() abort
-  let b = bufnr('%')
-  if buflisted(bufnr('#'))
-    execute 'buffer #'
-  else
-    execute 'bprev'
-  endif
-  execute 'bdelete ' . b
-endfunction
+" fzf
+nnoremap <leader>o :Files<cr>
+nnoremap <leader>k :Buffers<cr>
+nnoremap <leader>i :History<cr>
+
 noremap <silent> <leader>bd :call <SID>DeleteCurrentBuffer()<cr>
 
 " change word under cursor
@@ -140,6 +136,38 @@ cnoremap <C-n> <down>
 " jump to first non-whitespace on line, jump to begining of line if already at first non-whitespace
 nnoremap <expr> <silent> 0 col('.') == match(getline('.'),'\S')+1 ? '0' : '^'
 
+" typos
+cnoremap <expr> X (getcmdtype() is# ':' && empty(getcmdline())) ? 'x' : 'X'
+cnoremap <expr> Q (getcmdtype() is# ':' && empty(getcmdline())) ? 'q' : 'Q'
+
+
+" commands ---
+
+command! -nargs=1 -complete=customlist,<sid>MRUComplete ME :edit <args>
+command! -nargs=1 -complete=customlist,<sid>MRUComplete MS :split <args>
+command! -nargs=1 -complete=customlist,<sid>MRUComplete MV :vsplit <args>
+
+command! -nargs=1 -complete=help Help call s:ShowHelp(<f-args>)
+
+
+" functions ---
+
+" delete buffer without closing the window
+function! s:DeleteCurrentBuffer() abort
+  let b = bufnr('%')
+  if buflisted(bufnr('#'))
+    execute 'buffer #'
+  else
+    execute 'bprev'
+  endif
+  execute 'bdelete ' . b
+endfunction
+
+" MRU command-line completion
+function! s:MRUComplete(ArgLead, CmdLine, CursorPos)
+  return filter(copy(v:oldfiles), 'v:val =~ a:ArgLead')
+endfunction
+
 " split help vertically if there’s room
 function! s:ShowHelp(tag) abort
   if winheight(0) * 2 < winwidth(0)
@@ -148,24 +176,3 @@ function! s:ShowHelp(tag) abort
     execute 'help '.a:tag
   endif
 endfunction
-command! -nargs=1 -complete=help Help call s:ShowHelp(<f-args>)
-
-" typos
-cnoremap <expr> X (getcmdtype() is# ':' && empty(getcmdline())) ? 'x' : 'X'
-cnoremap <expr> Q (getcmdtype() is# ':' && empty(getcmdline())) ? 'q' : 'Q'
-
-" plugins ---
-
-" netrw
-let g:netrw_home = s:vim_data_dir
-
-" vim-easyclip shadows m for :mark
-nnoremap gm m
-
-" fzf
-nnoremap <leader>o :Files<cr>
-nnoremap <leader>k :Buffers<cr>
-nnoremap <leader>i :History<cr>
-
-" gutentags
-let g:gutentags_cache_dir = s:vim_data_dir . "tags"
