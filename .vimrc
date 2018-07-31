@@ -99,27 +99,26 @@ nnoremap k gk
 nnoremap gj j
 nnoremap gk k
 
-nnoremap <leader>r :ME <c-z>
+nnoremap <space>r :ME <c-z>
 
 cnoremap <expr> %% fnameescape(expand("%:p:h")."/")
-nmap <leader>e :edit %%<c-z>
-nmap <leader>f :find %%<c-z>**/*
+nmap <space>e :edit %%<c-z>
+nmap <space>f :find %%<c-z>**/*
 
 nnoremap <C-l> :set hls!<cr>
 nnoremap <C-k> :set wrap!<cr>
 
-noremap <silent> <leader>- :b#<cr>
-noremap <silent> <leader>[ :bprev<cr>
-noremap <silent> <leader>] :bnext<cr>
-noremap <leader>L :ls<cr>:buffer<space>
-nnoremap <leader>l :buffer <c-z>
+noremap <silent> \- :b#<cr>
+noremap <silent> \[ :bprev<cr>
+noremap <silent> \] :bnext<cr>
+nnoremap <space>l :ls<cr>:buffer <c-z>
 
 " fzf
-nnoremap <leader>o :Files<cr>
-nnoremap <leader>k :Buffers<cr>
-nnoremap <leader>i :History<cr>
+nnoremap <space>o :Files<cr>
+nnoremap <space>u :Buffers<cr>
+nnoremap <space>i :History<cr>
 
-noremap <silent> <leader>bd :call <SID>DeleteCurrentBuffer()<cr>
+noremap <silent> <space>bd :call <SID>DeleteCurrentBuffer()<cr>
 
 " change word under cursor
 nnoremap c* *Ncgn
