@@ -25,3 +25,4 @@ fi
 export PURE_GIT_DIRTY=' %F{88}●'
 export PURE_GIT_DOWN_ARROW='%F{220}⬋'
 export PURE_GIT_UP_ARROW='%F{34}⬈'
+export PURE_PROMPT_SYMBOL='🐙 ❯'
