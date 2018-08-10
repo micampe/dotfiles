@@ -164,7 +164,10 @@ endfunction
 
 " MRU command-line completion
 function! s:MRUComplete(ArgLead, CmdLine, CursorPos)
-  return filter(copy(v:oldfiles), 'v:val =~ a:ArgLead')
+  let files = copy(v:oldfiles)
+  call filter(files, 'v:val !~ "COMMIT_EDITMSG"')
+  call filter(files, 'v:val !~ "MERGE_MSG"')
+  return filter(files, 'v:val =~ a:ArgLead')
 endfunction
 
 " split help vertically if there’s room
