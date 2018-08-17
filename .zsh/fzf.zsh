@@ -5,6 +5,7 @@ if _has fzf; then
   # restore the default ^T binding
   bindkey '^T' transpose-chars
   bindkey '^G' fzf-file-widget
+  bindkey '^H' fzf-cd-widget
 
   export FZF_DEFAULT_OPTS='--color fg:242'
 
