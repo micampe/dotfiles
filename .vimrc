@@ -16,7 +16,7 @@ if has("gui_running")
   set columns=90
   set lines=52
 
-  colorscheme iceberg
+  colorscheme jellybeans
 else
   let g:jellybeans_overrides = {
         \  'background': { 'ctermbg': 'none', '256ctermbg': 'none' },
