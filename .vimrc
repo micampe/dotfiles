@@ -4,7 +4,7 @@ syntax on
 filetype plugin indent on
 
 if has("gui_running")
-  set guifont=SF\ Mono:h16
+  set guifont=Menlo:h16
 
   " Start without toolbar and scrollbars
   set guioptions=egmc
