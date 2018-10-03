@@ -126,6 +126,10 @@ cnoremap <C-n> <down>
 " jump to first non-whitespace on line, jump to begining of line if already at first non-whitespace
 nnoremap <expr> <silent> 0 col('.') == match(getline('.'),'\S')+1 ? '0' : '^'
 
+" GUI window zoom
+nnoremap <space>wv :set lines=999<cr>
+nnoremap <space>wz :set lines=999 <bar> set columns=999<cr>
+
 " typos
 cnoremap <expr> X (getcmdtype() is# ':' && empty(getcmdline())) ? 'x' : 'X'
 cnoremap <expr> Q (getcmdtype() is# ':' && empty(getcmdline())) ? 'q' : 'Q'
