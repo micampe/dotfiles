@@ -78,9 +78,6 @@ set undofile
 " netrw
 let g:netrw_home = s:vim_data_dir
 
-" vim-easyclip shadows m for :mark
-nnoremap gm m
-
 " gutentags
 let g:gutentags_cache_dir = s:vim_data_dir . "tags"
 
@@ -98,8 +95,6 @@ nnoremap j gj
 nnoremap k gk
 nnoremap gj j
 nnoremap gk k
-
-nnoremap <space>r :ME <c-z>
 
 cnoremap <expr> %% fnameescape(expand("%:p:h")."/")
 nmap <space>e :edit %%<c-z>
@@ -120,10 +115,6 @@ nnoremap <space>i :History<cr>
 
 noremap <silent> <space>bd :call <SID>DeleteCurrentBuffer()<cr>
 
-" change word under cursor
-nnoremap c* *Ncgn
-nnoremap c# #NcgN
-
 " nN always search in the same direction
 noremap <expr> n 'Nn'[v:searchforward]
 noremap <expr> N 'Nn'[!v:searchforward]
@@ -142,10 +133,6 @@ cnoremap <expr> Q (getcmdtype() is# ':' && empty(getcmdline())) ? 'q' : 'Q'
 
 " commands ---
 
-command! -nargs=1 -complete=customlist,<sid>MRUComplete ME :edit <args>
-command! -nargs=1 -complete=customlist,<sid>MRUComplete MS :split <args>
-command! -nargs=1 -complete=customlist,<sid>MRUComplete MV :vsplit <args>
-
 command! -nargs=1 -complete=help Help call s:ShowHelp(<f-args>)
 
 
@@ -160,14 +147,6 @@ function! s:DeleteCurrentBuffer() abort
     execute 'bprev'
   endif
   execute 'bdelete ' . b
-endfunction
-
-" MRU command-line completion
-function! s:MRUComplete(ArgLead, CmdLine, CursorPos)
-  let files = copy(v:oldfiles)
-  call filter(files, 'v:val !~ "COMMIT_EDITMSG"')
-  call filter(files, 'v:val !~ "MERGE_MSG"')
-  return filter(files, 'v:val =~ a:ArgLead')
 endfunction
 
 " split help vertically if there’s room
