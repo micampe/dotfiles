@@ -1,3 +1,6 @@
+[user]
+	name = Michele Campeotto
+	email = micampe@micampe.it
 [alias]
     ci = commit --verbose
     ca = commit --verbose --all
