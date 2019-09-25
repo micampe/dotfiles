@@ -12,6 +12,7 @@ if [[ ! -f ~/bin/brew ]]; then
 fi
 PATH=$PATH:~/bin
 
+brew install fish
 brew install ack
 brew install fzf
 brew install tree
@@ -23,9 +24,9 @@ brew install tree
 
 brew tap caskroom/cask
 
-brew cask install daisydisk
-brew cask install adobe-creative-cloud
-brew cask install fork
+#brew cask install daisydisk
+#brew cask install adobe-creative-cloud
+#brew cask install fork
 # brew cask install 1password
 # brew cask install chromium
 # brew cask install imageoptim
