@@ -23,6 +23,7 @@ function! s:RegisterPackages() abort
   call minpac#add('https://github.com/tpope/vim-unimpaired.git')
   call minpac#add('https://github.com/tpope/vim-vinegar.git')
   call minpac#add('https://github.com/Stautob/vim-fish')
+  call minpac#add('https://github.com/keith/swift.vim.git')
 endfunction
 
 command! PackUpdate call s:RegisterPackages() | redraw | call minpac#update()
