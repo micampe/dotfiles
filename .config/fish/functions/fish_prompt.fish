@@ -10,8 +10,8 @@ set __fish_git_prompt_color_stagedstate green
 set __fish_git_prompt_color_upstream cyan
 
 # Git Characters
-set __fish_git_prompt_char_dirtystate '●'
-set __fish_git_prompt_char_stagedstate '⇢'
+set __fish_git_prompt_char_dirtystate '● '
+set __fish_git_prompt_char_stagedstate '→'
 set __fish_git_prompt_char_upstream_prefix ' '
 set __fish_git_prompt_char_upstream_equal ''
 set __fish_git_prompt_char_upstream_ahead '⬈'
