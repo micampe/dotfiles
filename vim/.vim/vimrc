@@ -22,7 +22,9 @@ else
         \  'background': { 'ctermbg': 'none', '256ctermbg': 'none' },
         \  'MatchParen': { 'guifg': 'ffffff', 'guibg': '556779' },
         \}
-  colorscheme jellybeans
+  " ignore the missing scheme, so initial dotfiles setup goes through and
+  " installs it
+  silent! colorscheme jellybeans
 endif
 
 set encoding=utf-8

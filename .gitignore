@@ -1,4 +1,6 @@
 .DS_Store
-.ssh/authorized_keys
-.ssh/known_hosts
-.vim/backup/*
+ssh/.ssh/authorized_keys
+ssh/.ssh/known_hosts
+vim/.vim/backup
+vim/.vim/plugin/fzf.vim
+vim/.vim/pack
