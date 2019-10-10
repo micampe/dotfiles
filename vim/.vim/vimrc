@@ -112,6 +112,7 @@ nnoremap <space>l :ls<cr>:buffer <c-z>
 
 " fzf
 nnoremap <space>o :Files<cr>
+nnoremap <space>O :GFiles<cr>
 nnoremap <space>u :Buffers<cr>
 nnoremap <space>i :History<cr>
 
