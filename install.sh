@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-BREWS="stow fish tree fzf ack git"
+BREWS="stow fish tree fzf ack git jrnl"
 CASKS="fork"
 STOWS="bin vim fish git ack ruby lldb"
 
