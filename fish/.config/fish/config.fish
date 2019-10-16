@@ -1,7 +1,11 @@
 if status --is-interactive
     set -x PATH ~/bin $PATH
-    abbr --add --global l 'ls -F'
+
+    # cd abbreviations
     abbr --add --global -- - 'cd -'
-    # list only hidden files
+
+    # ls abbreviations
+    abbr --add --global l 'ls -F'
+    abbr --add --global l1 'ls -F1'
     abbr --add --global lh 'ls -d1 -l .*'
 end
