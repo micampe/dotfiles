@@ -105,18 +105,19 @@ nmap <space>f :find %%<c-z>**/*
 nnoremap <C-l> :set hls!<cr>
 nnoremap <C-k> :set wrap!<cr>
 
-noremap <silent> \- :b#<cr>
-noremap <silent> \[ :bprev<cr>
-noremap <silent> \] :bnext<cr>
-nnoremap <space>l :ls<cr>:buffer <c-z>
+" buffers
+noremap <silent> <space>- :b#<cr>
+noremap <silent> <space>9 :bprev<cr>
+noremap <silent> <space>0 :bnext<cr>
+
+noremap <silent> <space>bd :call <SID>DeleteCurrentBuffer()<cr>
+noremap <silent> <space>bw :call <SID>DeleteCurrentBuffer()<cr>
 
 " fzf
 nnoremap <space>o :Files<cr>
 nnoremap <space>O :GFiles<cr>
 nnoremap <space>u :Buffers<cr>
 nnoremap <space>i :History<cr>
-
-noremap <silent> <space>bd :call <SID>DeleteCurrentBuffer()<cr>
 
 " nN always search in the same direction
 noremap <expr> n 'Nn'[v:searchforward]
