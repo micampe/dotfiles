@@ -83,13 +83,6 @@ let g:netrw_home = s:vim_data_dir
 " gutentags
 let g:gutentags_cache_dir = s:vim_data_dir . "tags"
 
-" make vim recognize arcanist diffs as git commits
-augroup vimrc_arcanist
-  autocmd!
-  autocmd BufRead new-commit setlocal filetype=gitcommit
-  autocmd BufRead differential-update-comments setlocal filetype=gitcommit
-augroup END
-
 
 " mappings ---
 
