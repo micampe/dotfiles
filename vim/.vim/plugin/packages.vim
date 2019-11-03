@@ -23,6 +23,7 @@ function! PackInit() abort
   call minpac#add('https://github.com/tpope/vim-vinegar.git')
   call minpac#add('https://github.com/Stautob/vim-fish')
   call minpac#add('https://github.com/keith/swift.vim.git')
+  call minpac#add('https://github.com/rust-lang/rust.vim.git')
 endfunction
 
 command! PackUpdate call PackInit() | redraw | call minpac#update()
