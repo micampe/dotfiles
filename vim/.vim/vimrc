@@ -91,18 +91,17 @@ nnoremap k gk
 nnoremap gj j
 nnoremap gk k
 
+" files
 cnoremap <expr> %% fnameescape(expand("%:p:h")."/")
 nmap <space>e :edit %%<c-z>
 nmap <space>f :find %%<c-z>**/*
 
+" options
 nnoremap <C-l> :setlocal hlsearch!<cr>
 nnoremap <C-k> :setlocal wrap!<cr>
 
 " buffers
 noremap <silent> <space>- :b#<cr>
-noremap <silent> <space>9 :bprev<cr>
-noremap <silent> <space>0 :bnext<cr>
-
 noremap <silent> <space>bd :call <SID>DeleteCurrentBuffer()<cr>
 noremap <silent> <space>bw :call <SID>DeleteCurrentBuffer()<cr>
 
