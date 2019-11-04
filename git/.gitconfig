@@ -1,6 +1,6 @@
 [user]
-	name = Michele Campeotto
-	email = micampe@micampe.it
+    name = Michele Campeotto
+    email = micampe@micampe.it
 [alias]
     ci = commit --verbose
     ca = commit --verbose --all
@@ -25,17 +25,10 @@
     uncommit = reset --soft HEAD^     # go back before last commit, with files in uncommitted state
     discard = checkout --
 
-    icdiff = difftool --tool=icdiff
-    icshow = "!f() { git icdiff $1^ $1; }; f"
-
     browse = "!open $(git remote get-url origin | sed s%git@github.com:%http://github.com/%)"
 
-    # via http://blog.apiaxle.com/post/handy-git-tips-to-stop-you-getting-fired/
-    snapshot = !git stash save "snapshot: $(date)" && git stash apply "stash@{0}"
-    snapshots = !git stash list --grep snapshot
-
-    ours   = "!f() { git checkout --ours $@ && git add $@; }; f"
-    theirs = "!f() { git checkout --theirs $@ && git add $@; }; f"
+    ours = checkout --ours
+    theirs = checkout --theirs
 
     #via http://stackoverflow.com/questions/5188320/how-can-i-get-a-list-of-git-branches-ordered-by-most-recent-commit
     recent-branches = !git for-each-ref --count=15 --sort=-committerdate refs/heads/ --format='%(refname:short)'
@@ -45,14 +38,6 @@
     # via https://www.sethvargo.com/checkout-a-github-pull-request/
     pr = "!f() { git fetch origin pull/$1/head:pr-$1 && git checkout pr-$1; }; f"
 
-    rdar = !open 'rdar://$(git rev-parse --symbolic-full-name --abbrev-ref HEAD | egrep -o \"\\d+\" | head -1)'
-    get-patch = !git format-patch HEAD~ -o ~/Desktop/
-
-    yolo = !sh -c \"git commit -a --amend --no-edit && git push --force --dry-run\" -
-
-[remote "origin"]
-    tagOpt = tags
-
 [pretty]
     color = "format:%Cred%h%C(yellow)%d %Cblue%an %Cgreen%cr%Creset %s"
 
@@ -60,10 +45,8 @@
     algorithm = patience
 
 [core]
-    excludesfile = ~/.gitignore-global
-    attributesfile = ~/.gitattributes-global
-    quotepath = false
-    pager = less
+    excludesFile = ~/.gitignore-global
+    attributesFile = ~/.gitattributes-global
 
 [color]
     ui = auto
@@ -76,43 +59,23 @@
     helper = osxkeychain
 
 [branch]
-    autosetuprebase = always
-
-[push]
-    default = simple
+    autoSetupRebase = always
 
 [rerere]
     enabled = true
+    autoUpdate = true
 
 [status]
-    submodulesummary = true
+    submoduleSummary = true
 
 [mergetool]
     prompt = false
 
 [merge]
     tool = opendiff
-    log = true
 
 [rebase]
-    autostash = true
-
-[pager]
-    difftool = true
-
-[difftool "icdiff"]
-    cmd = icdiff $LOCAL $REMOTE
-
-[diff "exif"]
-    textconv = exiftool
-
-[diff "utf16"]
-    textconv = iconv -f utf-16 -t utf-8
+    autoStash = true
 
 [diff "plist"]
     textconv = plutil -convert xml1 -o -
-
-[filter "media"]
-    clean = git media clean %f
-    smudge = git media smudge %f
-    required = true
