@@ -95,8 +95,8 @@ cnoremap <expr> %% fnameescape(expand("%:p:h")."/")
 nmap <space>e :edit %%<c-z>
 nmap <space>f :find %%<c-z>**/*
 
-nnoremap <C-l> :set hls!<cr>
-nnoremap <C-k> :set wrap!<cr>
+nnoremap <C-l> :setlocal hlsearch!<cr>
+nnoremap <C-k> :setlocal wrap!<cr>
 
 " buffers
 noremap <silent> <space>- :b#<cr>
