@@ -27,11 +27,20 @@ function _print_in_color
   set_color normal
 end
 
+function _prompt_for_status
+  echo -n '\n🐙 '
+  if test $argv[1] -eq 0
+    echo '❯ '
+  else
+    echo '✕ '
+  end
+end
+
 function _prompt_color_for_status
   if test $argv[1] -eq 0
     echo magenta
   else
-    echo yellow
+    echo brred
   end
 end
 
@@ -42,5 +51,5 @@ function fish_prompt
 
   __fish_git_prompt " %s"
 
-  _print_in_color "\n🐙 ❯ " (_prompt_color_for_status $last_status)
+  _print_in_color (_prompt_for_status $last_status) (_prompt_color_for_status $last_status)
 end
