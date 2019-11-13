@@ -9,7 +9,6 @@ if status --is-interactive
     abbr --add --global -- - 'cd -'
 
     # ls abbreviations
-    abbr --add --global l 'ls -F'
-    abbr --add --global l1 'ls -F1'
-    abbr --add --global lh 'ls -d1 -l .*'
+    abbr --add --global l 'ls'
+    abbr --add --global l1 'ls -1'
 end
