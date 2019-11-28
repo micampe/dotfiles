@@ -11,6 +11,12 @@ if [[ ! -d ~/bin ]]; then
     mkdir ~/bin
 fi
 
+# Submodules
+if [[ -f .gitmodules ]]; then
+    echo "Updating dotfiles submodules..."
+    git submodule update --init --recursive
+fi
+
 # Homebrew
 if [[ ! -f ~/bin/brew ]]; then
     echo "Installing homebrew..."
@@ -20,7 +26,6 @@ if [[ ! -f ~/bin/brew ]]; then
     ~/bin/brew tap homebrew/cask
 fi
 
-echo
 echo "Installing homebrew packages..."
 for pkg in $BREWS; do
     if ! command -v $pkg >/dev/null 2>&1; then
@@ -34,28 +39,19 @@ for cask in $CASKS; do
     fi
 done
 
-#submodules
-echo
-echo "Updating dotfiles submodules..."
-git submodule update --init --recursive
-
 # dotfiles
-echo
 echo "Setting up dotfiles..."
 ~/bin/stow --verbose $STOWS
 
 # Vim
 if [[ ! -d ~/.vim/pack/minpac/opt/minpac ]]; then
-    echo
     echo "Installing vim package manager..."
     git clone https://github.com/k-takata/minpac.git ~/.vim/pack/minpac/opt/minpac
 fi
 if [[ ! -f ~/.vim/plugin/fzf.vim ]]; then
-    echo
     echo "Linking fzf vim plugin..."
     ln -s ~/opt/fzf/plugin/fzf.vim ~/.vim/plugin/
 fi
-echo
 echo "Updating vim plugins..."
 sleep 1
 vim +PackUpdate +qall
