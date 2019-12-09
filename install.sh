@@ -24,8 +24,6 @@ if [[ ! -f $LOCAL/bin/brew ]]; then
     echo "Installing homebrew..."
     mkdir $LOCAL/homebrew && curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C $LOCAL/homebrew
     ln -s $LOCAL/homebrew/bin/brew $LOCAL/bin
-
-    brew tap homebrew/cask
 fi
 
 echo "Installing homebrew packages..."
@@ -35,11 +33,14 @@ for pkg in $BREWS; do
     fi
 done
 
-for cask in $CASKS; do
-    if ! command -v $cask >/dev/null 2>&1; then
-        brew cask install $cask
-    fi
-done
+if [[ -ne $CASKS ]]; then
+    brew tap homebrew/cask
+    for cask in $CASKS; do
+        if ! command -v $cask >/dev/null 2>&1; then
+            brew cask install $cask
+        fi
+    done
+fi
 
 # dotfiles
 echo "Setting up dotfiles..."
