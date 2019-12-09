@@ -12,7 +12,6 @@ function! PackInit() abort
 
   " plugins
   call minpac#add('https://github.com/junegunn/fzf.vim.git')
-  call minpac#add('https://github.com/ludovicchabant/vim-gutentags.git')
   call minpac#add('https://github.com/tpope/vim-commentary.git')
   call minpac#add('https://github.com/tpope/vim-repeat.git')
   call minpac#add('https://github.com/tpope/vim-rsi.git')
