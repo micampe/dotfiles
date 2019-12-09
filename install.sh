@@ -1,15 +1,17 @@
 #!/usr/bin/env bash
 
+LOCAL="$HOME/.local"
 BREWS="stow fish tree fzf ack git jrnl"
-CASKS="fork"
+CASKS=""
 STOWS="bin vim fish git ack ruby lldb"
 
 # exit if any command fails
 set -e
 
-if [[ ! -d ~/bin ]]; then
-    mkdir ~/bin
+if [[ ! -d $LOCAL/bin ]]; then
+    mkdir -p $LOCAL/bin
 fi
+PATH="$LOCAL/bin:$PATH"
 
 # Submodules
 if [[ -f .gitmodules ]]; then
@@ -18,30 +20,30 @@ if [[ -f .gitmodules ]]; then
 fi
 
 # Homebrew
-if [[ ! -f ~/bin/brew ]]; then
+if [[ ! -f $LOCAL/bin/brew ]]; then
     echo "Installing homebrew..."
-    mkdir ~/brew && curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C ~/brew
-    ln -s ~/brew/bin/brew ~/bin
+    mkdir $LOCAL/homebrew && curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C $LOCAL/homebrew
+    ln -s $LOCAL/homebrew/bin/brew $LOCAL/bin
 
-    ~/bin/brew tap homebrew/cask
+    brew tap homebrew/cask
 fi
 
 echo "Installing homebrew packages..."
 for pkg in $BREWS; do
     if ! command -v $pkg >/dev/null 2>&1; then
-        ~/bin/brew install $pkg
+        brew install $pkg
     fi
 done
 
 for cask in $CASKS; do
     if ! command -v $cask >/dev/null 2>&1; then
-        ~/bin/brew cask install $cask
+        brew cask install $cask
     fi
 done
 
 # dotfiles
 echo "Setting up dotfiles..."
-~/bin/stow --verbose $STOWS
+stow --verbose $STOWS
 
 # Vim
 if [[ ! -d ~/.vim/pack/minpac/opt/minpac ]]; then
@@ -50,7 +52,7 @@ if [[ ! -d ~/.vim/pack/minpac/opt/minpac ]]; then
 fi
 if [[ ! -f ~/.vim/plugin/fzf.vim ]]; then
     echo "Linking fzf vim plugin..."
-    ln -s ~/opt/fzf/plugin/fzf.vim ~/.vim/plugin/
+    ln -s ~/.local/opt/fzf/plugin/fzf.vim ~/.vim/plugin/
 fi
 echo "Updating vim plugins..."
 sleep 1

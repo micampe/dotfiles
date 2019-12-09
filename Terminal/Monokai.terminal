@@ -143,7 +143,7 @@
 	<key>BlinkText</key>
 	<false/>
 	<key>CommandString</key>
-	<string>~/bin/fish</string>
+	<string>~/.local/bin/fish</string>
 	<key>CursorBlink</key>
 	<false/>
 	<key>CursorColor</key>
@@ -169,7 +169,7 @@
 	<key>FontAntialias</key>
 	<true/>
 	<key>FontWidthSpacing</key>
-	<real>0.99596774193548387</real>
+	<integer>1</integer>
 	<key>Linewrap</key>
 	<true/>
 	<key>ProfileCurrentVersion</key>
@@ -189,9 +189,9 @@
 	<key>ShowActiveProcessArgumentsInTitle</key>
 	<true/>
 	<key>ShowActiveProcessInTabTitle</key>
-	<false/>
+	<true/>
 	<key>ShowActiveProcessInTitle</key>
-	<false/>
+	<true/>
 	<key>ShowActivityIndicatorInTab</key>
 	<true/>
 	<key>ShowCommandKeyInTitle</key>
@@ -208,6 +208,8 @@
 	<true/>
 	<key>ShowRepresentedURLPathInTitle</key>
 	<true/>
+	<key>ShowShellCommandInTitle</key>
+	<false/>
 	<key>ShowTTYNameInTitle</key>
 	<false/>
 	<key>ShowWindowSettingsNameInTitle</key>
@@ -231,7 +233,7 @@
 	<key>UseBoldFonts</key>
 	<true/>
 	<key>UseBrightBold</key>
-	<false/>
+	<true/>
 	<key>columnCount</key>
 	<integer>120</integer>
 	<key>name</key>
@@ -258,7 +260,7 @@
 	<key>type</key>
 	<string>Window Settings</string>
 	<key>useOptionAsMetaKey</key>
-	<false/>
+	<true/>
 	<key>warnOnShellCloseAction</key>
 	<integer>0</integer>
 </dict>

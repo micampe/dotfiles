@@ -60,7 +60,7 @@ if has("gui_running")
 endif
 
 " save backups, undo and swaps in the same dir
-let s:vim_data_dir = $HOME . '/var/vim//'
+let s:vim_data_dir = $HOME . '/.local/var/vim//'
 let s:vim_undo_dir = s:vim_data_dir . 'undo//'
 
 if !isdirectory(s:vim_undo_dir)
