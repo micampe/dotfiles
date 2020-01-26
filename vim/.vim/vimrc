@@ -96,9 +96,9 @@ nnoremap <C-l> :setlocal hlsearch!<cr>
 nnoremap <C-k> :setlocal wrap!<cr>
 
 " buffers
-noremap <silent> <space>- :b#<cr>
+noremap <space>- :b#<cr>
+noremap <space>U :ls<cr>:b 
 noremap <silent> <space>bd :call <SID>DeleteCurrentBuffer()<cr>
-noremap <silent> <space>bw :call <SID>DeleteCurrentBuffer()<cr>
 
 " fzf
 nnoremap <space>o :Files<cr>
