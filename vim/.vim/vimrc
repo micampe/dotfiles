@@ -110,6 +110,9 @@ nnoremap <space>i :History<cr>
 noremap <expr> n 'Nn'[v:searchforward]
 noremap <expr> N 'Nn'[!v:searchforward]
 
+" change current word
+nnoremap c* *Ncgn
+
 " nicer command line history navigation
 cnoremap <C-p> <up>
 cnoremap <C-n> <down>
