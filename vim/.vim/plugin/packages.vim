@@ -20,6 +20,7 @@ function! PackInit() abort
   call minpac#add('https://github.com/tpope/vim-surround.git')
   call minpac#add('https://github.com/tpope/vim-unimpaired.git')
   call minpac#add('https://github.com/tpope/vim-vinegar.git')
+  call minpac#add('https://github.com/romainl/vim-cool.git')
   call minpac#add('https://github.com/Stautob/vim-fish')
   call minpac#add('https://github.com/keith/swift.vim.git')
   call minpac#add('https://github.com/rust-lang/rust.vim.git')
