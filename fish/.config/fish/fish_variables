@@ -1,9 +1,15 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
 SETUVAR --export EDITOR:vim
+SETUVAR --export LESS:\x2dF\x20\x2dg\x20\x2di\x20\x2dM\x20\x2dR\x20\x2dS\x20\x2dw\x20\x2dX\x20\x2dz\x2d4
+SETUVAR --export PAGER:less
+SETUVAR --export VISUAL:vim
 SETUVAR __fish_init_2_39_8:\x1d
 SETUVAR __fish_init_2_3_0:\x1d
 SETUVAR __fish_init_3_x:\x1d
+SETUVAR _fish_abbr__2D_:cd\x20\x2d
+SETUVAR _fish_abbr_l:ls
+SETUVAR _fish_abbr_l1:ls\x20\x2d1
 SETUVAR fish_color_autosuggestion:777777
 SETUVAR fish_color_cancel:normal
 SETUVAR fish_color_command:ffffff
