@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 LOCAL="$HOME/.local"
-BREWS="stow fish tree fzf ack git jrnl"
+BREWS="stow fish tree fzf ack"
 CASKS=""
 STOWS="bin vim fish git ack ruby lldb"
 
@@ -47,14 +47,18 @@ echo "Setting up dotfiles..."
 stow --verbose $STOWS
 
 # Vim
-if [[ ! -d ~/.vim/pack/minpac/opt/minpac ]]; then
+MINPAC="$HOME/.vim/pack/minpac/opt/minpac"
+if [[ ! -d $MINPAC && ! -L $MINPAC ]]; then
     echo "Installing vim package manager..."
     git clone https://github.com/k-takata/minpac.git ~/.vim/pack/minpac/opt/minpac
 fi
-if [[ ! -f ~/.vim/plugin/fzf.vim ]]; then
+
+FZF_PLUGIN="$HOME/.vim/plugin/fzf.vim"
+if [[ ! -f $FZF_PLUGIN && ! -L $FZF_PLUGIN ]]; then
     echo "Linking fzf vim plugin..."
-    ln -s ~/.local/opt/fzf/plugin/fzf.vim ~/.vim/plugin/
+    ln -s ~/.local/opt/fzf/plugin/fzf.vim ~/.vim/plugin
 fi
+
 echo "Updating vim plugins..."
 sleep 1
 vim +PackUpdate +qall
