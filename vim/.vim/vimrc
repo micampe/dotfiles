@@ -3,10 +3,7 @@
 syntax on
 filetype plugin indent on
 
-let g:jellybeans_overrides = {
-      \  'background': { 'ctermbg': 'none', '256ctermbg': 'none' },
-      \  'MatchParen': { 'guifg': 'ffffff', 'guibg': '556779' },
-      \}
+let g:jellybeans_use_term_background_color = 1
 " ignore if the scheme is missing, minpac will install it
 silent! colorscheme jellybeans
 
