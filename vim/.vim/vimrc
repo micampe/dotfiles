@@ -11,7 +11,7 @@ let g:jellybeans_overrides = {
 silent! colorscheme jellybeans
 
 set encoding=utf-8
-set scrolloff=3
+set scrolloff=1
 set hidden
 set splitright
 set nostartofline
