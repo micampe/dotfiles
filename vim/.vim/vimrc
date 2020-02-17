@@ -132,7 +132,7 @@ cnoremap <expr> Q (getcmdtype() is# ':' && empty(getcmdline())) ? 'q' : 'Q'
 
 " commands ---
 
-command! -nargs=1 -complete=help Help call s:ShowHelp(<f-args>)
+command! -nargs=1 -complete=help Help call <SID>ShowHelp(<f-args>)
 
 
 " functions ---
