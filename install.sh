@@ -3,7 +3,7 @@
 LOCAL="$HOME/.local"
 BREWS="stow fish tree fzf ack"
 CASKS=""
-STOWS="bin vim fish git ack ruby lldb"
+STOWS="bin vim fish git shell ack ruby lldb"
 
 # exit if any command fails
 set -e
