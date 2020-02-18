@@ -15,6 +15,7 @@ function! PackInit() abort
   call minpac#add('https://github.com/rust-lang/rust.vim.git')
 
   " plugins
+  call minpac#add('https://github.com/junegunn/fzf.git', {'do': { -> fzf#install() }})
   call minpac#add('https://github.com/junegunn/fzf.vim.git')
   call minpac#add('https://github.com/ludovicchabant/vim-gutentags.git')
   call minpac#add('https://github.com/michaeljsmith/vim-indent-object.git')
@@ -29,6 +30,5 @@ function! PackInit() abort
   call minpac#add('https://github.com/tpope/vim-vinegar.git')
 endfunction
 
-command! PackUpdate call PackInit() | redraw | call minpac#update()
+command! PackUpdate call PackInit() | redraw | call minpac#update('', {'do': 'call minpac#status()'})
 command! PackClean  call PackInit() | call minpac#clean()
-command! PackStatus call PackInit() | call minpac#status()

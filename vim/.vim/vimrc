@@ -99,6 +99,7 @@ noremap <space>U :ls<cr>:b
 noremap <silent> <space>bd :call <SID>DeleteCurrentBuffer()<cr>
 
 " fzf
+let g:fzf_layout = { 'down': '10' }
 nnoremap <space>o :Files<cr>
 nnoremap <space>O :GFiles<cr>
 nnoremap <space>u :Buffers<cr>

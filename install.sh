@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 LOCAL="$HOME/.local"
-BREWS="stow fish tree fzf ack"
+BREWS="stow fish tree ack"
 CASKS=""
 STOWS="bin vim fish git shell ack ruby lldb"
 
@@ -51,12 +51,6 @@ MINPAC="$HOME/.vim/pack/minpac/opt/minpac"
 if [[ ! -d $MINPAC && ! -L $MINPAC ]]; then
     echo "Installing vim package manager..."
     git clone https://github.com/k-takata/minpac.git ~/.vim/pack/minpac/opt/minpac
-fi
-
-FZF_PLUGIN="$HOME/.vim/plugin/fzf.vim"
-if [[ ! -f $FZF_PLUGIN && ! -L $FZF_PLUGIN ]]; then
-    echo "Linking fzf vim plugin..."
-    ln -s ~/.local/opt/fzf/plugin/fzf.vim ~/.vim/plugin
 fi
 
 echo "Updating vim plugins..."
