@@ -1,6 +1,7 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
 SETUVAR --export EDITOR:vim
+SETUVAR --export LC_ALL:en_US\x2eUTF\x2d8
 SETUVAR --export LESS:\x2dF\x20\x2dg\x20\x2di\x20\x2dM\x20\x2dR\x20\x2dS\x20\x2dw\x20\x2dX\x20\x2dz\x2d4
 SETUVAR --export PAGER:less
 SETUVAR --export VISUAL:vim
