@@ -3,17 +3,13 @@
 syntax on
 filetype plugin indent on
 
-let g:jellybeans_use_term_background_color = 1
-" ignore if the scheme is missing, minpac will install it
-silent! colorscheme jellybeans
-
 set encoding=utf-8
 set scrolloff=1
 set hidden
 set splitright
+set splitbelow
 set nostartofline
 set autoread
-set mouse=
 
 " Indentation
 set nowrap
@@ -38,24 +34,28 @@ set laststatus=2
 set showcmd
 set wildmenu
 set wildmode=longest:full,full
-set title
-
-" set the complete char for mappings
 set wildcharm=<c-z>
-
-" allow backspacing over everything in insert mode
 set backspace=indent,eol,start
+set title
 
 " GUI setup
 if has("gui_running")
-  set guifont=Menlo:h16
-  " Start without toolbar and scrollbars
-  set guioptions=egmc
-  " Turn off cursor blinking
+  silent! colorscheme iceberg
+  set guifont=Monaco:h14
+  " remove scrollbars
+  set guioptions-=r
+  set guioptions-=L
+  " don't use GUI dialogs
+  set guioptions+=c
+  " don't use GUI tabs
+  set guioptions-=e
+  " turn off cursor blinking
   set guicursor+=a:blinkon0
   set columns=90
-  set lines=52
-  colorscheme jellybeans
+  set lines=50
+else
+  let g:jellybeans_use_term_background_color = 1
+  silent! colorscheme jellybeans
 endif
 
 " save backups, undo and swaps in the same dir
@@ -71,27 +71,16 @@ let &directory=s:vim_data_dir
 let &undodir=s:vim_undo_dir
 set undofile
 
-" netrw
 let g:netrw_home = s:vim_data_dir
-
-" gutentags
 let g:gutentags_cache_dir = s:vim_data_dir . "tags"
 
 
 " mappings ---
 
-nnoremap j gj
-nnoremap k gk
-nnoremap gj j
-nnoremap gk k
-
 " files
 cnoremap <expr> %% fnameescape(expand("%:p:h")."/")
 nmap <space>e :edit %%<c-z>
 nmap <space>f :find %%<c-z>**/*
-
-" options
-nnoremap <C-k> :setlocal wrap!<cr>
 
 " buffers
 noremap <space>- :b#<cr>
@@ -124,8 +113,10 @@ nnoremap <space>cb :chdir %:p:h <bar> pwd<cr>
 nnoremap <space>cp :call <SID>CdToRepoRoot()<cr>
 
 " GUI window zoom
-nnoremap <space>wv :set lines=999<cr>
-nnoremap <space>wz :set lines=999 <bar> set columns=999<cr>
+if has("gui_running")
+    nnoremap <space>wv :set lines=999<cr>
+    nnoremap <space>wz :set lines=999 <bar> set columns=999<cr>
+endif
 
 " typos
 cnoremap <expr> X (getcmdtype() is# ':' && empty(getcmdline())) ? 'x' : 'X'
