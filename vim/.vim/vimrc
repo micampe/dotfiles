@@ -85,7 +85,6 @@ nmap <space>f :find %%<c-z>**/*
 " buffers
 noremap <space>- :b#<cr>
 noremap <space>U :ls<cr>:b 
-noremap <silent> <space>bd :call <SID>DeleteCurrentBuffer()<cr>
 
 " fzf
 let g:fzf_layout = { 'down': '10' }
@@ -143,17 +142,6 @@ function! s:CdToRepoRoot() abort
         endif
     endfor
     echo 'No repo root found.'
-endfunction
-
-" delete buffer without closing the window
-function! s:DeleteCurrentBuffer() abort
-  let b = bufnr('%')
-  if buflisted(bufnr('#'))
-    execute 'buffer #'
-  else
-    execute 'bprev'
-  endif
-  execute 'bdelete ' . b
 endfunction
 
 " split help vertically if there’s room
