@@ -10,6 +10,7 @@ set splitright
 set splitbelow
 set nostartofline
 set autoread
+set shell=~/.local/bin/fish
 
 " Indentation
 set nowrap
