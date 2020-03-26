@@ -39,9 +39,11 @@ set wildcharm=<c-z>
 set backspace=indent,eol,start
 set title
 
+autocmd ColorSchemePre PaperColor set background=light
+
 " GUI setup
 if has("gui_running")
-  silent! colorscheme iceberg
+  silent! colorscheme PaperColor
   set guifont=Monaco:h14
   " remove scrollbars
   set guioptions-=r

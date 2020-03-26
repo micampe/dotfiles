@@ -8,6 +8,7 @@ function! PackInit() abort
   " color schemes
   call minpac#add('https://github.com/cocopon/iceberg.vim')
   call minpac#add('https://github.com/nanotech/jellybeans.vim')
+  call minpac#add('https://github.com/NLKNguyen/papercolor-theme')
 
   " syntax
   call minpac#add('https://github.com/georgewitteman/vim-fish')
