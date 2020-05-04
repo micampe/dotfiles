@@ -2,8 +2,8 @@
 
 LOCAL="$HOME/.local"
 BREWS="stow fish tree ack"
-CASKS=""
-STOWS="bin vim fish git shell ack ruby lldb"
+CASKS="macvim fork"
+STOWS="bin vim fish git shell ack ruby lldb ssh"
 
 # exit if any command fails
 set -e
