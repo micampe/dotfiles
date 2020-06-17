@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
 
 LOCAL="$HOME/.local"
-BREWS="stow fish tree ack"
-CASKS="macvim fork"
 STOWS="bin vim fish git shell ack ruby lldb ssh"
 
 # exit if any command fails
@@ -27,20 +25,7 @@ if [[ ! -f $LOCAL/bin/brew ]]; then
 fi
 
 echo "Installing homebrew packages..."
-for pkg in $BREWS; do
-    if ! command -v $pkg >/dev/null 2>&1; then
-        brew install $pkg
-    fi
-done
-
-if [[ -ne $CASKS ]]; then
-    brew tap homebrew/cask
-    for cask in $CASKS; do
-        if ! command -v $cask >/dev/null 2>&1; then
-            brew cask install $cask
-        fi
-    done
-fi
+brew bundle
 
 # dotfiles
 echo "Setting up dotfiles..."
