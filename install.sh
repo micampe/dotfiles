@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 LOCAL="$HOME/.local"
-STOWS="bin vim fish git shell ack ruby lldb ssh"
+STOWS="bin vim fish git shell ack ruby lldb ssh macOS"
 
 # exit if any command fails
 set -e
