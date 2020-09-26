@@ -31,5 +31,5 @@ function! PackInit() abort
   call minpac#add('https://github.com/tpope/vim-vinegar.git')
 endfunction
 
-command! PackUpdate call PackInit() | redraw | call minpac#update('', {'do': 'call minpac#status()'})
+command! PackUpdate call PackInit() | redraw | call minpac#update()
 command! PackClean  call PackInit() | call minpac#clean()
