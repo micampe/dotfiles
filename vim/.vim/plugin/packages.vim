@@ -15,6 +15,14 @@ function! PackInit() abort
   call minpac#add('https://github.com/keith/swift.vim.git')
   call minpac#add('https://github.com/rust-lang/rust.vim.git')
 
+  " vim-lsp
+  " call minpac#add('https://github.com/mattn/vim-lsp-settings.git')
+  call minpac#add('https://github.com/prabirshrestha/asyncomplete-buffer.vim.git')
+  call minpac#add('https://github.com/prabirshrestha/asyncomplete-file.vim.git')
+  call minpac#add('https://github.com/prabirshrestha/asyncomplete-lsp.vim.git')
+  call minpac#add('https://github.com/prabirshrestha/asyncomplete.vim.git')
+  call minpac#add('https://github.com/prabirshrestha/vim-lsp.git')
+
   " plugins
   call minpac#add('https://github.com/junegunn/fzf.git', {'do': { -> fzf#install() }})
   call minpac#add('https://github.com/junegunn/fzf.vim.git')
