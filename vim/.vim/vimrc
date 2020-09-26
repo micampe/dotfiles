@@ -140,11 +140,6 @@ cnoremap <expr> X (getcmdtype() is# ':' && empty(getcmdline())) ? 'x' : 'X'
 cnoremap <expr> Q (getcmdtype() is# ':' && empty(getcmdline())) ? 'q' : 'Q'
 
 
-" commands ---
-
-command! -nargs=1 -complete=help Help call <SID>ShowHelp(<f-args>)
-
-
 " functions ---
 
 " change to the repo-root-directory of the current buffer.
@@ -160,13 +155,4 @@ function! s:CdToRepoRoot() abort
         endif
     endfor
     echo 'No repo root found.'
-endfunction
-
-" split help vertically if there’s room
-function! s:ShowHelp(tag) abort
-  if winheight(0) * 2 < winwidth(0)
-    execute 'vertical help '.a:tag
-  else
-    execute 'help '.a:tag
-  endif
 endfunction
