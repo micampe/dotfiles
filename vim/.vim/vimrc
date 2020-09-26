@@ -55,7 +55,7 @@ if has("gui_running")
   set guioptions-=e
   " turn off cursor blinking
   set guicursor+=a:blinkon0
-  set columns=90
+  set columns=100
   set lines=50
 else
   let g:jellybeans_use_term_background_color = 1
@@ -80,6 +80,19 @@ let g:gutentags_cache_dir = s:vim_data_dir . "tags"
 
 
 " mappings ---
+
+" write file with sudo
+cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
+
+" make section object motions work when { is not at the beginning of the line
+" see :help section
+:map [[ ?{<CR>w99[{
+:map ][ /}<CR>b99]}
+:map ]] j0[[%/{<CR>
+:map [] k$][%?}<CR>
+
+" run make
+nmap <space>b :wa<bar>make!<bar>cw<cr>
 
 " files
 cnoremap <expr> %% fnameescape(expand("%:p:h")."/")
