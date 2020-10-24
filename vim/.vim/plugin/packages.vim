@@ -30,6 +30,7 @@ function! PackInit() abort
   call minpac#add('https://github.com/michaeljsmith/vim-indent-object.git')
   call minpac#add('https://github.com/romainl/vim-cool.git')
   call minpac#add('https://github.com/tpope/vim-commentary.git')
+  call minpac#add('https://github.com/tpope/vim-obsession.git')
   call minpac#add('https://github.com/tpope/vim-repeat.git')
   call minpac#add('https://github.com/tpope/vim-rsi.git')
   call minpac#add('https://github.com/tpope/vim-sensible.git')
