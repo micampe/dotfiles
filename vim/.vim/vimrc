@@ -77,6 +77,7 @@ set undofile
 
 let g:netrw_home = s:vim_data_dir
 let g:gutentags_cache_dir = s:vim_data_dir . "tags"
+let g:gutentags_ctags_executable = $HOME . '/.local/bin/ctags'
 
 
 " mappings ---
