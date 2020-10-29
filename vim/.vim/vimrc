@@ -44,6 +44,7 @@ autocmd ColorSchemePre PaperColor set background=light
 " GUI setup
 if has("gui_running")
   set background=light
+  set cursorline
   silent! colorscheme iceberg
   set guifont=Monaco:h14
   " remove scrollbars
