@@ -43,8 +43,12 @@ autocmd ColorSchemePre PaperColor set background=light
 
 " GUI setup
 if has("gui_running")
-  set background=light
   set cursorline
+  if match(system("defaults read -g AppleInterfaceStyle"), 'dark') >= 0
+    set background=dark
+  else
+    set background=light
+  endif
   silent! colorscheme iceberg
   set guifont=Monaco:h14
   " remove scrollbars
