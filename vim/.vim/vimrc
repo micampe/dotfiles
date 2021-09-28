@@ -87,6 +87,11 @@ let g:gutentags_ctags_executable = $HOME . '/.local/bin/ctags'
 
 " mappings ---
 
+nnoremap j gj
+nnoremap k gk
+nnoremap gj j
+nnoremap gk k
+
 " write file with sudo
 cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
 
