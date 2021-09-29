@@ -111,7 +111,7 @@ nmap <space>e :edit %%<c-z>
 nmap <space>f :find %%<c-z>**/*
 
 " buffers
-noremap <space>- :b#<cr>
+noremap <space>y :b#<cr>
 noremap <space>U :ls<cr>:b 
 
 " fzf
