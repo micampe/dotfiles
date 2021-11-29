@@ -4,7 +4,7 @@ tap "homebrew/core"
 
 brew "ack"
 brew "chisel"
-brew "ctags"
+brew "universal-ctags"
 brew "fish"
 brew "fzf"
 brew "mas"
