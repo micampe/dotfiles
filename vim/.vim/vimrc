@@ -43,7 +43,7 @@ autocmd ColorSchemePre PaperColor set background=light
 
 " GUI setup
 if has("gui_running")
-  set cursorline
+  " color scheme
   let g:xcodedarkhc_dim_punctuation = 1
   if match(system("defaults read -g AppleInterfaceStyle"), 'dark') >= 0
     set background=dark
@@ -52,7 +52,9 @@ if has("gui_running")
     set background=light
     silent! colorscheme xcodelight
   endif
-  set guifont=Monaco:h14
+
+  set guifont=Monaco:h12
+
   " remove scrollbars
   set guioptions-=r
   set guioptions-=L
@@ -64,6 +66,7 @@ if has("gui_running")
   set guicursor+=a:blinkon0
   set columns=100
   set lines=50
+  set cursorline
 else
   let g:jellybeans_use_term_background_color = 1
   silent! colorscheme jellybeans
