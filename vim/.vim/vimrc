@@ -139,8 +139,8 @@ nnoremap <space>u :Buffers<cr>
 nnoremap <space>i :History<cr>
 
 " nN always search in the same direction
-noremap <expr> n 'Nn'[v:searchforward]
-noremap <expr> N 'Nn'[!v:searchforward]
+" noremap <expr> n 'Nn'[v:searchforward]
+" noremap <expr> N 'Nn'[!v:searchforward]
 
 " change current word
 nnoremap c* *Ncgn
