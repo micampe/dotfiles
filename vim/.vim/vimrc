@@ -44,12 +44,14 @@ autocmd ColorSchemePre PaperColor set background=light
 " GUI setup
 if has("gui_running")
   set cursorline
+  let g:xcodedarkhc_dim_punctuation = 1
   if match(system("defaults read -g AppleInterfaceStyle"), 'dark') >= 0
     set background=dark
+    silent! colorscheme xcodedarkhc
   else
     set background=light
+    silent! colorscheme xcodelight
   endif
-  silent! colorscheme iceberg
   set guifont=Monaco:h14
   " remove scrollbars
   set guioptions-=r
