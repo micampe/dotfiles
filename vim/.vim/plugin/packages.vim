@@ -39,6 +39,7 @@ function! PackInit() abort
   call minpac#add('https://github.com/tpope/vim-surround.git')
   call minpac#add('https://github.com/tpope/vim-unimpaired.git')
   call minpac#add('https://github.com/tpope/vim-vinegar.git')
+  call minpac#add('https://github.com/tpope/vim-eunuch.git')
 endfunction
 
 command! PackUpdate call PackInit() | redraw | call minpac#update()

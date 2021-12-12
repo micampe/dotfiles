@@ -98,7 +98,7 @@ nnoremap gj j
 nnoremap gk k
 
 " write file with sudo
-cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
+cnoremap w!! SudoWrite
 
 " make section object motions work when { is not at the beginning of the line
 " see :help section
