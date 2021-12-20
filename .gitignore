@@ -1,8 +1,6 @@
 .DS_Store
 ssh/.ssh/authorized_keys
 ssh/.ssh/known_hosts
-vim/.vim/backup
-vim/.vim/plugin/fzf.vim
 vim/.vim/pack
 ssh/.ssh/*
 macOS/Library/*
