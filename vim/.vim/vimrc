@@ -10,8 +10,11 @@ set splitright
 set splitbelow
 set nostartofline
 set autoread
-set shell=~/.local/bin/fish
 set completeopt=menuone,noinsert,noselect
+
+if executable('fish')
+  set shell=fish
+end
 
 " Indentation
 set nowrap
@@ -87,8 +90,12 @@ let &undodir=s:vim_undo_dir
 set undofile
 
 let g:netrw_home = s:vim_data_dir
-let g:gutentags_cache_dir = s:vim_data_dir . "tags"
-let g:gutentags_ctags_executable = $HOME . '/.local/bin/ctags'
+
+if executable('ctags')
+  let g:gutentags_cache_dir = s:vim_data_dir . "tags"
+else
+  let g:gutentags_enabled = 0
+endif
 
 
 " mappings ---
