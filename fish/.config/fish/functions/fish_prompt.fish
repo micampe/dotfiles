@@ -28,7 +28,6 @@ function _print_in_color
 end
 
 function _prompt_for_status
-  echo -n '\n🐙 '
   if test $argv[1] -eq 0
     echo '❯ '
   else
@@ -50,6 +49,12 @@ function fish_prompt
   _print_in_color "\n"(prompt_pwd) blue
 
   __fish_git_prompt " %s"
+
+  if test "$SSH_CLIENT" = ""
+    printf '\n🐙 '
+  else
+    printf '\n'(whoami)'@'(hostname)' '
+  end
 
   _print_in_color (_prompt_for_status $last_status) (_prompt_color_for_status $last_status)
 end
