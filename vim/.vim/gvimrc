@@ -2,16 +2,19 @@ autocmd ColorSchemePre PaperColor set background=light
 
 if has("gui_macvim")
   " color scheme
-  let g:xcodedarkhc_dim_punctuation = 1
-  if match(system("defaults read -g AppleInterfaceStyle"), 'dark') >= 0
-    set background=dark
-    silent! colorscheme xcodedarkhc
-  else
-    set background=light
-    silent! colorscheme xcodelight
-  endif
+  let g:xcodehc_dim_punctuation = 1
+  silent! colorscheme xcodehc
 
-  set guifont=Monaco:h13
+  func! s:UpdateBackground()
+    if v:os_appearance == 1
+      set background=dark
+    else
+      set background=light
+    endif
+    redraw!
+  endfunc
+
+  autocmd OSAppearanceChanged * call s:UpdateBackground()
 
   " remove scrollbars
   set guioptions-=r
@@ -22,7 +25,9 @@ if has("gui_macvim")
   set guioptions-=e
   " turn off cursor blinking
   set guicursor+=a:blinkon0
+
   set columns=100
   set lines=50
   set cursorline
+  set guifont=Monaco:h13
 end
