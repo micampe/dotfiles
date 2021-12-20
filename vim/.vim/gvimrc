@@ -1,0 +1,28 @@
+autocmd ColorSchemePre PaperColor set background=light
+
+if has("gui_macvim")
+  " color scheme
+  let g:xcodedarkhc_dim_punctuation = 1
+  if match(system("defaults read -g AppleInterfaceStyle"), 'dark') >= 0
+    set background=dark
+    silent! colorscheme xcodedarkhc
+  else
+    set background=light
+    silent! colorscheme xcodelight
+  endif
+
+  set guifont=Monaco:h13
+
+  " remove scrollbars
+  set guioptions-=r
+  set guioptions-=L
+  " don't use GUI dialogs
+  set guioptions+=c
+  " don't use GUI tabs
+  set guioptions-=e
+  " turn off cursor blinking
+  set guicursor+=a:blinkon0
+  set columns=100
+  set lines=50
+  set cursorline
+end

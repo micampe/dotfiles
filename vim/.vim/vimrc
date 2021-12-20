@@ -43,38 +43,8 @@ set wildcharm=<c-z>
 set backspace=indent,eol,start
 set title
 
-autocmd ColorSchemePre PaperColor set background=light
-
-" GUI setup
-if has("gui_running")
-  " color scheme
-  let g:xcodedarkhc_dim_punctuation = 1
-  if match(system("defaults read -g AppleInterfaceStyle"), 'dark') >= 0
-    set background=dark
-    silent! colorscheme xcodedarkhc
-  else
-    set background=light
-    silent! colorscheme xcodelight
-  endif
-
-  set guifont=Monaco:h12
-
-  " remove scrollbars
-  set guioptions-=r
-  set guioptions-=L
-  " don't use GUI dialogs
-  set guioptions+=c
-  " don't use GUI tabs
-  set guioptions-=e
-  " turn off cursor blinking
-  set guicursor+=a:blinkon0
-  set columns=100
-  set lines=50
-  set cursorline
-else
-  let g:jellybeans_use_term_background_color = 1
-  silent! colorscheme jellybeans
-endif
+let g:jellybeans_use_term_background_color = 1
+colorscheme jellybeans
 
 " save backups, undo and swaps in the same dir
 let s:vim_data_dir = $HOME . '/.local/var/vim//'
