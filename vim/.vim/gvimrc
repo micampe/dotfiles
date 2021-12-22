@@ -1,5 +1,9 @@
 autocmd ColorSchemePre PaperColor set background=light
 
+" window zoom
+nnoremap <space>wv :set lines=999<cr>
+nnoremap <space>wz :set lines=999 <bar> set columns=999<cr>
+
 if has("gui_macvim")
   " color scheme
   let g:xcodehc_dim_punctuation = 1

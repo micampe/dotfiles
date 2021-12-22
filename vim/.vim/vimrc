@@ -130,12 +130,6 @@ nnoremap <expr> <silent> 0 col('.') == match(getline('.'),'\S')+1 ? '0' : '^'
 nnoremap <space>cb :chdir %:p:h <bar> pwd<cr>
 nnoremap <space>cp :call <SID>CdToRepoRoot()<cr>
 
-" GUI window zoom
-if has("gui_running")
-    nnoremap <space>wv :set lines=999<cr>
-    nnoremap <space>wz :set lines=999 <bar> set columns=999<cr>
-endif
-
 " typos
 cnoremap <expr> X (getcmdtype() is# ':' && empty(getcmdline())) ? 'x' : 'X'
 cnoremap <expr> Q (getcmdtype() is# ':' && empty(getcmdline())) ? 'q' : 'Q'
