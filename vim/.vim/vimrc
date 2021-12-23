@@ -38,7 +38,11 @@ set ruler
 set laststatus=2
 set showcmd
 set wildmenu
-set wildmode=longest:full,full
+if has("patch-8.1.2225")
+  set wildmode=longest:full:lastused,full
+else
+  set wildmode=longest:full,full
+endif
 set wildcharm=<c-z>
 set backspace=indent,eol,start
 set title
