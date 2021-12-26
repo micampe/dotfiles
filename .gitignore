@@ -4,3 +4,4 @@ ssh/.ssh/known_hosts
 vim/.vim/pack
 ssh/.ssh/*
 macOS/Library/*
+Brewfile.lock.json
