@@ -1,4 +1,4 @@
-function lh --description 'List hidden files only'
+function lh --wraps=ls --description 'List hidden files only'
     if count $argv > /dev/null
         if test -d $argv[1]
             pushd $argv[1]
@@ -10,7 +10,7 @@ function lh --description 'List hidden files only'
         pushd .
     end
     if count .* > /dev/null
-        ls -dlh .*
+        ls -odhtr .*
     end
     popd
 end
