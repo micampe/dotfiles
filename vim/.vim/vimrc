@@ -66,9 +66,9 @@ set undofile
 
 let g:netrw_home = s:vim_data_dir
 
-if executable('ctags')
-  let g:gutentags_cache_dir = s:vim_data_dir . "tags"
-else
+let g:gutentags_ctags_executable = expand('~/.local/bin/ctags')
+let g:gutentags_cache_dir = s:vim_data_dir . "tags"
+if !executable(g:gutentags_ctags_executable)
   let g:gutentags_enabled = 0
 endif
 
