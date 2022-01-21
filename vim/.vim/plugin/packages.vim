@@ -6,7 +6,7 @@ function! PackInit() abort
   call minpac#add('https://github.com/k-takata/minpac.git', {'type': 'opt'})
 
   " color schemes
-  call minpac#add('https://github.com/arzg/vim-colors-xcode.git')
+  call minpac#add('https://github.com/micampe/vim-colors-xcode.git')
 
   " syntax
   call minpac#add('https://github.com/georgewitteman/vim-fish')
