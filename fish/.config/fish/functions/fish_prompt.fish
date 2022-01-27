@@ -53,7 +53,7 @@ function fish_prompt
   if test "$SSH_CLIENT" = ""
     printf '\n🐙 '
   else
-    printf '\n'(whoami)'@'(hostname)' '
+    _print_in_color '\n'(whoami)'@'(hostname)' ' yellow
   end
 
   _print_in_color (_prompt_for_status $last_status) (_prompt_color_for_status $last_status)
