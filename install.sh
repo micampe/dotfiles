@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 LOCAL="$HOME/.local"
+BREW_PREFIX="/opt/homebrew"
 STOWS="bin vim fish git shell ack ruby lldb ssh macOS"
 
 # exit if any command fails
@@ -18,18 +19,17 @@ if [[ -f .gitmodules ]]; then
 fi
 
 # Homebrew
-if [[ ! -f $LOCAL/bin/brew ]]; then
+if [[ ! -f $BREW_PREFIX/bin/brew ]]; then
     echo "Installing homebrew..."
-    mkdir $LOCAL/homebrew && curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C $LOCAL/homebrew
-    ln -s $LOCAL/homebrew/bin/brew $LOCAL/bin
+    bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
 echo "Installing homebrew packages..."
-brew bundle
+$BREW_PREFIX/bin/brew bundle
 
 # dotfiles
 echo "Setting up dotfiles..."
-stow --verbose $STOWS
+$BREW_PREFIX/bin/stow --verbose $STOWS
 
 # Vim
 MINPAC="$HOME/.vim/pack/minpac/opt/minpac"
@@ -40,20 +40,16 @@ fi
 
 echo "Updating vim plugins..."
 sleep 1
-vim +PackUpdate +qall
+vim +PackUpdate
 
 echo "Setting user defaults..."
+
+# Terminall shell
+defaults write com.apple.Terminal Shell /opt/homebrew/bin/fish
 
 # Trackpad dragging and tap to click
 defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerDrag -bool true
 defaults write com.apple.AppleMultitouchTrackpad Clicking -bool true
-
-# Large mouse pointer
-defaults write com.apple.universalaccess mouseDriverCursorSize -float 2.0
-
-# ctrl-scroll to zoom the screen
-defaults write com.apple.universalaccess closeViewScrollWheelToggle -bool true
-defaults write com.apple.universalaccess closeViewSmoothImages -bool false
 
 # Hot Corners
 # Lock Screen
@@ -65,9 +61,6 @@ defaults write com.apple.dock wvous-tl-modifier -int 0
 # Desktop
 defaults write com.apple.dock wvous-br-corner -int 4
 defaults write com.apple.dock wvous-br-modifier -int 0
-# Mission Control
-defaults write com.apple.dock wvous-tr-corner -int 2
-defaults write com.apple.dock wvous-tr-modifier -int 0
 
 # Dock
 defaults write com.apple.dock autohide -bool true

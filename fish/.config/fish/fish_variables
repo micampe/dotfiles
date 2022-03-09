@@ -1,6 +1,8 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
+SETUVAR --export COLORTERM:1
 SETUVAR --export EDITOR:vim
+SETUVAR --export HOMEBREW_NO_INSTALL_UPGRADE:1
 SETUVAR --export LC_ALL:en_US\x2eUTF\x2d8
 SETUVAR --export LESS:\x2d\x2dhilite\x2dunread\x20\x2d\x2dwindow\x3d\x2d4\x20\x2d\x2dquit\x2dif\x2done\x2dscreen\x20\x2d\x2dhilite\x2dsearch\x20\x2d\x2dignore\x2dcase\x20\x2d\x2dLONG\x2dPROMPT\x20\x2d\x2dRAW\x2dCONTROL\x2dCHARS\x20\x2d\x2dno\x2dinit
 SETUVAR --export PAGER:less
@@ -44,4 +46,4 @@ SETUVAR fish_pager_color_completion:normal
 SETUVAR fish_pager_color_description:B3A06D\x1eyellow
 SETUVAR fish_pager_color_prefix:white\x1e\x2d\x2dbold\x1e\x2d\x2dunderline
 SETUVAR fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan
-SETUVAR fish_user_paths:/Users/micampe/\x2ecargo/bin\x1e/Users/micampe/\x2elocal/bin
+SETUVAR fish_user_paths:/Users/micampe/\x2ecargo/bin\x1e/Users/micampe/\x2elocal/bin\x1e/opt/homebrew/bin
