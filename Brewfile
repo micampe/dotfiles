@@ -7,13 +7,13 @@ brew "fd"
 brew "fish"
 brew "fzf"
 brew "mas"
-brew "macvim"
 brew "ripgrep"
 brew "stow"
 brew "tree"
 brew "universal-ctags"
 cask "1password", args: { appdir: "~/Applications" }
 cask "font-sf-mono"
+cask "macvim", args: { appdir: "~/Applications" }
 mas "1Blocker", id: 1365531024
 mas "Classic Color Meter", id: 451640037
 mas "CotEditor", id: 1024640650
