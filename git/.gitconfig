@@ -1,5 +1,7 @@
 [user]
     useConfigOnly = true
+	name = Michele Campeotto
+	email = micampe@micampe.it
 
 [alias]
     ci = commit --verbose
@@ -79,3 +81,5 @@
 
 [diff "plist"]
     textconv = plutil -convert xml1 -o -
+[pull]
+	rebase = true
