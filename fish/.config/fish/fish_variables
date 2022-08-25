@@ -2,6 +2,9 @@
 # VERSION: 3.0
 SETUVAR --export COLORTERM:1
 SETUVAR --export EDITOR:vim
+SETUVAR --export HOMEBREW_CASK_OPTS:\x2d\x2dappdir\x3d\x7e/Applications/
+SETUVAR --export HOMEBREW_DISPLAY_INSTALL_TIMES:1
+SETUVAR --export HOMEBREW_NO_AUTO_UPDATE:1
 SETUVAR --export HOMEBREW_NO_INSTALL_UPGRADE:1
 SETUVAR --export LC_ALL:en_US\x2eUTF\x2d8
 SETUVAR --export LESS:\x2d\x2dhilite\x2dunread\x20\x2d\x2dwindow\x3d\x2d4\x20\x2d\x2dquit\x2dif\x2done\x2dscreen\x20\x2d\x2dhilite\x2dsearch\x20\x2d\x2dignore\x2dcase\x20\x2d\x2dLONG\x2dPROMPT\x20\x2d\x2dRAW\x2dCONTROL\x2dCHARS\x20\x2d\x2dno\x2dinit
