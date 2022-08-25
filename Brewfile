@@ -14,7 +14,7 @@ brew "stow"
 brew "tree"
 brew "universal-ctags"
 
-cask "1password"
+cask "1password", args: { appdir: "/Applications" }
 cask "font-sf-mono"
 cask "fork", args: { appdir: "~/Applications" }
 cask "google-chrome", args: { appdir: "~/Applications" }
