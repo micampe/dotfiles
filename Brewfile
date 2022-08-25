@@ -4,6 +4,7 @@ tap "homebrew/cask-fonts"
 tap "homebrew/core"
 
 brew "ack"
+brew "atool"
 brew "fd"
 brew "fish"
 brew "fzf"
