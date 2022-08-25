@@ -17,9 +17,11 @@ brew "universal-ctags"
 cask "1password"
 cask "font-sf-mono"
 cask "fork", args: { appdir: "~/Applications" }
+cask "google-chrome", args: { appdir: "~/Applications" }
 cask "hex-fiend", args: { appdir: "~/Applications" }
 cask "macvim", args: { appdir: "~/Applications" }
 cask "netnewswire", args: { appdir: "~/Applications" }
+cask "suspicious-package", args: { appdir: "~/Applications" }
 
 mas "1Blocker", id: 1365531024
 mas "Classic Color Meter", id: 451640037
