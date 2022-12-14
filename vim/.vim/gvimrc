@@ -28,7 +28,7 @@ if has("gui_macvim")
   " turn off cursor blinking
   set guicursor+=a:blinkon0
 
-  set columns=100
+  set columns=80
   set lines=50
   set cursorline
   set guifont=Monaco:h13
