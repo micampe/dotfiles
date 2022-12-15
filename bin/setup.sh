@@ -1,22 +1,9 @@
 #!/usr/bin/env bash
 
-LOCAL="$HOME/.local"
 BREW_PREFIX="/opt/homebrew"
-STOWS="bin vim fish git shell ack ruby lldb ssh macOS"
 
 # exit if any command fails
 set -e
-
-if [[ ! -d $LOCAL/bin ]]; then
-    mkdir -p $LOCAL/bin
-fi
-PATH="$LOCAL/bin:$PATH"
-
-# Submodules
-if [[ -f .gitmodules ]]; then
-    echo "Updating dotfiles submodules..."
-    git submodule update --init --recursive
-fi
 
 # Homebrew
 if [[ ! -f $BREW_PREFIX/bin/brew ]]; then
@@ -25,11 +12,10 @@ if [[ ! -f $BREW_PREFIX/bin/brew ]]; then
 fi
 
 echo "Installing homebrew packages..."
-$BREW_PREFIX/bin/brew bundle
+$BREW_PREFIX/bin/brew bundle --file=$(dirname $(realpath $0))/Brewfile
 
 # dotfiles
 echo "Setting up dotfiles..."
-$BREW_PREFIX/bin/stow --verbose $STOWS
 
 # Vim
 MINPAC="$HOME/.vim/pack/minpac/opt/minpac"
@@ -65,11 +51,6 @@ defaults write com.apple.dock wvous-br-modifier -int 0
 # Dock
 defaults write com.apple.dock autohide -bool true
 defaults write com.apple.dock tilesize -int 64
-
-# Spaces
-defaults write com.apple.dock mru-spaces -bool false
-defaults write com.apple.dock expose-group-apps -bool true
-defaults write -g AppleSpacesSwitchOnActivate -bool false
 
 # Keyboard Equivalents
 defaults write -g NSUserKeyEquivalents -dict-add Zoom "@^z"

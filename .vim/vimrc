@@ -47,9 +47,7 @@ set wildcharm=<c-z>
 set backspace=indent,eol,start
 set title
 
-autocmd ColorScheme xcode hi Normal ctermbg=NONE
-autocmd ColorScheme xcode hi EndOfBuffer ctermbg=NONE
-colorscheme xcode
+colorscheme habamax
 
 " save backups, undo and swaps in the same dir
 let s:vim_data_dir = $HOME . '/.local/var/vim//'
