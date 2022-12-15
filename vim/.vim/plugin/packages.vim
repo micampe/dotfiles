@@ -19,11 +19,9 @@ function! PackInit() abort
   " plugins
   call minpac#add('https://github.com/junegunn/fzf.git', {'do': { -> fzf#install() }})
   call minpac#add('https://github.com/junegunn/fzf.vim.git')
-  call minpac#add('https://github.com/ludovicchabant/vim-gutentags.git')
   call minpac#add('https://github.com/michaeljsmith/vim-indent-object.git')
   call minpac#add('https://github.com/romainl/vim-cool.git')
   call minpac#add('https://github.com/tpope/vim-commentary.git')
-  call minpac#add('https://github.com/tpope/vim-obsession.git')
   call minpac#add('https://github.com/tpope/vim-repeat.git')
   call minpac#add('https://github.com/tpope/vim-rsi.git')
   call minpac#add('https://github.com/tpope/vim-sensible.git')
@@ -31,7 +29,6 @@ function! PackInit() abort
   call minpac#add('https://github.com/tpope/vim-surround.git')
   call minpac#add('https://github.com/tpope/vim-unimpaired.git')
   call minpac#add('https://github.com/tpope/vim-vinegar.git')
-  call minpac#add('https://github.com/tpope/vim-eunuch.git')
 endfunction
 
 command! PackUpdate call PackInit() | redraw | call minpac#update()
