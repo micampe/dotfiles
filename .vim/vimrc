@@ -46,6 +46,7 @@ endif
 set wildcharm=<c-z>
 set backspace=indent,eol,start
 set title
+set titlelen=30
 
 colorscheme habamax
 

@@ -1,5 +1,8 @@
 function fish_title
-  set -q argv[1]; or set argv fish
   set -lx fish_prompt_pwd_dir_length 3
-  echo $argv (prompt_pwd)
+  if test (status current-command) = 'fish'
+    echo (prompt_pwd)
+  else
+    echo $argv
+  end
 end
