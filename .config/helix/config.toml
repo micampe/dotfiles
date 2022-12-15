@@ -1,0 +1,22 @@
+# theme = "tokyonight"
+# theme = "onedarker"
+theme = "fleet_dark"
+# theme = "kanagawa"
+# theme = "nightfox"
+
+[editor]
+auto-save = true
+line-number = "relative"
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+
+[keys.normal]
+# https://github.com/LGUG2Z/helix-vim/blob/master/config.toml
+# "{" = ["goto_prev_paragraph", "collapse_selection"]
+# "}" = ["goto_next_paragraph", "collapse_selection"]
+# "0" = "goto_line_start"
+# "$" = "goto_line_end"
+# "G" = "goto_file_end"
+# "%" = "match_brackets"
