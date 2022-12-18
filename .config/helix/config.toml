@@ -1,12 +1,13 @@
-# theme = "tokyonight"
+theme = "tokyonight"
 # theme = "onedarker"
-theme = "fleet_dark"
-# theme = "kanagawa"
+# theme = "fleet_dark"
 # theme = "nightfox"
+# theme = "meliora"
 
 [editor]
 auto-save = true
 line-number = "relative"
+color-modes = true
 
 [editor.cursor-shape]
 insert = "bar"
