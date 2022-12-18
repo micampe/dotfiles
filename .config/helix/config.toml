@@ -13,10 +13,20 @@ insert = "bar"
 normal = "block"
 
 [keys.normal]
-# https://github.com/LGUG2Z/helix-vim/blob/master/config.toml
-# "{" = ["goto_prev_paragraph", "collapse_selection"]
-# "}" = ["goto_next_paragraph", "collapse_selection"]
-# "0" = "goto_line_start"
-# "$" = "goto_line_end"
-# "G" = "goto_file_end"
-# "%" = "match_brackets"
+"{" = ["goto_prev_paragraph", "collapse_selection"]
+"}" = ["goto_next_paragraph", "move_line_down", "collapse_selection"]
+"0" = "goto_first_nonwhitespace"
+"$" = "goto_line_end"
+"F12" = ":tree-sitter-scopes"
+
+[keys.normal."]"]
+"]" = ["goto_next_function", "flip_selections", "collapse_selection"]
+"[" = ["goto_next_function", "collapse_selection"]
+
+[keys.normal."["]
+"]" = ["goto_prev_function", "flip_selections", "collapse_selection"]
+"[" = ["goto_prev_function", "collapse_selection"]
+
+[keys.select]
+"0" = "goto_first_nonwhitespace"
+"$" = "goto_line_end"
