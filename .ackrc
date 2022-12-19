@@ -1,7 +1,0 @@
---color-lineno=dark cyan
---color-match=black on_magenta
---color-filename=cyan
---pager=less
---smart-case
---sort-files
---ignore-file=is:.git
