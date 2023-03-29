@@ -14,8 +14,8 @@ insert = "bar"
 normal = "block"
 
 [keys.normal]
-"{" = ["goto_prev_paragraph", "collapse_selection"]
-"}" = ["goto_next_paragraph", "move_line_down", "collapse_selection"]
+"{" = ["goto_prev_paragraph", "move_line_up", "collapse_selection"]
+"}" = ["goto_next_paragraph", "collapse_selection"]
 "0" = "goto_first_nonwhitespace"
 "$" = "goto_line_end"
 "F12" = ":tree-sitter-scopes"
