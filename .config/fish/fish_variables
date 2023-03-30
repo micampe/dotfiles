@@ -14,13 +14,6 @@ SETUVAR __fish_init_2_39_8:\x1d
 SETUVAR __fish_init_2_3_0:\x1d
 SETUVAR __fish_init_3_x:\x1d
 SETUVAR __fish_initialized:3400
-SETUVAR _fish_abbr__2D_:cd\x20\x2d
-SETUVAR _fish_abbr_extract:atool\x20\x2d\x2dextract\x20\x2d\x2dexplain
-SETUVAR _fish_abbr_l:ls
-SETUVAR _fish_abbr_l1:ls\x20\x2d1
-SETUVAR _fish_abbr_la:ls\x20\x2dA
-SETUVAR _fish_abbr_ll:ls\x20\x2doh
-SETUVAR _fish_abbr_lla:ls\x20\x2doAh
 SETUVAR fish_color_autosuggestion:9C9C9C
 SETUVAR fish_color_cancel:\x2d\x2dreverse
 SETUVAR fish_color_command:F4F4F4
