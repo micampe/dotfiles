@@ -79,6 +79,11 @@ nnoremap k gk
 nnoremap gj j
 nnoremap gk k
 
+" linear history undo
+" https://github.com/zaboople/klonk/blob/master/TheGURQ.md
+nnoremap u :earlier<cr>
+nnoremap <C-r> :later<cr>
+
 " write file with sudo
 cnoremap w!! SudoWrite
 
