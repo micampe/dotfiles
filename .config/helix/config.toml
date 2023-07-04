@@ -1,17 +1,23 @@
-theme = "tokyonight"
-# theme = "onedarker"
-# theme = "fleet_dark"
-# theme = "nightfox"
-# theme = "meliora"
+# theme = "autumn_night"
+# theme = "everforest_dark"
+# theme = "nord"
+theme = "rasmus"
 
 [editor]
 auto-save = true
 line-number = "relative"
 color-modes = true
+scrolloff = 3
+rulers = [ 80, 120 ]
 
 [editor.cursor-shape]
 insert = "bar"
 normal = "block"
+select = "underline"
+
+[editor.lsp]
+display-messages = true
+display-inlay-hints = true
 
 [keys.normal]
 "{" = ["goto_prev_paragraph", "move_line_up", "collapse_selection"]
@@ -28,6 +34,10 @@ normal = "block"
 "]" = ["goto_prev_function", "flip_selections", "collapse_selection"]
 "[" = ["goto_prev_function", "collapse_selection"]
 
+[keys.insert]
+"C-[" = "normal_mode"
+
 [keys.select]
+"C-[" = "normal_mode"
 "0" = "goto_first_nonwhitespace"
 "$" = "goto_line_end"
