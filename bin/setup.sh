@@ -1,58 +1,77 @@
 #!/usr/bin/env bash
 
-BREW_PREFIX="/opt/homebrew"
+# Install: clone this repository in ~/src/dotfiles and then run this file
 
 # exit if any command fails
 set -e
 
-# Homebrew
-if [[ ! -f $BREW_PREFIX/bin/brew ]]; then
-    echo "Installing homebrew..."
-    bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+if [[ ! -d $HOME/src/dotfiles/.git ]]; then
+    echo "dotfiles not at ~/src/dotfiles or not a git repository"
+    exit 1
 fi
-
-echo "Installing homebrew packages..."
-$BREW_PREFIX/bin/brew bundle --file=$(dirname $(realpath $0))/Brewfile
 
 # dotfiles
-echo "Setting up dotfiles..."
+printf "\nSetting up dotfiles...\n"
+DOTFILES="git --git-dir=$HOME/src/dotfiles/.git --work-tree=$HOME "
+$DOTFILES checkout --quiet master
 
 # Vim
+printf "\nSetting up vim...\n"
 MINPAC="$HOME/.vim/pack/minpac/opt/minpac"
 if [[ ! -d $MINPAC && ! -L $MINPAC ]]; then
-    echo "Installing vim package manager..."
+    printf "Installing vim package manager...\n"
     git clone https://github.com/k-takata/minpac.git ~/.vim/pack/minpac/opt/minpac
+else
+    printf "minpac already installed\n"
 fi
 
-echo "Updating vim plugins..."
+printf "\nUpdating vim plugins...\n"
 sleep 1
 vim +PackUpdate
 
-echo "Setting user defaults..."
+# Homebrew
+printf "\n"
+if [[ $(uname) = "Darwin" ]]; then
+    BREW_PREFIX="/opt/homebrew"
+    if [[ ! -f $BREW_PREFIX/bin/brew ]]; then
+    	printf "Installing homebrew...\n"
+    	bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    else
+    	printf "homebrew already installed\n"
+    fi
 
-# Terminall shell
-defaults write com.apple.Terminal Shell /opt/homebrew/bin/fish
+    printf "Installing homebrew packages...\n"
+    $BREW_PREFIX/bin/brew bundle --file=$(dirname $(realpath $0))/Brewfile
+fi
 
-# Trackpad dragging and tap to click
-defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerDrag -bool true
-defaults write com.apple.AppleMultitouchTrackpad Clicking -bool true
+# macOS user defaults
+if [[ $(uname) = "Darwin" ]]; then
+    printf "\nSetting user defaults...\n"
 
-# Hot Corners
-# Lock Screen
-defaults write com.apple.dock wvous-bl-corner -int 13
-defaults write com.apple.dock wvous-bl-modifier -int 0
-# Disable Screen Saver
-defaults write com.apple.dock wvous-tl-corner -int 6
-defaults write com.apple.dock wvous-tl-modifier -int 0
-# Desktop
-defaults write com.apple.dock wvous-br-corner -int 4
-defaults write com.apple.dock wvous-br-modifier -int 0
+    # Terminall shell
+    defaults write com.apple.Terminal Shell /opt/homebrew/bin/fish
 
-# Dock
-defaults write com.apple.dock autohide -bool true
-defaults write com.apple.dock tilesize -int 64
+    # Trackpad dragging and tap to click
+    defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerDrag -bool true
+    defaults write com.apple.AppleMultitouchTrackpad Clicking -bool true
 
-# Keyboard Equivalents
-defaults write -g NSUserKeyEquivalents -dict-add Zoom "@^z"
+    # Hot Corners
+    # Lock Screen
+    defaults write com.apple.dock wvous-bl-corner -int 13
+    defaults write com.apple.dock wvous-bl-modifier -int 0
+    # Disable Screen Saver
+    defaults write com.apple.dock wvous-tl-corner -int 6
+    defaults write com.apple.dock wvous-tl-modifier -int 0
+    # Desktop
+    defaults write com.apple.dock wvous-br-corner -int 4
+    defaults write com.apple.dock wvous-br-modifier -int 0
 
-echo "Some defaults require the session to be restarted."
+    # Dock
+    defaults write com.apple.dock autohide -bool true
+    defaults write com.apple.dock tilesize -int 64
+
+    # Keyboard Equivalents
+    defaults write -g NSUserKeyEquivalents -dict-add Zoom "@^z"
+
+    echo "Some defaults require the session to be restarted."
+fi
