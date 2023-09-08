@@ -107,7 +107,7 @@ noremap <space>U :ls<cr>:b
 let g:fzf_layout= {
   \ 'window': { 
     \ 'width': 90,
-    \ 'height': 12,
+    \ 'height': 20,
     \ }
   \ }
 
