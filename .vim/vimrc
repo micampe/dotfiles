@@ -3,6 +3,11 @@
 syntax on
 filetype plugin indent on
 
+" color scheme
+let g:xcodehc_dim_punctuation = 1
+colorscheme xcodehc
+autocmd ColorScheme * highlight Normal ctermbg=None
+
 set encoding=utf-8
 set scrolloff=1
 set hidden
@@ -47,8 +52,6 @@ set wildcharm=<c-z>
 set backspace=indent,eol,start
 set title
 set titlelen=30
-
-colorscheme habamax
 
 " save backups, undo and swaps in the same dir
 let s:vim_data_dir = $HOME . '/.local/var/vim//'

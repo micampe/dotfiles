@@ -2,10 +2,23 @@
 nnoremap <space>wv :set lines=999<cr>
 nnoremap <space>wz :set lines=999 <bar> set columns=999<cr>
 
+" remove scrollbars
+set guioptions-=rL
+" remove toolbar
+set guioptions-=T
+" don't use GUI dialogs
+set guioptions+=c
+" don't use GUI tabs
+set guioptions-=e
+" turn off cursor blinking
+set guicursor+=a:blinkon0
+
+set columns=80
+set lines=50
+set cursorline
+
 if has("gui_macvim")
-  " color scheme
-  let g:xcodehc_dim_punctuation = 1
-  silent! colorscheme xcodehc
+  set guifont=Monaco:h13
 
   func! s:UpdateBackground()
     if v:os_appearance == 1
@@ -17,19 +30,5 @@ if has("gui_macvim")
   endfunc
 
   autocmd OSAppearanceChanged * call s:UpdateBackground()
-
-  " remove scrollbars
-  set guioptions-=r
-  set guioptions-=L
-  " don't use GUI dialogs
-  set guioptions+=c
-  " don't use GUI tabs
-  set guioptions-=e
-  " turn off cursor blinking
-  set guicursor+=a:blinkon0
-
-  set columns=80
-  set lines=50
-  set cursorline
-  set guifont=Monaco:h13
 end
+
