@@ -1,6 +1,5 @@
-" window zoom
-nnoremap <space>wv :set lines=999<cr>
-nnoremap <space>wz :set lines=999 <bar> set columns=999<cr>
+set guifont=Monaco:h13
+set cursorline
 
 " remove scrollbars
 set guioptions-=rL
@@ -13,12 +12,10 @@ set guioptions-=e
 " turn off cursor blinking
 set guicursor+=a:blinkon0
 
-set columns=80
-set lines=50
-set cursorline
-
 if has("gui_macvim")
-  set guifont=Monaco:h13
+  " window zoom
+  nnoremap <space>wv :set lines=999<cr>
+  nnoremap <space>wz :set lines=999 <bar> set columns=999<cr>
 
   func! s:UpdateBackground()
     if v:os_appearance == 1
@@ -29,6 +26,6 @@ if has("gui_macvim")
     redraw!
   endfunc
 
-  autocmd OSAppearanceChanged * call s:UpdateBackground()
+  autocmd! OSAppearanceChanged * call s:UpdateBackground()
 end
 
