@@ -53,22 +53,24 @@ set backspace=indent,eol,start
 set title
 set titlelen=30
 
-" save backups, undo and swaps in the same dir
 let s:vim_data_dir = $HOME . '/.local/var/vim//'
-let s:vim_undo_dir = s:vim_data_dir . 'undo//'
+if !has('nvim')
+  " save backups, undo and swaps in the same dir
+  let s:vim_undo_dir = s:vim_data_dir . 'undo//'
 
-if !isdirectory(s:vim_undo_dir)
-  call mkdir(s:vim_undo_dir, 'p')
+  if !isdirectory(s:vim_undo_dir)
+    call mkdir(s:vim_undo_dir, 'p')
+  endif
+
+  let &backupdir=s:vim_data_dir
+  let &directory=s:vim_data_dir
+  let &undodir=s:vim_undo_dir
 endif
-
-let &backupdir=s:vim_data_dir
-let &directory=s:vim_data_dir
-let &undodir=s:vim_undo_dir
 set undofile
 
 let g:netrw_home = s:vim_data_dir
 
-let g:gutentags_ctags_executable = expand('~/.local/bin/ctags')
+let g:gutentags_ctags_executable = exepath('ctags')
 let g:gutentags_cache_dir = s:vim_data_dir . "tags"
 if !executable(g:gutentags_ctags_executable)
   let g:gutentags_enabled = 0
