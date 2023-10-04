@@ -4,9 +4,12 @@ syntax on
 filetype plugin indent on
 
 " color scheme
+if !has('gui_running')
+  autocmd ColorScheme * highlight Normal ctermbg=None
+endif
+
 let g:xcodehc_dim_punctuation = 1
 colorscheme xcodehc
-autocmd ColorScheme * highlight Normal ctermbg=None
 
 set encoding=utf-8
 set scrolloff=1
