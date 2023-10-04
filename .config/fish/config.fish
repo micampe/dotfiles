@@ -1,5 +1,5 @@
 abbr -a -- www 'python3 -m http.server'
-abbr -a -- extract 'atool --extract --explain'
+abbr -a -- rsync 'rsync -aihz --exclude .DS_Store --stats'
 
 abbr -a -- - 'cd -'
 
