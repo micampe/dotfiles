@@ -1,35 +1,33 @@
 function! PackInit() abort
   packadd minpac
-  call minpac#init({'status_open': 'horizontal'})
-
-  " minpac
-  call minpac#add('https://github.com/k-takata/minpac.git', {'type': 'opt'})
+  call minpac#init()
 
   " color schemes
-  call minpac#add('https://github.com/lunacookies/vim-colors-xcode')
+  call minpac#add('lunacookies/vim-colors-xcode')
 
   " syntax
-  call minpac#add('https://github.com/georgewitteman/vim-fish')
-  call minpac#add('https://github.com/keith/swift.vim.git')
-  call minpac#add('https://github.com/rust-lang/rust.vim.git')
+  call minpac#add('georgewitteman/vim-fish')
+  call minpac#add('keith/swift.vim')
+  call minpac#add('rust-lang/rust.vim')
 
   " completion
-  call minpac#add('https://github.com/lifepillar/vim-mucomplete.git')
+  call minpac#add('lifepillar/vim-mucomplete')
 
   " plugins
-  call minpac#add('https://github.com/junegunn/fzf.git', {'do': { -> fzf#install() }})
-  call minpac#add('https://github.com/junegunn/fzf.vim.git')
-  call minpac#add('https://github.com/michaeljsmith/vim-indent-object.git')
-  call minpac#add('https://github.com/romainl/vim-cool.git')
-  call minpac#add('https://github.com/tpope/vim-commentary.git')
-  call minpac#add('https://github.com/tpope/vim-repeat.git')
-  call minpac#add('https://github.com/tpope/vim-rsi.git')
-  call minpac#add('https://github.com/tpope/vim-sensible.git')
-  call minpac#add('https://github.com/tpope/vim-sleuth.git')
-  call minpac#add('https://github.com/tpope/vim-surround.git')
-  call minpac#add('https://github.com/tpope/vim-unimpaired.git')
-  call minpac#add('https://github.com/tpope/vim-vinegar.git')
+  call minpac#add('junegunn/fzf', {'do': { -> fzf#install() }})
+  call minpac#add('junegunn/fzf.vim')
+  call minpac#add('michaeljsmith/vim-indent-object')
+  call minpac#add('romainl/vim-cool')
+  call minpac#add('tpope/vim-commentary')
+  call minpac#add('tpope/vim-repeat')
+  call minpac#add('tpope/vim-rsi')
+  call minpac#add('tpope/vim-sensible')
+  call minpac#add('tpope/vim-sleuth')
+  call minpac#add('tpope/vim-surround')
+  call minpac#add('tpope/vim-unimpaired')
+  call minpac#add('tpope/vim-vinegar')
 endfunction
 
 command! PackUpdate call PackInit() | redraw | call minpac#update()
 command! PackClean  call PackInit() | call minpac#clean()
+command! PackStatus call PackInit() | call minpac#status()
