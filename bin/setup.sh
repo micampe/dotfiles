@@ -42,6 +42,8 @@ if [[ $(uname) = "Darwin" ]]; then
 
     printf "Installing homebrew packages...\n"
     $BREW_PREFIX/bin/brew bundle --file=$(dirname $(realpath $0))/Brewfile
+    printf "Adding homebrew bin to $PATH\n"
+    sudo launchctl config user path "$(brew --prefix)/bin:${PATH}"
 fi
 
 # macOS user defaults
