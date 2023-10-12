@@ -68,6 +68,7 @@ if !has('nvim')
   let &backupdir=s:vim_data_dir
   let &directory=s:vim_data_dir
   let &undodir=s:vim_undo_dir
+  let &viminfofile=s:vim_data_dir . '/viminfo'
 endif
 set undofile
 
