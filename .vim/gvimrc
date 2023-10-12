@@ -1,5 +1,4 @@
 set guifont=InputMono-Regular:h13
-set cursorline
 
 " remove scrollbars
 set guioptions-=rL
@@ -28,4 +27,3 @@ if has("gui_macvim")
 
   autocmd! OSAppearanceChanged * call s:UpdateBackground()
 end
-
