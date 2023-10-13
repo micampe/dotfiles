@@ -91,10 +91,14 @@ cnoremap w!! SudoWrite
 
 " make section object motions work when { is not at the beginning of the line
 " see :help section
-:map [[ ?{<CR>w99[{
-:map ][ /}<CR>b99]}
-:map ]] j0[[%/{<CR>
-:map [] k$][%?}<CR>
+map [[ ?{<CR>w99[{
+map ][ /}<CR>b99]}
+map ]] j0[[%/{<CR>
+map [] k$][%?}<CR>
+
+" zoom current window into a tab instad of using :only to allow zoom out
+nnoremap <c-w>o :tab split<cr>
+tnoremap <c-w>o <c-w>:tab split<cr>
 
 " files
 cnoremap <expr> %% fnameescape(expand("%:p:h")."/")
