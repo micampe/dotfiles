@@ -46,6 +46,13 @@ if [[ $(uname) = "Darwin" ]]; then
     sudo launchctl config user path "$(brew --prefix)/bin:${PATH}"
 fi
 
+FISH_PATH=$(command -a fish)
+if [[ -n ${FISH_PATH} ]]; then
+    printf "Adding fish to /etc/shells\n"
+    echo ${FISH_PATH} | sudo tee -a /etc/shells
+    chsh -s ${FISH_PATH}
+fi
+
 # macOS user defaults
 if [[ $(uname) = "Darwin" ]]; then
     printf "\nSetting user defaults...\n"
