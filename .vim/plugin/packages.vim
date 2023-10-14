@@ -19,6 +19,7 @@ function! PackInit() abort
   call minpac#add('michaeljsmith/vim-indent-object')
   call minpac#add('romainl/vim-cool')
   call minpac#add('tpope/vim-commentary')
+  call minpac#add('tpope/vim-eunuch')
   call minpac#add('tpope/vim-repeat')
   call minpac#add('tpope/vim-rsi')
   call minpac#add('tpope/vim-sensible')
