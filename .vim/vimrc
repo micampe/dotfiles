@@ -3,13 +3,10 @@
 syntax on
 filetype plugin indent on
 
-" color scheme
-if !has('gui_running')
-  autocmd ColorScheme * highlight Normal ctermbg=None
-endif
-
-let g:xcodehc_dim_punctuation = 1
-colorscheme xcodehc
+colorscheme sorbet
+" colorscheme xcodehc
+" colorscheme quiet
+" colorscheme lunaperche
 
 set encoding=utf-8
 set scrolloff=1
@@ -19,10 +16,6 @@ set splitbelow
 set nostartofline
 set autoread
 set completeopt=menuone,noinsert,noselect
-
-if executable('fish')
-  set shell=fish
-end
 
 " Indentation
 set nowrap
@@ -108,21 +101,6 @@ nmap <space>f :find %%<c-z>**/*
 " buffers
 noremap <space><space> :b#<cr>
 noremap <space>U :ls<cr>:b 
-
-" fzf
-let g:fzf_layout= {
-  \ 'window': { 
-    \ 'width': 90,
-    \ 'height': 20,
-    \ }
-  \ }
-
-let g:fzf_preview_window = ''
-
-nnoremap <space>o :Files<cr>
-nnoremap <space>O :GFiles<cr>
-nnoremap <space>u :Buffers<cr>
-nnoremap <space>i :History<cr>
 
 " change current word
 nnoremap c* *Ncgn
