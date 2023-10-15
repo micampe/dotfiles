@@ -6,7 +6,7 @@ function! PackInit() abort
   call minpac#add('lunacookies/vim-colors-xcode')
 
   " syntax
-  call minpac#add('georgewitteman/vim-fish')
+  call minpac#add('khaveesh/vim-fish-syntax')
   call minpac#add('keith/swift.vim')
   call minpac#add('rust-lang/rust.vim')
 
