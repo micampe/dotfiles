@@ -1,3 +1,4 @@
+" colorscheme sorbet
 set guifont=InputMono-Regular:h13
 
 " remove scrollbars
@@ -22,8 +23,7 @@ if has("gui_macvim")
     else
       set background=light
     endif
-    redraw!
   endfunc
 
-  autocmd! OSAppearanceChanged * call s:UpdateBackground()
+  " autocmd! OSAppearanceChanged * call s:UpdateBackground()
 end

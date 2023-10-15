@@ -3,10 +3,11 @@
 syntax on
 filetype plugin indent on
 
-colorscheme sorbet
+let g:xcodehc_dim_punctuation = 1
 " colorscheme xcodehc
+" colorscheme sorbet
 " colorscheme quiet
-" colorscheme lunaperche
+colorscheme lunaperche
 
 set encoding=utf-8
 set scrolloff=1
