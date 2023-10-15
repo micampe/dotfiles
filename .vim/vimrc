@@ -16,6 +16,7 @@ set splitbelow
 set nostartofline
 set autoread
 set completeopt=menuone,noinsert,noselect
+set undofile
 
 " Indentation
 set nowrap
@@ -45,21 +46,22 @@ set backspace=indent,eol,start
 set title
 set titlelen=30
 
-let s:vim_data_dir = $HOME . '/.local/var/vim//'
-if !has('nvim')
-  " save backups, undo and swaps in the same dir
-  let s:vim_undo_dir = s:vim_data_dir . 'undo//'
+" save backups, undo and swaps in the same dir
+let s:vim_data_dir = $HOME . '/.local/var/vim/'
+let &backupdir=s:vim_data_dir . 'backup//'
+let &directory=s:vim_data_dir . 'swap//'
+let &undodir=s:vim_data_dir . 'undo//'
+let &viminfofile=s:vim_data_dir . 'viminfo'
 
-  if !isdirectory(s:vim_undo_dir)
-    call mkdir(s:vim_undo_dir, 'p')
-  endif
-
-  let &backupdir=s:vim_data_dir
-  let &directory=s:vim_data_dir
-  let &undodir=s:vim_undo_dir
-  let &viminfofile=s:vim_data_dir . '/viminfo'
+if !isdirectory(&backupdir)
+  call mkdir(&backupdir, 'p')
 endif
-set undofile
+if !isdirectory(&directory)
+  call mkdir(&directory, 'p')
+endif
+if !isdirectory(&undodir)
+  call mkdir(&undodir, 'p')
+endif
 
 let g:netrw_home = s:vim_data_dir
 
