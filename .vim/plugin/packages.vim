@@ -1,6 +1,11 @@
 function! PackInit() abort
   packadd minpac
-  call minpac#init()
+  " init
+  if has('nvim')
+    call minpac#init({'dir': $HOME . '/.config/nvim'})
+  else
+    call minpac#init()
+  endif
 
   " color schemes
   call minpac#add('lunacookies/vim-colors-xcode')
