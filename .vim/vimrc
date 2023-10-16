@@ -123,16 +123,13 @@ cnoremap <expr> Q (getcmdtype() is# ':' && empty(getcmdline())) ? 'q' : 'Q'
 " functions ---
 
 " change to the repo-root-directory of the current buffer.
-let g:markers = split('.git')
 function! s:CdToRepoRoot() abort
-    for marker in g:markers
-        let root = finddir(marker, expand('%:p:h') . ';')
-        if !empty(root)
-            let root = fnamemodify(root, ':h')
-            execute('chdir ' . root)
-            echo 'cd ' . root . ' (found ' . marker . ')'
-            return
-        endif
-    endfor
-    echo 'No repo root found.'
+  let root = finddir('.git', expand('%:p:h') . ';' . $HOME)
+  if !empty(root)
+    let root = fnamemodify(root, ':h')
+    execute('chdir ' . root)
+    echo 'cd' root
+  else
+    echo 'Not in a git repository.'
+  endif
 endfunction
