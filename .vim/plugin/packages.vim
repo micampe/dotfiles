@@ -21,6 +21,7 @@ function! PackInit() abort
   " plugins
   call minpac#add('junegunn/fzf', {'do': { -> fzf#install() }})
   call minpac#add('junegunn/fzf.vim')
+  call minpac#add('machakann/vim-highlightedyank')
   call minpac#add('michaeljsmith/vim-indent-object')
   call minpac#add('romainl/vim-cool')
   call minpac#add('tpope/vim-commentary')
