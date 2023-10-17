@@ -1,19 +1,18 @@
 #!/usr/bin/env bash
 
-# Install: clone this repository in ~/src/dotfiles and then run this file
+# Install:
+# curl -L https://github.com/micampe/dotfiles/raw/master/bin/setup.sh | bash
 
-# exit if any command fails
-set -e
-
-if [[ ! -d $HOME/src/dotfiles/.git ]]; then
-    echo "dotfiles not at ~/src/dotfiles or not a git repository"
-    exit 1
-fi
+set -o errexit
+# set -o verbose
 
 # dotfiles
-printf "\nSetting up dotfiles...\n"
-DOTFILES="git --git-dir=$HOME/src/dotfiles/.git --work-tree=$HOME "
-$DOTFILES checkout --quiet master
+printf "Setting up dotfiles...\n"
+GITDIR=$HOME/src/dotfiles.git
+WORKTREE=$HOME
+mkdir -p $GITDIR
+git clone --bare --quiet git@github.com:micampe/dotfiles $GITDIR
+git --git-dir=$GITDIR --work-tree=$WORKTREE reset --quiet master
 
 # Vim
 printf "\nSetting up vim...\n"
