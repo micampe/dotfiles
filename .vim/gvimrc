@@ -13,9 +13,12 @@ set guioptions-=e
 set guicursor+=a:blinkon0
 
 if has("gui_macvim")
+  set lines=42
+  set columns=86
   " window zoom
   nnoremap <space>wv :set lines=999<cr>
   nnoremap <space>wz :set lines=999 <bar> set columns=999<cr>
+  nnoremap <space>ww :set lines=42 <bar> set columns=86<cr>
 
   func! s:UpdateBackground()
     if v:os_appearance == 1
