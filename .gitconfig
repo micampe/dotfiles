@@ -1,7 +1,7 @@
 [user]
     useConfigOnly = true
-	name = Michele Campeotto
-	email = micampe@micampe.it
+    name = Michele Campeotto
+    email = micampe@micampe.it
 
 [alias]
     ci = commit --verbose
@@ -43,9 +43,6 @@
 [pretty]
     color = "format:%Cred%h%C(yellow)%d %Cblue%an %Cgreen%cr%Creset %s"
 
-[diff]
-    algorithm = patience
-
 [core]
     excludesFile = ~/.gitignore-global
     attributesFile = ~/.gitattributes-global
@@ -82,4 +79,4 @@
 [diff "plist"]
     textconv = plutil -convert xml1 -o -
 [pull]
-	rebase = true
+    rebase = true
