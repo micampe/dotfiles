@@ -46,13 +46,7 @@
 [core]
     excludesFile = ~/.gitignore-global
     attributesFile = ~/.gitattributes-global
-
-[color]
-    ui = auto
-    diff = auto
-    status = auto
-    branch = auto
-    interactive = auto
+    pager = diff-so-fancy | less --tabs=4 -RFX
 
 [credential]
     helper = osxkeychain
@@ -80,3 +74,18 @@
     textconv = plutil -convert xml1 -o -
 [pull]
     rebase = true
+
+[interactive]
+    diffFilter = diff-so-fancy --patch
+[color "diff-highlight"]
+    oldNormal = 160
+    oldHighlight = 196 52
+    newNormal = 40
+    newHighlight = 40 22
+[color "diff"]
+    meta = yellow
+    frag = 169 bold
+    commit = yellow bold
+    old = 160
+    new = 40
+    whitespace = 160
