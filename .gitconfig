@@ -4,8 +4,7 @@
     email = micampe@micampe.it
 
 [alias]
-    ci = commit --verbose
-    ca = commit --verbose --all
+    ci = commit
     co = checkout
     st = status --short --branch
     ff = merge --ff-only
@@ -48,6 +47,9 @@
     attributesFile = ~/.gitattributes-global
     pager = diff-so-fancy | less --tabs=4 -RFX
 
+[commit]
+    verbose = true
+
 [credential]
     helper = osxkeychain
 
@@ -60,6 +62,7 @@
 
 [status]
     submoduleSummary = true
+    relativePaths = false
 
 [mergetool]
     prompt = false
