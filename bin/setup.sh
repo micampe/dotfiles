@@ -12,6 +12,9 @@ GITDIR=$HOME/src/dotfiles.git
 WORKTREE=$HOME
 mkdir -p $GITDIR
 git clone --bare --quiet git@github.com:micampe/dotfiles $GITDIR
+# bare clone doesn't set the default fetch refspec
+# https://stackoverflow.com/questions/47192444/git-branch-all-not-showing-remote-branch
+git --git-dir=$GITDIR config remote.origin.fetch '+refs/heads/*:refs/remotes/origin/*'
 git --git-dir=$GITDIR --work-tree=$WORKTREE reset --quiet master
 
 # Vim
