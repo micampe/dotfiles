@@ -6,16 +6,18 @@
 set -o errexit
 # set -o verbose
 
+SCRIPT_PATH="$(dirname "$(realpath "$0")")"
+
 # dotfiles
 printf "Setting up dotfiles...\n"
 GITDIR=$HOME/src/dotfiles.git
 WORKTREE=$HOME
-mkdir -p $GITDIR
-git clone --bare --quiet git@github.com:micampe/dotfiles $GITDIR
+mkdir -p "$GITDIR"
+git clone --bare --quiet git@github.com:micampe/dotfiles "$GITDIR"
 # bare clone doesn't set the default fetch refspec
 # https://stackoverflow.com/questions/47192444/git-branch-all-not-showing-remote-branch
-git --git-dir=$GITDIR config remote.origin.fetch '+refs/heads/*:refs/remotes/origin/*'
-git --git-dir=$GITDIR --work-tree=$WORKTREE reset --quiet master
+git --git-dir="$GITDIR" config remote.origin.fetch '+refs/heads/*:refs/remotes/origin/*'
+git --git-dir="$GITDIR" --work-tree="$WORKTREE" reset --quiet master
 
 # Vim
 printf "\nSetting up vim...\n"
@@ -43,16 +45,16 @@ if [[ $(uname) = "Darwin" ]]; then
     fi
 
     printf "Installing homebrew packages...\n"
-    $BREW_PREFIX/bin/brew bundle --file=$(dirname $(realpath $0))/Brewfile
-    printf "Adding homebrew bin to $PATH\n"
+    $BREW_PREFIX/bin/brew bundle --file="$SCRIPT_PATH"/Brewfile
+    printf "Adding homebrew bin to %s\n" "$PATH"
     sudo launchctl config user path "$(brew --prefix)/bin:${PATH}"
 fi
 
 FISH_PATH=$(command -a fish)
-if [[ -n ${FISH_PATH} ]]; then
+if [[ -n "$FISH_PATH" ]]; then
     printf "Adding fish to /etc/shells\n"
-    echo ${FISH_PATH} | sudo tee -a /etc/shells
-    chsh -s ${FISH_PATH}
+    echo "$FISH_PATH" | sudo tee -a /etc/shells
+    chsh -s "$FISH_PATH"
 fi
 
 # macOS user defaults
