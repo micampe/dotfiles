@@ -4,7 +4,6 @@ function fish_title
   if test (status current-command) = 'fish'
     echo (prompt_pwd)
   else if test "(string length $argv) -gt $max_title_len"
-    # why can't I use the variable here?
     set -l ellipsis \u2026
     set -l title (string trim (string sub -l $max_title_len $argv))$ellipsis
     echo $title
