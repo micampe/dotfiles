@@ -112,6 +112,10 @@ nnoremap <expr> <silent> 0 col('.') == match(getline('.'),'\S')+1 ? '0' : '^'
 nnoremap <space>cb :chdir %:p:h <bar> pwd<cr>
 nnoremap <space>cp :call <SID>CdToRepoRoot()<cr>
 
+" paste by selecting a register
+nnoremap "p :reg <bar> silent exec 'normal! "'.input('>').'p'<CR>
+nnoremap "P :reg <bar> silent exec 'normal! "'.input('>').'P'<CR>
+
 " typos
 cnoremap <expr> X (getcmdtype() is# ':' && empty(getcmdline())) ? 'x' : 'X'
 cnoremap <expr> Q (getcmdtype() is# ':' && empty(getcmdline())) ? 'q' : 'Q'
