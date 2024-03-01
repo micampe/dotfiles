@@ -23,7 +23,7 @@ function fish_prompt
   set -l status_color (set_color magenta)
   set -l login_color (set_color yellow)
   set -l suffix '❯ '
-  set -l prefix '🐙 '
+  set -l prefix ''
 
   set -lx fish_prompt_pwd_dir_length 0
 
