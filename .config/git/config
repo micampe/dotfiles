@@ -43,9 +43,11 @@
     color = "format:%Cred%h%C(yellow)%d %Cblue%an %Cgreen%cr%Creset %s"
 
 [core]
-    excludesFile = ~/.gitignore-global
-    attributesFile = ~/.gitattributes-global
+    excludesFile = ~/.config/git/gitignore-global
+    attributesFile = ~/.config/git/attributes-global
     pager = diff-so-fancy | less --tabs=4 -RFX
+    # this is a workaround for git-fuzzy
+    editor = vim < /dev/tty
 
 [commit]
     verbose = true
@@ -62,7 +64,6 @@
 
 [status]
     submoduleSummary = true
-    relativePaths = false
 
 [mergetool]
     prompt = false
