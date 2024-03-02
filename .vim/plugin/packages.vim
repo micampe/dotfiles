@@ -7,6 +7,9 @@ function! PackInit() abort
     call minpac#init()
   endif
 
+  " color schemes
+  call minpac#add('lifepillar/vim-colortemplate')
+
   " syntax
   call minpac#add('khaveesh/vim-fish-syntax')
   call minpac#add('keith/swift.vim')

@@ -120,6 +120,8 @@ nnoremap "P :reg <bar> silent exec 'normal! "'.input('>').'P'<CR>
 cnoremap <expr> X (getcmdtype() is# ':' && empty(getcmdline())) ? 'x' : 'X'
 cnoremap <expr> Q (getcmdtype() is# ':' && empty(getcmdline())) ? 'q' : 'Q'
 
+" use vim-colortemplate to show highlight info
+nnoremap <space>h :<c-u>call colortemplate#syn#toggle()<cr>
 
 " functions ---
 
