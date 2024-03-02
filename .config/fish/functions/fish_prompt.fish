@@ -3,7 +3,7 @@
 # Git prompt
 set __fish_git_prompt_showdirtystate 'yes'
 set __fish_git_prompt_showupstream 'yes'
-set __fish_git_prompt_color_branch 242
+set __fish_git_prompt_color_branch brblack
 set __fish_git_prompt_color_dirtystate yellow
 set __fish_git_prompt_color_stagedstate green
 set __fish_git_prompt_color_upstream cyan
