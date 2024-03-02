@@ -13,14 +13,16 @@ if &background ==# 'dark'
 else
   hi Comment guifg=#626262 ctermfg=8 gui=none cterm=none
   hi Constant guifg=#000000 ctermfg=0
-  hi Normal guifg=#525252
+  hi Normal guifg=#303030
   hi PreProc guifg=#0087d7 ctermfg=4
   hi Special guifg=#008787 ctermfg=6
   hi Statement guifg=#000000 ctermfg=0 gui=bold cterm=bold
   hi String guifg=#d78700 ctermfg=3 gui=none cterm=none
 endif
 
+hi! link Type Statement
 hi link gitConfigDelim String
 hi link shOperator Normal
 hi link shQuote String
 hi link vimParenSep Normal
+hi link yamlKeyValueDelimiter Normal
