@@ -3,8 +3,7 @@
 syntax on
 filetype plugin indent on
 
-set background=dark
-silent! colorscheme lunaperche-mc
+colorscheme quiet-mc
 
 set encoding=utf-8
 set scrolloff=1
@@ -39,7 +38,6 @@ set laststatus=2
 set showcmd
 set wildmenu
 set wildmode=longest:full:lastused,full
-set wildcharm=<c-z>
 set backspace=indent,eol,start
 set title
 set titlelen=30
@@ -90,6 +88,7 @@ nnoremap <c-w>o :tab split<cr>
 tnoremap <c-w>o <c-w>:tab split<cr>
 
 " files
+set wildcharm=<c-z>
 cnoremap <expr> %% fnameescape(expand("%:p:h")."/")
 nmap <space>e :edit %%<c-z>
 nmap <space>f :find %%<c-z>**/*
