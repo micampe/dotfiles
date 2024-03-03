@@ -7,7 +7,6 @@
     ci = commit
     co = checkout
     st = status --short --branch
-    ff = merge --ff-only
 
     l = log --pretty=color
     g = log --graph --all --pretty=color
@@ -28,29 +27,23 @@
 
     browse = "!open $(git remote get-url origin | sed s%git@github.com:%http://github.com/%)"
 
-    ours = checkout --ours
-    theirs = checkout --theirs
-
-    #via http://stackoverflow.com/questions/5188320/how-can-i-get-a-list-of-git-branches-ordered-by-most-recent-commit
-    recent-branches = !git for-each-ref --count=15 --sort=-committerdate refs/heads/ --format='%(refname:short)'
-
     subupdate = submodule update --init --recursive
-
-    # via https://www.sethvargo.com/checkout-a-github-pull-request/
-    pr = "!f() { git fetch origin pull/$1/head:pr-$1 && git checkout pr-$1; }; f"
 
 [pretty]
     color = "format:%Cred%h%C(yellow)%d %Cblue%an %Cgreen%cr%Creset %s"
 
 [core]
-    excludesFile = ~/.config/git/gitignore-global
-    attributesFile = ~/.config/git/attributes-global
     pager = diff-so-fancy | less --tabs=4 -RFX
     # this is a workaround for git-fuzzy
     editor = vim < /dev/tty
 
 [commit]
     verbose = true
+
+[diff]
+    algorithm = histogram
+    colorMoved = default
+    colorMovedWS = allow-indentation-change
 
 [credential]
     helper = osxkeychain
@@ -65,27 +58,28 @@
 [status]
     submoduleSummary = true
 
-[mergetool]
-    prompt = false
+[submodule]
+    recurse = true
 
 [merge]
-    tool = opendiff
+    conflictstyle = zdiff3
 
 [rebase]
     autoStash = true
+    autoSquash = true
 
 [diff "plist"]
     textconv = plutil -convert xml1 -o -
-[pull]
-    rebase = true
 
 [interactive]
     diffFilter = diff-so-fancy --patch
+
 [color "diff-highlight"]
     oldNormal = 160
     oldHighlight = 196 52
     newNormal = 40
     newHighlight = 40 22
+
 [color "diff"]
     meta = yellow
     frag = 169 bold

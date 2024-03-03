@@ -1,3 +1,0 @@
-*.png diff=exif
-*.plist diff=plist
-*.m diff=objc
