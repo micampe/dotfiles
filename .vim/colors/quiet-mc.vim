@@ -20,9 +20,9 @@ else
   hi String guifg=#d78700 ctermfg=3 gui=none cterm=none
 endif
 
-hi! link Type Statement
-hi link gitConfigDelim String
-hi link shOperator Normal
-hi link shQuote String
-hi link vimParenSep Normal
-hi link yamlKeyValueDelimiter Normal
+hi helpHyperTextJump gui=underline cterm=underline
+
+hi! link cType Statement
+hi! link cppType cType
+hi! link vimParenSep Normal
+hi! link yamlKeyValueDelimiter Normal
