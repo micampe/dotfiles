@@ -1,0 +1,5 @@
+gui:
+  showFileTree: false
+  showCommandLog: false
+  border: rounded
+notARepository: quit
