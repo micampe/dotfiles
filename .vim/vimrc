@@ -74,7 +74,8 @@ nnoremap u :earlier<cr>
 nnoremap <C-r> :later<cr>
 
 " write file with sudo
-cnoremap w!! SudoWrite
+command! SudoWrite :execute ':silent write !sudo tee > /dev/null %' | :edit!
+cnoreabbrev w!! SudoWrite
 
 " make section object motions work when { is not at the beginning of the line
 " see :help section

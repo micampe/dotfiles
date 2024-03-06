@@ -1,11 +1,6 @@
 function! PackInit() abort
   packadd minpac
-  " init
-  if has('nvim')
-    call minpac#init({'dir': $HOME . '/.config/nvim'})
-  else
-    call minpac#init()
-  endif
+  call minpac#init()
 
   " color schemes
   call minpac#add('lifepillar/vim-colortemplate')
@@ -25,7 +20,6 @@ function! PackInit() abort
   call minpac#add('michaeljsmith/vim-indent-object')
   call minpac#add('romainl/vim-cool')
   call minpac#add('tpope/vim-commentary')
-  call minpac#add('tpope/vim-eunuch')
   call minpac#add('tpope/vim-repeat')
   call minpac#add('tpope/vim-rsi')
   call minpac#add('tpope/vim-sensible')
