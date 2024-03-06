@@ -13,6 +13,7 @@ if &background ==# 'dark'
 else
   hi Comment guifg=#626262 ctermfg=8 gui=none cterm=none
   hi Constant guifg=#000000 ctermfg=0
+  hi Cursor guifg=#000000 guibg=#d7d7d7 gui=reverse cterm=reverse
   hi Normal guifg=#303030
   hi PreProc guifg=#0087d7 ctermfg=4
   hi Special guifg=#008787 ctermfg=6
