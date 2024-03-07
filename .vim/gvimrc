@@ -19,7 +19,8 @@ if has("gui_macvim")
   " window zoom
   nnoremap <space>wv :set lines=999<cr>
   nnoremap <space>wz :set lines=999 <bar> set columns=999<cr>
-  nnoremap <space>ww :set lines=42 <bar> set columns=86<cr>
+  nnoremap <space>wr :set lines=42 <bar> set columns=86<cr>
+  nnoremap <space>ww :set lines=999 <bar> set columns=168<cr>
 
   func! s:UpdateBackground()
     if v:os_appearance == 1
