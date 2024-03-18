@@ -42,23 +42,11 @@ set backspace=indent,eol,start
 set title
 set titlelen=30
 
-" save backups, undo and swaps in the same dir
-let s:vim_data_dir = $HOME . '/.local/var/vim/'
-let &backupdir=s:vim_data_dir . 'backup//'
-let &directory=s:vim_data_dir . 'swap//'
-let &undodir=s:vim_data_dir . 'undo//'
-let &viminfofile=s:vim_data_dir . 'viminfo'
-
-if !isdirectory(&backupdir)
-  call mkdir(&backupdir, 'p')
-endif
-if !isdirectory(&directory)
-  call mkdir(&directory, 'p')
-endif
-if !isdirectory(&undodir)
-  call mkdir(&undodir, 'p')
-endif
-
+let s:vim_data_dir = $HOME . '/.local/state/vim'
+let &backupdir=s:vim_data_dir.'/backup//' | call mkdir(&backupdir, 'p')
+let &directory=s:vim_data_dir.'/swap//' | call mkdir(&directory, 'p')
+let &undodir=s:vim_data_dir.'/undo//' | call mkdir(&undodir, 'p')
+let &viminfofile=s:vim_data_dir.'/viminfo'
 let g:netrw_home = s:vim_data_dir
 
 " mappings ---
