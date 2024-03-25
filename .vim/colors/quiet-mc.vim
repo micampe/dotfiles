@@ -27,7 +27,10 @@ endif
 
 hi helpHyperTextJump gui=underline cterm=underline
 
+hi! link cStorageClass cType
 hi! link cType Statement
 hi! link cppType cType
+hi! link pythonDecoratorName pythonDecorator
+hi! link vimOper Normal
 hi! link vimParenSep Normal
 hi! link yamlKeyValueDelimiter Normal
