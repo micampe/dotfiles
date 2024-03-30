@@ -1,0 +1,85 @@
+#!/usr/bin/env python3
+
+import os
+from datetime import datetime
+
+def cli():
+
+    @command
+    def sync():
+        """sync roms, save states, images"""
+        cmd('sync-rg351mp')
+
+    @command
+    def send(file, system=None):
+        """copy a rom to the device"""
+        exts = {
+            'sfc': 'snes',
+            'smc': 'snes',
+            'v64': 'n64',
+            'z64': 'n64',
+            'md': 'megadrive',
+            'ngc': 'ngpc',
+            'pce': 'pcengine',
+            'vb': 'virtualboy',
+        }
+        generic = ['zip', '7z', 'iso', 'bin', 'chd']
+        if not system:
+            ext = os.path.splitext(file)[1][1:]
+            system = exts.get(ext, ext)
+        if system in generic:
+            print(f'Can''t infer system from extension {system}')
+            exit(1)
+        if not os.path.isabs(file):
+            file = os.path.join(cwd, file)
+        cmd('scp', file, f'rg351mp.local:roms/{system}/')
+
+    @command
+    def backup():
+        """make a backup image of the sd card"""
+        date = datetime.now().strftime('%Y%m%d')
+        disk = None
+        try:
+            disk = cmd("diskutil info AMBERELC | grep 'Part of Whole'",
+                    shell=True,
+                    text=True,
+                    capture_output=True).stdout.split()[3]
+        except subprocess.CalledProcessError as e:
+            print("Amberelec disk not found")
+            raise e
+        cmd('sudo', 'dd',
+            f'if=/dev/{disk}',
+            f'of=/Volumes/Data/Retro/AmberELEC/AmberELEC-{date}.img',
+            'status=progress')
+        cmd('diskutil eject AMBERELC', shell=True)
+
+
+
+
+
+# fmt: off
+# https://gist.github.com/sirikon/d4327b6cc3de5cc244dbe5529d8f53ae
+import inspect, sys, os, subprocess, re;commands = [];args = sys.argv[1:]
+def _c(c): return f'\x1b[{c}m' # Change to `return ''` to disable colors
+def cmd(*args, check=True, **k): return subprocess.run(args, check=check, **k)
+def command(func): commands.append(func); return func
+def _default(i, spec): d=spec.defaults;m=len(spec.args)-len(d or []);return\
+    (True,f'={d[i-m]}'if d[i-m]is not None else'') if i >= m else (False,'')
+def _ri(s, n): s=re.sub('^[ ]*\n', '', s);s=re.sub('\n[ ]*$', '', s);\
+    ls=s.split('\n');i=len(re.match('(^[ ]*)', ls[0]).group(0));\
+    return '\n'.join((n * ' ') + re.sub(f'^[ ]{{{i}}}', '', l) for l in ls)
+cwd=os.path.abspath(os.curdir)
+# os.chdir(os.path.dirname(__file__));
+cli()
+if len(args) == 0: print(f"{_c(1)}commands:{_c(0)}"); [print(' '.join([
+    f'  {_c(96)}{f.__name__}{_c(0)}',
+    *[f'{_c(36)}[{a}{d[1]}]{_c(0)}' if d[0] else f'{_c(36)}{a}{_c(0)}' \
+        for a,d in ((a,_default(i, spec)) for i, a in enumerate(spec.args))],
+    *([f'[...{spec.varargs}]'] if spec.varargs is not None else []),
+    *([f'\n{_c(2)}{_ri(f.__doc__, 4)}{_c(0)}'] if f.__doc__ else [])
+]))for spec, f in((inspect.getfullargspec(f), f) for f in commands)];exit(0)
+matching_commands = [f for f in commands if f.__name__ == args[0]]
+if len(matching_commands)==0:print(f'Unknown command "{args[0]}"');sys.exit(1)
+try: matching_commands[0](*args[1:])
+except KeyboardInterrupt: pass
+except subprocess.CalledProcessError as err: sys.exit(err.returncode)
