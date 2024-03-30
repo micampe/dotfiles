@@ -61,16 +61,13 @@ fi
 if [[ $(uname) = "Darwin" ]]; then
     printf "\nSetting user defaults...\n"
 
-    # Terminall shell
-    defaults write com.apple.Terminal Shell /opt/homebrew/bin/fish
-
     # Trackpad dragging and tap to click
     defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerDrag -bool true
     defaults write com.apple.AppleMultitouchTrackpad Clicking -bool true
 
     # Hot Corners
     # Lock Screen
-    defaults write com.apple.dock wvous-bl-corner -int 13
+    defaults write com.apple.dock wvous-bl-corner -int 10
     defaults write com.apple.dock wvous-bl-modifier -int 0
     # Disable Screen Saver
     defaults write com.apple.dock wvous-tl-corner -int 6
