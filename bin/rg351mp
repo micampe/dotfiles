@@ -1,14 +1,45 @@
 #!/usr/bin/env python3
 
 import os
+import time
+import tempfile
 from datetime import datetime
+
+sync_excludes = [ "homebrew",
+                  "bios",
+                  "screenshots",
+                  "gamedata/dosbox",
+                  "gamedata/drastic",
+                  "gamedata/hatari",
+                  "gamedata/mupen64plussa",
+                  "gamedata/ppsspp",
+                  "backup",
+                  "*.old",
+                  ".DS_Store",
+                  "._*",
+                  ".smbdelete*" ]
 
 def cli():
 
     @command
     def sync():
         """sync roms, save states, images"""
-        cmd('sync-rg351mp')
+        if not os.path.isdir('/Volumes/Retro'):
+            print("Mounting server directory...")
+            cmd('open -g smb://guest:@rpi/Data/Retro', shell=True)
+
+            while not os.path.isdir('/Volumes/Retro'):
+                # FIXME: timeout?
+                time.sleep(1)
+
+        print("Syncing...")
+        with tempfile.NamedTemporaryFile(mode='w', delete_on_close=False) as f:
+            f.write('\n'.join(sync_excludes))
+            f.close()
+            cmd('rsync -rz --times --itemize-changes --prune-empty-dirs --stats '
+                f'--exclude-from={f.name} '
+                '"rg351mp.local:roms/*" '
+                '/Volumes/Retro/roms/', shell=True)
 
     @command
     def send(file, system=None):
@@ -28,11 +59,11 @@ def cli():
             ext = os.path.splitext(file)[1][1:]
             system = exts.get(ext, ext)
         if system in generic:
-            print(f'Can''t infer system from extension {system}')
+            print(f'Could not infer system from file extension ".{system}"')
             exit(1)
         if not os.path.isabs(file):
             file = os.path.join(cwd, file)
-        cmd('scp', file, f'rg351mp.local:roms/{system}/')
+        cmd('scp', '-p', file, f'rg351mp.local:roms/{system}/')
 
     @command
     def backup():
