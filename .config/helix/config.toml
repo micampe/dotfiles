@@ -1,21 +1,8 @@
 [editor]
-auto-save = true
-line-number = "relative"
 color-modes = true
-scrolloff = 3
-rulers = []
-# gutters = ["diagnostics", "spacer", "line-numbers", "spacer", "diff"]
-gutters = ["diagnostics", "spacer", "diff"]
-soft-wrap.enable = true
 
 [editor.cursor-shape]
 insert = "bar"
-normal = "block"
-select = "underline"
-
-[editor.lsp]
-display-messages = true
-display-inlay-hints = true
 
 [keys.normal]
 "{" = ["goto_prev_paragraph", "move_line_up", "collapse_selection"]
@@ -23,6 +10,7 @@ display-inlay-hints = true
 "0" = "goto_first_nonwhitespace"
 "$" = "goto_line_end"
 "F12" = ":tree-sitter-scopes"
+"F11" = ":tree-sitter-highlight-name"
 
 [keys.normal."]"]
 "]" = ["goto_next_function", "flip_selections", "collapse_selection"]
