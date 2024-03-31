@@ -12,6 +12,11 @@ if &background ==# 'dark'
   hi Special guifg=#00d7d7 ctermfg=14
   hi Statement guifg=#fafafa ctermfg=15 gui=bold cterm=bold
   hi String guifg=#ffaf00 ctermfg=11 gui=none cterm=none
+
+  hi DiffAdd gui=none cterm=none
+  hi DiffChange gui=none cterm=none
+  hi DiffDelete gui=none cterm=none
+  hi DiffText gui=none cterm=none
 else
 " #000000 #af0000 #005f00 #af5f00 #005faf #870087 #008787 #d7d7d7 
 " #626262 #d70000 #008700 #d78700 #0087d7 #af00af #00afaf #ffffff
