@@ -5,20 +5,6 @@ import time
 import tempfile
 from datetime import datetime
 
-sync_excludes = [ "homebrew",
-                  "bios",
-                  "screenshots",
-                  "gamedata/dosbox",
-                  "gamedata/drastic",
-                  "gamedata/hatari",
-                  "gamedata/mupen64plussa",
-                  "gamedata/ppsspp",
-                  "backup",
-                  "*.old",
-                  ".DS_Store",
-                  "._*",
-                  ".smbdelete*" ]
-
 def cli():
 
     @command
@@ -34,7 +20,7 @@ def cli():
 
         print("Syncing...")
         with tempfile.NamedTemporaryFile(mode='w', delete_on_close=False) as f:
-            f.write('\n'.join(sync_excludes))
+            f.write(sync_excludes)
             f.close()
             cmd('rsync -rz --times --itemize-changes --prune-empty-dirs --stats '
                 f'--exclude-from={f.name} '
@@ -44,21 +30,10 @@ def cli():
     @command
     def send(file, system=None):
         """copy a rom to the device"""
-        exts = {
-            'sfc': 'snes',
-            'smc': 'snes',
-            'v64': 'n64',
-            'z64': 'n64',
-            'md': 'megadrive',
-            'ngc': 'ngpc',
-            'pce': 'pcengine',
-            'vb': 'virtualboy',
-        }
-        generic = ['zip', '7z', 'iso', 'bin', 'chd']
         if not system:
             ext = os.path.splitext(file)[1][1:]
-            system = exts.get(ext, ext)
-        if system in generic:
+            system = ext_map.get(ext, ext)
+        if system in ext_generic:
             print(f'Could not infer system from file extension ".{system}"')
             exit(1)
         if not os.path.isabs(file):
@@ -84,6 +59,35 @@ def cli():
             'status=progress')
         cmd('diskutil eject AMBERELC', shell=True)
 
+
+ext_map = {
+    'sfc': 'snes',
+    'smc': 'snes',
+    'v64': 'n64',
+    'z64': 'n64',
+    'md': 'megadrive',
+    'ngc': 'ngpc',
+    'pce': 'pcengine',
+    'vb': 'virtualboy',
+}
+
+ext_generic = ['zip', '7z', 'iso', 'bin', 'chd']
+
+sync_excludes = """
+homebrew
+bios
+screenshots
+gamedata/dosbox
+gamedata/drastic
+gamedata/hatari
+gamedata/mupen64plussa
+gamedata/ppsspp
+backup
+*.old
+.DS_Store
+._*
+.smbdelete*
+"""
 
 
 
