@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import os
+import glob
 import time
 import tempfile
 from datetime import datetime
@@ -30,8 +31,9 @@ def cli():
     @command
     def send(file, system=None):
         """copy a rom to the device"""
+        name, ext = os.path.splitext(os.path.basename(file))
         if not system:
-            ext = os.path.splitext(file)[1][1:]
+            ext = ext[1:]
             system = ext_map.get(ext, ext)
         if system in ext_generic:
             print(f'Could not infer system from file extension ".{system}"')
@@ -39,6 +41,13 @@ def cli():
         if not os.path.isabs(file):
             file = os.path.join(cwd, file)
         cmd('scp', '-p', file, f'rg351mp.local:roms/{system}/')
+
+        dir = os.path.dirname(file)
+        images = os.path.join(dir, 'images')
+        if os.path.exists(images):
+            name = glob.escape(name)
+            for i in glob.glob(os.path.join(images, name + '-*')):
+                cmd('scp', '-p', i, f'rg351mp.local:roms/{system}/images/')
 
     @command
     def backup():
@@ -53,6 +62,7 @@ def cli():
         except subprocess.CalledProcessError as e:
             print("Amberelec disk not found")
             raise e
+        print(f"Saving {disk} to AmberELEC-{date}.img...")
         cmd('sudo', 'dd',
             f'if=/dev/{disk}',
             f'of=/Volumes/Data/Retro/AmberELEC/AmberELEC-{date}.img',
