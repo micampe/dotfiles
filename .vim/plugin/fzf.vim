@@ -5,7 +5,7 @@ let g:fzf_layout= {
     \ }
   \ }
 
-let g:fzf_preview_window = ''
+let g:fzf_preview_window = ['hidden,up,40%', 'ctrl-_']
 
 let g:fzf_colors = {
       \ 'hl':      ['fg', 'Special'],
