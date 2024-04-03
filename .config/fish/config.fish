@@ -9,6 +9,11 @@ abbr -a -- la 'ls -A'
 abbr -a -- ll 'ls -oh'
 abbr -a -- lla 'ls -oAh'
 
+set --export FZF_DEFAULT_OPTS '
+    --color hl:14,hl+:14
+    --color info:8,prompt:8,header:4,spinner:11
+'
+
 set --export COLORTERM "1"
 set --export EDITOR "vim"
 set --export HOMEBREW_AUTOREMOVE "1"
