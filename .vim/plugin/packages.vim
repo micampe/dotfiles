@@ -2,20 +2,10 @@ function! PackInit() abort
   packadd minpac
   call minpac#init()
 
-  " color schemes
-  call minpac#add('lifepillar/vim-colortemplate')
-
-  " syntax
-  call minpac#add('khaveesh/vim-fish-syntax')
-  call minpac#add('keith/swift.vim')
-  call minpac#add('rust-lang/rust.vim')
-
-  " completion
-  call minpac#add('lifepillar/vim-mucomplete')
-
-  " plugins
   call minpac#add('junegunn/fzf', {'do': { -> fzf#install() }})
   call minpac#add('junegunn/fzf.vim')
+  call minpac#add('lifepillar/vim-colortemplate')
+  call minpac#add('lifepillar/vim-mucomplete')
   call minpac#add('machakann/vim-highlightedyank')
   call minpac#add('michaeljsmith/vim-indent-object')
   call minpac#add('romainl/vim-cool')
