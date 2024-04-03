@@ -22,10 +22,11 @@ cask "daisydisk", args: { appdir: "~/Applications" }
 cask "fork", args: { appdir: "~/Applications" }
 cask "hex-fiend", args: { appdir: "~/Applications" }
 cask "iina", args: { appdir: "~/Applications" }
+cask "maccy", args: { appdir: "~/Applications" }
 cask "macvim", args: { appdir: "~/Applications" }
 cask "netnewswire", args: { appdir: "~/Applications" }
+cask "orbstack", args: { appdir: "~/Applications" }
 cask "tableplus", args: { appdir: "~/Applications" }
-cask "unicodechecker", args: { appdir: "~/Applications" }
 
 mas "1Blocker", id: 1365531024
 mas "1Password for Safari", id: 1569813296
