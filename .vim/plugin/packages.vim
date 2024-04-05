@@ -17,6 +17,7 @@ function! PackInit() abort
   call minpac#add('tpope/vim-surround')
   call minpac#add('tpope/vim-unimpaired')
   call minpac#add('tpope/vim-vinegar')
+  call minpac#add('yegappan/lsp')
 endfunction
 
 command! PackUpdate call PackInit() | redraw | call minpac#update()
