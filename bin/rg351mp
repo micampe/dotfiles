@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 
-import os
 import glob
-import time
 import tempfile
+import time
 from datetime import datetime
+
 
 def cli():
 
@@ -23,8 +23,8 @@ def cli():
         with tempfile.NamedTemporaryFile(mode='w', delete_on_close=False) as f:
             f.write(sync_excludes)
             f.close()
-            cmd('rsync -rz --times --itemize-changes --prune-empty-dirs --stats '
-                f'--exclude-from={f.name} '
+            cmd('rsync -rz --times --itemize-changes --prune-empty-dirs '
+                f'--exclude-from={f.name} --stats '
                 '"rg351mp.local:roms/*" '
                 '/Volumes/Retro/roms/', shell=True)
 
@@ -53,15 +53,9 @@ def cli():
     def backup():
         """make a backup image of the sd card"""
         date = datetime.now().strftime('%Y%m%d')
-        disk = None
-        try:
-            disk = cmd("diskutil info AMBERELC | grep 'Part of Whole'",
-                    shell=True,
-                    text=True,
-                    capture_output=True).stdout.split()[3]
-        except subprocess.CalledProcessError as e:
-            print("Amberelec disk not found")
-            raise e
+        disk = cmd("diskutil info AMBERELC | grep 'Part of Whole'",
+                   shell=True, text=True,
+                   capture_output=True).stdout.split()[3]
         print(f"Saving {disk} to AmberELEC-{date}.img...")
         cmd('sudo', 'dd',
             f'if=/dev/{disk}',
@@ -113,9 +107,7 @@ def _default(i, spec): d=spec.defaults;m=len(spec.args)-len(d or []);return\
 def _ri(s, n): s=re.sub('^[ ]*\n', '', s);s=re.sub('\n[ ]*$', '', s);\
     ls=s.split('\n');i=len(re.match('(^[ ]*)', ls[0]).group(0));\
     return '\n'.join((n * ' ') + re.sub(f'^[ ]{{{i}}}', '', l) for l in ls)
-cwd=os.path.abspath(os.curdir)
-# os.chdir(os.path.dirname(__file__));
-cli()
+cwd=os.path.abspath(os.curdir); cli()
 if len(args) == 0: print(f"{_c(1)}commands:{_c(0)}"); [print(' '.join([
     f'  {_c(96)}{f.__name__}{_c(0)}',
     *[f'{_c(36)}[{a}{d[1]}]{_c(0)}' if d[0] else f'{_c(36)}{a}{_c(0)}' \
@@ -127,4 +119,6 @@ matching_commands = [f for f in commands if f.__name__ == args[0]]
 if len(matching_commands)==0:print(f'Unknown command "{args[0]}"');sys.exit(1)
 try: matching_commands[0](*args[1:])
 except KeyboardInterrupt: pass
-except subprocess.CalledProcessError as err: sys.exit(err.returncode)
+except subprocess.CalledProcessError as err:
+    print(err.stderr or err.stdout)
+    sys.exit(err.returncode)
