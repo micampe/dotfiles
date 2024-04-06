@@ -57,6 +57,14 @@ if [[ -n "$FISH_PATH" ]]; then
     chsh -s "$FISH_PATH"
 fi
 
+printf "Installing Python apps...\n"
+pipx install python-lsp-server
+pipx inject python-lsp-server \
+    yapf \
+    pyflakes \
+    pylsp-rope \
+    python-lsp-isort
+
 # macOS user defaults
 if [[ $(uname) = "Darwin" ]]; then
     printf "\nSetting user defaults...\n"
