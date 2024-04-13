@@ -31,7 +31,7 @@ fi
 
 printf "\nUpdating vim plugins...\n"
 sleep 1
-vim +PackUpdate
+vim -c "call PackInit() | call minpac#update('', {'do': 'qall'})"
 
 # Homebrew
 printf "\n"
