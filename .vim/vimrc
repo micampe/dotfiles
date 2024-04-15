@@ -119,6 +119,9 @@ cnoremap <expr> Q (getcmdtype() is# ':' && empty(getcmdline())) ? 'q' : 'Q'
 " use vim-colortemplate to show highlight info
 nnoremap <space>h :<c-u>call colortemplate#syn#toggle()<cr>
 
+" import installed fzf plugin
+set rtp+=/opt/homebrew/opt/fzf
+
 " functions ---
 
 " change to the repo-root-directory of the current buffer.

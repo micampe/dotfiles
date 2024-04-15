@@ -2,7 +2,6 @@ function! PackInit() abort
   packadd minpac
   call minpac#init()
 
-  call minpac#add('junegunn/fzf', {'do': { -> fzf#install() }})
   call minpac#add('junegunn/fzf.vim')
   call minpac#add('lifepillar/vim-colortemplate')
   call minpac#add('lifepillar/vim-mucomplete')
