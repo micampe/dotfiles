@@ -32,11 +32,6 @@
 [pretty]
     color = "format:%Cred%h%C(yellow)%d %Cblue%an %Cgreen%cr%Creset %s"
 
-[core]
-    pager = diff-so-fancy | less --tabs=4 -RFX
-    # this is a workaround for git-fuzzy
-    editor = vim < /dev/tty
-
 [commit]
     verbose = true
 
@@ -61,29 +56,9 @@
 [submodule]
     recurse = true
 
-[merge]
-    conflictstyle = zdiff3
-
 [rebase]
     autoStash = true
     autoSquash = true
 
 [diff "plist"]
     textconv = plutil -convert xml1 -o -
-
-[interactive]
-    diffFilter = diff-so-fancy --patch
-
-[color "diff-highlight"]
-    oldNormal = 160
-    oldHighlight = 196 52
-    newNormal = 40
-    newHighlight = 40 22
-
-[color "diff"]
-    meta = yellow
-    frag = 169 bold
-    commit = yellow bold
-    old = 160
-    new = 40
-    whitespace = 160

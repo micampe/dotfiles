@@ -1,21 +1,15 @@
 tap "homebrew/bundle"
-tap "homebrew/cask-fonts"
 
-brew "diff-so-fancy"
 brew "fd"
 brew "fish"
 brew "fzf"
-brew "git-fuzzy"
 brew "lazygit"
 brew "mas"
 brew "pipx"
 brew "ripgrep"
 brew "tree"
-brew "universal-ctags"
 brew "xcodes"
 brew "ivandokov/contrib/phockup"
-
-cask "font-source-code-pro"
 
 cask "1password"
 cask "appcleaner", args: { appdir: "~/Applications" }
