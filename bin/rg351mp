@@ -25,7 +25,7 @@ def cli():
             f.close()
             cmd('rsync -rz --times --itemize-changes --prune-empty-dirs '
                 f'--exclude-from={f.name} --stats '
-                '"rg351mp.local:roms/*" '
+                '"rg351mp:roms/*" '
                 '/Volumes/Retro/roms/', shell=True)
 
     @command
@@ -40,14 +40,14 @@ def cli():
             exit(1)
         if not os.path.isabs(file):
             file = os.path.join(cwd, file)
-        cmd('scp', '-p', file, f'rg351mp.local:roms/{system}/')
+        cmd('scp', '-p', file, f'rg351mp:roms/{system}/')
 
         dir = os.path.dirname(file)
         images = os.path.join(dir, 'images')
         if os.path.exists(images):
             name = glob.escape(name)
             for i in glob.glob(os.path.join(images, name + '-*')):
-                cmd('scp', '-p', i, f'rg351mp.local:roms/{system}/images/')
+                cmd('scp', '-p', i, f'rg351mp:roms/{system}/images/')
 
     @command
     def backup():
