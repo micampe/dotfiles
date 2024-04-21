@@ -42,6 +42,10 @@ def cli():
             file = os.path.join(cwd, file)
         cmd('scp', '-p', file, f'rg351mp.local:roms/{system}/')
 
+        srm = os.path.join(cwd, name + '.srm')
+        if os.path.exists(srm):
+            cmd('scp', '-p', srm, f'rg351mp:roms/{system}/')
+
         dir = os.path.dirname(file)
         images = os.path.join(dir, 'images')
         if os.path.exists(images):
