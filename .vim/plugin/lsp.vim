@@ -17,6 +17,7 @@ let s:lspServers = [#{
 
 let s:lspOptions = #{
             \   autoComplete: v:false,
+            \   semanticHighlight: v:true,
             \   showDiagInPopup: v:false,
             \   showDiagOnStatusLine: v:true,
             \   showInlayHints: v:true,
