@@ -21,7 +21,6 @@ set --export FZF_DEFAULT_OPTS '
 
 set --export COLORTERM "1"
 set --export EDITOR "vim"
-set --export HOMEBREW_AUTOREMOVE "1"
 set --export HOMEBREW_CASK_OPTS "--appdir=~/Applications/"
 set --export HOMEBREW_DISPLAY_INSTALL_TIMES "1"
 set --export HOMEBREW_NO_ENV_HINTS "1"
