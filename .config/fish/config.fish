@@ -1,6 +1,7 @@
 abbr -a -- python python3
 abbr -a -- www 'python3 -m http.server'
 abbr -a -- rsync 'rsync -aihz --exclude .DS_Store --exclude ".git*" --stats'
+abbr -a -- lowpowermode 'sudo pmset -b lowpowermode'
 
 abbr -a -- - 'cd -'
 
@@ -28,6 +29,7 @@ set --export LC_ALL "en_US.UTF-8"
 set --export LESS "--hilite-unread --window=-4 --quit-if-one-screen --hilite-search --ignore-case --LONG-PROMPT --RAW-CONTROL-CHARS --no-init"
 set --export PAGER "less"
 set --export VISUAL "vim"
+set --export BROWSER "open"
 
 # XDG
 set --export XDG_CACHE_HOME "$HOME/.cache"
