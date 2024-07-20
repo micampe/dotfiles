@@ -1,3 +1,5 @@
+theme = "quiet_256"
+
 [editor]
 color-modes = true
 
@@ -11,6 +13,9 @@ insert = "bar"
 "$" = "goto_line_end"
 "F12" = ":tree-sitter-scopes"
 "F11" = ":tree-sitter-highlight-name"
+
+[keys.normal." "]
+" " = "goto_last_accessed_file"
 
 [keys.normal."]"]
 "]" = ["goto_next_function", "flip_selections", "collapse_selection"]

@@ -1,0 +1,34 @@
+# Author : Michele Campeotto <micampe@me.com>
+
+"ui.selection" = { fg = "black", bg = "green" }
+"ui.cursor" = { fg = "black", bg = "light-gray" }
+"ui.cursor.primary" = { fg = "black", bg = "red" }
+"ui.cursor.match" = { fg = "red" }
+"ui.background.separator" = "gray"
+"ui.linenr" = "gray"
+"ui.linenr.selected" = { fg = "white", bg = "black" }
+"ui.statusline" = { fg = "white", bg = "gray" }
+"ui.statusline.insert" = { bg = "light-green" }
+"ui.statusline.select" = { bg = "light-blue" }
+"ui.menu" = { fg = "white", bg = "blue" }
+"ui.menu.selected" = { bg = "white", fg = "black" }
+"ui.popup" = { fg = "white", bg = "green" }
+"ui.help" = { fg = "white", bg = "light-blue" }
+"ui.virtual.jump-label" = { fg = "cyan" }
+
+"string" = { fg = "yellow" }
+"constant" = { fg = "cyan" }
+"comment" = { fg = "gray" }
+
+"diff.plus" = "green"
+"diff.minus" = "red"
+"diff.delta" = "gray"
+
+"warning" = { fg = "light-yellow" }
+"error" = { fg = "light-red" }
+"hint" = { fg = "light-blue" }
+"keyword" = { fg = "white", modifiers = ["bold"] }
+
+"diagnostic.warning" = { fg = "black", bg = "light-yellow" }
+"diagnostic.error" = { fg = "black", bg = "light-red" }
+"diagnostic.hint" = { fg = "black", bg = "light-blue" }
