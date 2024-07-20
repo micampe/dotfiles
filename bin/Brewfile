@@ -1,4 +1,5 @@
 tap "homebrew/bundle"
+tap "homebrew/cask"
 
 brew "fd"
 brew "fish"
@@ -14,6 +15,7 @@ brew "ivandokov/contrib/phockup"
 cask "1password"
 cask "appcleaner", args: { appdir: "~/Applications" }
 cask "daisydisk", args: { appdir: "~/Applications" }
+cask "font-sf-mono"
 cask "fork", args: { appdir: "~/Applications" }
 cask "hex-fiend", args: { appdir: "~/Applications" }
 cask "iina", args: { appdir: "~/Applications" }
