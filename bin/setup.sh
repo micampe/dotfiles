@@ -91,5 +91,8 @@ if [[ $(uname) = "Darwin" ]]; then
     # Keyboard Equivalents
     defaults write -g NSUserKeyEquivalents -dict-add Zoom "@^z"
 
+    # Disable creating .DS_Store in network drives
+    defaults write com.apple.desktopservices DSDontWriteNetworkStores true
+
     echo "Some defaults require the session to be restarted."
 fi
