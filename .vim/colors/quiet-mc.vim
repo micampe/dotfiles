@@ -7,11 +7,11 @@ if &background ==# 'dark'
 " #707070 #ff005f #00d75f #ffaf00 #5fafff #ff87ff #00d7d7 #ffffff
   hi Comment guifg=#707070 ctermfg=8 gui=none cterm=none
   hi Constant guifg=#fafafa ctermfg=15
-  hi Cursor guifg=#dadada guibg=#000000 gui=reverse cterm=reverse
+  hi Cursor guifg=#000000 guibg=#d7005f gui=none ctermfg=0 ctermbg=1 cterm=none
   hi PreProc guifg=#5fafff ctermfg=12
   hi Special guifg=#00d7d7 ctermfg=14
   hi Statement guifg=#fafafa ctermfg=15 gui=bold cterm=bold
-  hi String guifg=#ffaf00 ctermfg=11 gui=none cterm=none
+  hi String guifg=#ffaf00 ctermfg=11
 
   hi DiffAdd gui=none cterm=none
   hi DiffChange gui=none cterm=none
@@ -22,12 +22,12 @@ else
 " #626262 #d70000 #008700 #d78700 #0087d7 #af00af #00afaf #ffffff
   hi Comment guifg=#626262 ctermfg=8 gui=none cterm=none
   hi Constant guifg=#000000 ctermfg=0
-  hi Cursor guifg=#000000 guibg=#d7d7d7 gui=reverse cterm=reverse
+  hi Cursor guifg=#d7d7d7 guibg=#d70000 gui=none cterm=none
   hi Normal guifg=#303030
   hi PreProc guifg=#005faf ctermfg=4
   hi Special guifg=#008787 ctermfg=6
   hi Statement guifg=#000000 ctermfg=0 gui=bold cterm=bold
-  hi String guifg=#af5f00 ctermfg=3 gui=none cterm=none
+  hi String guifg=#af5f00 ctermfg=3
 endif
 
 hi helpHyperTextJump gui=underline cterm=underline
@@ -40,3 +40,4 @@ hi! link pythonDecoratorName pythonDecorator
 hi! link vimOper Normal
 hi! link vimParenSep Normal
 hi! link yamlKeyValueDelimiter Normal
+hi! link sqlKeyword Statement

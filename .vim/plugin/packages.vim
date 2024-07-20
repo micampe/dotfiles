@@ -16,6 +16,7 @@ function! PackInit() abort
   call minpac#add('tpope/vim-surround')
   call minpac#add('tpope/vim-unimpaired')
   call minpac#add('tpope/vim-vinegar')
+  call minpac#add('vim/colorschemes')
   call minpac#add('yegappan/lsp')
 endfunction
 
