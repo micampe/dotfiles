@@ -11,7 +11,7 @@ abbr -a -- la 'ls -A'
 abbr -a -- ll 'ls -oh'
 abbr -a -- lla 'ls -oAh'
 
-set --prepend PATH '/opt/homebrew/bin'
+set --prepend PATH /opt/homebrew/bin
 set --prepend PATH "$HOME/bin"
 set --prepend PATH "$HOME/.local/bin"
 set --prepend PATH "$HOME/.local/cargo/bin"
@@ -22,15 +22,15 @@ set --export FZF_DEFAULT_OPTS '
 '
 
 set --export COLORTERM "1"
-set --export EDITOR "vim"
+set --export EDITOR vim
 set --export HOMEBREW_CASK_OPTS "--appdir=~/Applications/"
-set --export HOMEBREW_DISPLAY_INSTALL_TIMES "1"
-set --export HOMEBREW_NO_ENV_HINTS "1"
+set --export HOMEBREW_DISPLAY_INSTALL_TIMES 1
+set --export HOMEBREW_NO_ENV_HINTS 1
 set --export LC_ALL "en_US.UTF-8"
 set --export LESS "--hilite-unread --window=-4 --quit-if-one-screen --hilite-search --ignore-case --LONG-PROMPT --RAW-CONTROL-CHARS --no-init"
-set --export PAGER "less"
-set --export VISUAL "vim"
-set --export BROWSER "open"
+set --export PAGER less
+set --export VISUAL vim
+set --export BROWSER open
 
 # XDG
 set --export XDG_CACHE_HOME "$HOME/.cache"
