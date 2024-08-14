@@ -1,0 +1,33 @@
+# Quiet palette ported from Vim color scheme
+
+[metadata]
+name = 'Quiet'
+
+[colors]
+foreground = '#d0d0d0'
+background = 'black'
+selection_fg = 'black'
+selection_bg = '#ffaf00'
+cursor_bg = 'red'
+cursor_fg = 'black'
+cursor_border = 'red'
+ansi = [
+  '#000000',
+  '#d7005f',
+  '#00af5f',
+  '#d78700',
+  '#0087d7',
+  '#d787d7',
+  '#00afaf',
+  '#dadada',
+]
+brights = [
+  '#707070',
+  '#ff005f',
+  '#00d75f',
+  '#ffaf00',
+  '#5fafff',
+  '#ff87ff',
+  '#00d7d7',
+  '#ffffff',
+]
