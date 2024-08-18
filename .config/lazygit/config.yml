@@ -1,5 +1,6 @@
 gui:
-  showFileTree: false
   showCommandLog: false
-  border: rounded
+  showFileTree: false
+  showListFooter: false
+  showPanelJumps: false
 notARepository: quit

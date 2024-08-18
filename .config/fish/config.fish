@@ -2,6 +2,8 @@ abbr -a -- python python3
 abbr -a -- www 'python3 -m http.server'
 abbr -a -- rsync 'rsync -aihz --exclude .DS_Store --exclude ".git*" --stats'
 abbr -a -- lowpowermode 'sudo pmset -b lowpowermode'
+abbr -a -- lazydot 'lazygit --work-tree=$HOME --git-dir=$HOME/src/dotfiles.git'
+abbr -a -- dotui 'gitui --workdir=$HOME --directory=$HOME/src/dotfiles.git'
 
 abbr -a -- - 'cd -'
 
