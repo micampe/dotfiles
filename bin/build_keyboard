@@ -1,0 +1,55 @@
+#!/usr/bin/env bash
+
+# set -o errexit
+# set -o verbose
+
+TOOLS="$HOME/Applications/QMK Toolbox.app/Contents/Resources"
+PROGRAMMER="$TOOLS/dfu-programmer"
+# FIRMWARE="$HOME/src/qmk_userspace/lily58_rev1_micampe.hex"
+FIRMWARE="$HOME/src/qmk_userspace/lily58_rev1_micampe_helios.uf2"
+
+if [[ -f ~/Downloads/micampe.json ]]
+then
+    echo "New keymap json found in Downloads"
+    mv ~/Downloads/micampe.json ~/src/qmk_userspace/keyboards/lily58/keymaps/micampe/keymap.json
+fi
+
+orbctl run --machine qmk fish -c "qmk compile -kb lily58 -km micampe"
+status=$?
+
+if [[ $status -ne 0 ]]
+then
+    exit $status
+fi
+
+if [[ -z $(ioreg -p IOUSB -w0 | grep "Lily58") ]] \
+    && [[ ! -d /Volumes/RPI-RP2/ ]]
+then
+    echo "No keyboard connected"
+    exit 0
+fi
+
+echo
+echo -n "Put keyboard in DFU mode to start flashing, ctrl-c to exit "
+trap "printf '\nInterrupted, keyboard not flashed\n' ; exit" SIGINT
+while true
+do
+    if [[ -d /Volumes/RPI-RP2 ]] 
+    then
+        break
+    fi
+    echo -n .
+    sleep 1
+done
+
+echo
+echo "Keyboard in DFU, flashing"
+sleep 3
+
+if [[ ! -f ${FIRMWARE} ]]
+then
+    echo "Firmware file not found: $FIRMWARE"
+    exit 1
+fi
+
+cp $FIRMWARE /Volumes/RPI-RP2/
