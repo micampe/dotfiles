@@ -19,6 +19,7 @@ cask "font-sf-mono"
 cask "fork", args: { appdir: "~/Applications" }
 cask "hex-fiend", args: { appdir: "~/Applications" }
 cask "iina", args: { appdir: "~/Applications" }
+cask "jordanbaird-ice", args: { appdir: "~/Applications" }
 cask "maccy", args: { appdir: "~/Applications" }
 cask "macvim", args: { appdir: "~/Applications" }
 cask "netnewswire", args: { appdir: "~/Applications" }
