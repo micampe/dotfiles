@@ -13,10 +13,10 @@ abbr -a -- la 'ls -A'
 abbr -a -- ll 'ls -oh'
 abbr -a -- lla 'ls -oAh'
 
-set --prepend PATH /opt/homebrew/bin
-set --prepend PATH "$HOME/bin"
+set --prepend PATH "/opt/homebrew/bin"
 set --prepend PATH "$HOME/.local/bin"
-set --prepend PATH "$HOME/.local/cargo/bin"
+set --prepend PATH "$HOME/.local/share/cargo/bin"
+set --prepend PATH "$HOME/bin"
 
 set --export FZF_DEFAULT_OPTS '
     --color hl:14,hl+:14

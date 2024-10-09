@@ -1,5 +1,5 @@
 function fish_title
-  set -lx fish_prompt_pwd_dir_length 3
+  set -lx fish_prompt_pwd_dir_length 12
   set -l max_title_len 30
   if test (status current-command) = 'fish'
     echo (prompt_pwd)
