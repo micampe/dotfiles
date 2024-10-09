@@ -79,11 +79,11 @@ ext_map = {
     'vb': 'virtualboy',
 }
 
-ext_generic = ['zip', '7z', 'iso', 'bin', 'chd']
+ext_generic = ['zip', '7z', 'iso', 'bin', 'chd', 'm3u']
 
 sync_excludes = """
 homebrew
-bios
+images
 screenshots
 gamedata/dosbox
 gamedata/drastic
