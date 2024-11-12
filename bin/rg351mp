@@ -13,7 +13,7 @@ def cli():
         """sync roms, save states, images"""
         if not os.path.isdir('/Volumes/Retro'):
             print("Mounting server directory...")
-            cmd('open -g smb://guest:@rpi/Data/Retro', shell=True)
+            cmd('open -g smb://guest:@rpi.local/Retro', shell=True)
 
             while not os.path.isdir('/Volumes/Retro'):
                 # FIXME: timeout?
@@ -63,7 +63,7 @@ def cli():
         print(f"Saving {disk} to AmberELEC-{date}.img...")
         cmd('sudo', 'dd',
             f'if=/dev/{disk}',
-            f'of=/Volumes/Data/Retro/AmberELEC/AmberELEC-{date}.img',
+            f'of=/Volumes/Retro/AmberELEC/AmberELEC-{date}.img',
             'status=progress')
         cmd('diskutil eject AMBERELC', shell=True)
 
@@ -82,9 +82,14 @@ ext_map = {
 ext_generic = ['zip', '7z', 'iso', 'bin', 'chd', 'm3u']
 
 sync_excludes = """
+gamelist.xml
+bios
 homebrew
 images
 screenshots
+savestates
+arcade/*/**
+neogeo/fbneo
 gamedata/dosbox
 gamedata/drastic
 gamedata/hatari
