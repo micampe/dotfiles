@@ -78,6 +78,7 @@ ext_map = {
     'ngc': 'ngpc',
     'pce': 'pcengine',
     'vb': 'virtualboy',
+    'gbc': 'gb',
 }
 
 ext_generic = ['zip', '7z', 'iso', 'bin', 'chd', 'm3u']
