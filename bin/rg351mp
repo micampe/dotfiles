@@ -5,6 +5,7 @@ import tempfile
 import time
 from datetime import datetime
 
+HOSTNAME='rg351mp.local'
 
 def cli():
 
@@ -25,7 +26,7 @@ def cli():
             f.close()
             cmd('rsync -rz --times --itemize-changes --prune-empty-dirs '
                 f'--exclude-from={f.name} --stats '
-                '"rg351mp.local:roms/*" '
+                f'"{HOSTNAME}:roms/*" '
                 '/Volumes/Retro/roms/', shell=True)
 
     @command
@@ -40,18 +41,18 @@ def cli():
             exit(1)
         if not os.path.isabs(file):
             file = os.path.join(cwd, file)
-        cmd('scp', '-p', file, f'rg351mp.local:roms/{system}/')
+        cmd('scp', '-p', file, f'{HOSTNAME}:roms/{system}/')
 
         srm = os.path.join(cwd, name + '.srm')
         if os.path.exists(srm):
-            cmd('scp', '-p', srm, f'rg351mp:roms/{system}/')
+            cmd('scp', '-p', srm, f'{HOSTNAME}:roms/{system}/')
 
         dir = os.path.dirname(file)
         images = os.path.join(dir, 'images')
         if os.path.exists(images):
             name = glob.escape(name)
             for i in glob.glob(os.path.join(images, name + '-*')):
-                cmd('scp', '-p', i, f'rg351mp.local:roms/{system}/images/')
+                cmd('scp', '-p', i, f'{HOSTNAME}:roms/{system}/images/')
 
     @command
     def backup():
