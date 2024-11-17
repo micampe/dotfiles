@@ -32,26 +32,28 @@ def cli():
     @command
     def send(file, system=None):
         """copy a rom to the device"""
+        file = os.path.abspath(file)
         name, ext = os.path.splitext(os.path.basename(file))
+        dir = os.path.dirname(file)
         if not system:
             ext = ext[1:]
             system = ext_map.get(ext, ext)
         if system in ext_generic:
             print(f'Could not infer system from file extension ".{system}"')
             exit(1)
-        if not os.path.isabs(file):
-            file = os.path.join(cwd, file)
         cmd('scp', '-p', file, f'{HOSTNAME}:roms/{system}/')
 
-        srm = os.path.join(cwd, name + '.srm')
+        srm = os.path.join(dir, name + '.srm')
         if os.path.exists(srm):
             cmd('scp', '-p', srm, f'{HOSTNAME}:roms/{system}/')
 
-        bps = os.path.join(cwd, name + '.bps')
+        bps = os.path.join(dir, name + '.bps')
+        ips = os.path.join(dir, name + '.ips')
         if os.path.exists(bps):
             cmd('scp', '-p', bps, f'{HOSTNAME}:roms/{system}/')
+        elif os.path.exists(ips):
+            cmd('scp', '-p', ips, f'{HOSTNAME}:roms/{system}/')
 
-        dir = os.path.dirname(file)
         images = os.path.join(dir, 'images')
         if os.path.exists(images):
             name = glob.escape(name)
@@ -80,6 +82,7 @@ ext_map = {
     'z64': 'n64',
     'md': 'megadrive',
     'ngc': 'ngpc',
+    'ngp': 'ngpc',
     'pce': 'pcengine',
     'vb': 'virtualboy',
     'gbc': 'gb',
