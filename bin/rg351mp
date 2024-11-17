@@ -35,11 +35,9 @@ def cli():
         file = os.path.abspath(file)
         name, ext = os.path.splitext(os.path.basename(file))
         dir = os.path.dirname(file)
+        system = system or ext_map.get(ext[1:])
         if not system:
-            ext = ext[1:]
-            system = ext_map.get(ext, ext)
-        if system in ext_generic:
-            print(f'Could not infer system from file extension ".{system}"')
+            print(f'Could not infer system from file extension "{ext}"')
             exit(1)
         cmd('scp', '-p', file, f'{HOSTNAME}:roms/{system}/')
 
@@ -91,8 +89,6 @@ ext_map = {
     'vb': 'virtualboy',
     'gbc': 'gb',
 }
-
-ext_generic = ['zip', '7z', 'iso', 'bin', 'chd', 'm3u']
 
 sync_excludes = """
 gamelist.xml
