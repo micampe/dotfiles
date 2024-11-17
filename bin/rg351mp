@@ -47,6 +47,10 @@ def cli():
         if os.path.exists(srm):
             cmd('scp', '-p', srm, f'{HOSTNAME}:roms/{system}/')
 
+        flash = os.path.join(dir, name + '.flash')
+        if os.path.exists(flash):
+            cmd('scp', '-p', flash, f'{HOSTNAME}:roms/{system}/')
+
         bps = os.path.join(dir, name + '.bps')
         ips = os.path.join(dir, name + '.ips')
         if os.path.exists(bps):
