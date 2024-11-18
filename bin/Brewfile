@@ -22,6 +22,7 @@ cask "iina", args: { appdir: "~/Applications" }
 cask "jordanbaird-ice", args: { appdir: "~/Applications" }
 cask "maccy", args: { appdir: "~/Applications" }
 cask "macvim", args: { appdir: "~/Applications" }
+cask "monitorcontrol", args: { appdir: "~/Applications" }
 cask "netnewswire", args: { appdir: "~/Applications" }
 cask "orbstack", args: { appdir: "~/Applications" }
 cask "tableplus", args: { appdir: "~/Applications" }
