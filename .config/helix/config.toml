@@ -2,6 +2,18 @@ theme = "quiet_256"
 
 [editor]
 color-modes = true
+cursorline = true
+line-number = "relative"
+end-of-line-diagnostics = "hint"
+
+[editor.inline-diagnostics]
+other-lines = "warning"
+
+[editor.gutters]
+layout = ["diagnostics", "diff"]
+
+[editor.lsp]
+display-inlay-hints = true
 
 [editor.cursor-shape]
 insert = "bar"
@@ -9,29 +21,30 @@ insert = "bar"
 [keys.normal]
 "{" = ["goto_prev_paragraph", "move_line_up", "collapse_selection"]
 "}" = ["goto_next_paragraph", "collapse_selection"]
-"0" = "goto_first_nonwhitespace"
-"$" = "goto_line_end"
+# "0" = "goto_first_nonwhitespace"
+# "$" = "goto_line_end"
 esc = ["collapse_selection", "keep_primary_selection"]
 "tab" = "rotate_view"
-"F12" = ":tree-sitter-scopes"
+"S-tab" = "rotate_view_reverse"
 "F10" = ":tree-sitter-highlight-name"
+"F9" = ":tree-sitter-scopes"
 
 [keys.normal." "]
 " " = "goto_last_accessed_file"
 "F" = "file_picker_in_current_buffer_directory"
 
-[keys.normal."]"]
-"]" = ["goto_next_function", "flip_selections", "collapse_selection"]
-"[" = ["goto_next_function", "collapse_selection"]
+# [keys.normal."]"]
+# "]" = ["goto_next_function", "flip_selections", "collapse_selection"]
+# "[" = ["goto_next_function", "collapse_selection"]
 
-[keys.normal."["]
-"]" = ["goto_prev_function", "flip_selections", "collapse_selection"]
-"[" = ["goto_prev_function", "collapse_selection"]
+# [keys.normal."["]
+# "]" = ["goto_prev_function", "flip_selections", "collapse_selection"]
+# "[" = ["goto_prev_function", "collapse_selection"]
 
 [keys.insert]
 "C-[" = "normal_mode"
 
 [keys.select]
 "C-[" = "normal_mode"
-"0" = "goto_first_nonwhitespace"
-"$" = "goto_line_end"
+# "0" = "goto_first_nonwhitespace"
+# "$" = "goto_line_end"

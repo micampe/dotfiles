@@ -1,45 +1,58 @@
 # Author : Michele Campeotto <micampe@me.com>
+# This theme is based on the Vim quiet color scheme palette
+# and is designed to work on 256 colors terminals.
 
-"ui.selection" = { fg = "black", bg = "green" }
+"ui.background" = { fg = "white", bg = "black" }
+
 "ui.cursor" = { fg = "black", bg = "light-gray" }
 "ui.cursor.primary" = { fg = "black", bg = "red" }
+"ui.cursor.primary.select" = { fg = "black", bg = "light-blue" }
 "ui.cursor.match" = { fg = "red" }
+
 "ui.linenr" = "gray"
-"ui.linenr.selected" = { fg = "white", bg = "black" }
+"ui.linenr.selected" = { fg = "white", bg = "235" }
+
 "ui.statusline" = { fg = "black", bg = "light-gray", modifiers = [ "bold" ] }
 "ui.statusline.inactive" = { fg = "black", bg = "gray", modifiers = [ "bold" ] }
 "ui.statusline.insert" = { bg = "light-green" }
 "ui.statusline.select" = { bg = "light-blue" }
+
+"ui.popup" = { fg = "white", bg = "235" }
+"ui.window" = { fg = "236", bg = "black" }
+"ui.help" = { fg = "white", bg = "light-blue" }
+"ui.text" = { fg = "light-gray" }
+"ui.text.focus" = { fg = "light-blue", modifiers = [] }
+"ui.virtual.inlay-hint" = { fg = "gray" }
+"ui.virtual.wrap" = { fg = "gray" }
+"ui.virtual.jump-label" = { fg = "light-green" }
+
 "ui.menu" = { fg = "white", bg = "blue" }
 "ui.menu.selected" = { bg = "white", fg = "black" }
-"ui.popup" = { fg = "white", bg = "234" }
-# selected line in pickers
-"ui.text.focus" = { fg = "blue", modifiers = [] }
-# search matches in pickers
-"special" = { fg = "blue", modifiers = [ "underlined"] }
-"ui.help" = { fg = "white", bg = "light-blue" }
-"ui.virtual.jump-label" = { fg = "cyan" }
-"ui.window" = { fg = "236", bg = "black" }
+"ui.selection" = { fg = "black", bg = "green" }
+"ui.cursorline" = { bg = "235" }
 
-"string" = { fg = "yellow" }
+"string" = { fg = "light-yellow" }
 "constant" = { fg = "light-cyan" }
 "constant.numeric" = { fg = "white" }
 "comment" = { fg = "gray" }
 "operator" = { fg = "white" }
-
-"diff.plus" = "green"
-"diff.minus" = "red"
-"diff.delta" = "gray"
+"special" = { fg = "blue", modifiers = [ "underlined"] } # search matches in pickers
 
 "warning" = { fg = "light-yellow" }
 "error" = { fg = "light-red" }
 "hint" = { fg = "light-blue" }
-"keyword" = { fg = "white", modifiers = [ "bold" ] }
-"keyword.control" = { fg = "light-blue" }
-"keyword.storage.type" = { fg = "light-blue" }
-"keyword.function" = { fg = "light-blue" }
-"keyword.directive" = { fg = "yellow" }
 
 "diagnostic.warning" = { fg = "black", bg = "light-yellow" }
 "diagnostic.error" = { fg = "black", bg = "light-red" }
 "diagnostic.hint" = { fg = "black", bg = "light-blue" }
+
+"diff.plus" = "green"
+"diff.minus" = "red"
+"diff.delta" = "blue"
+
+"keyword" = { fg = "white", modifiers = [ "bold" ] }
+# "keyword.control" = { fg = "blue", modifiers = [ "bold" ] }
+# "keyword.storage.type" = { fg = "blue", modifiers = [ "bold" ] }
+# "keyword.function" = { fg = "blue", modifiers = [ "bold" ] }
+"keyword.directive" = { fg = "blue", modifiers = [ "bold" ] }
+
