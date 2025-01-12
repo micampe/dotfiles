@@ -43,3 +43,4 @@ hi! link vimOper Normal
 hi! link vimParenSep Normal
 hi! link yamlKeyValueDelimiter Normal
 hi! link sqlKeyword Statement
+hi! link LspInlayHintsType NonText
