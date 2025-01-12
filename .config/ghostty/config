@@ -1,0 +1,13 @@
+# vim: ft=ghostty
+font-family = Input Mono
+# font-thicken = true
+
+theme = Quiet
+
+shell-integration-features = no-cursor
+cursor-style = block
+cursor-style-blink = false
+
+macos-option-as-alt = left
+mouse-hide-while-typing = true
+window-step-resize = true

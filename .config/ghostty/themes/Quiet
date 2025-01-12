@@ -1,0 +1,22 @@
+# colors from vim quiet theme
+palette = 0=#000000
+palette = 1=#d7005f
+palette = 2=#00af5f
+palette = 3=#d78700
+palette = 4=#0087d7
+palette = 5=#d787d7
+palette = 6=#00afaf
+palette = 7=#dadada
+palette = 8=#707070
+palette = 9=#ff005f
+palette = 10=#00d75f
+palette = 11=#ffaf00
+palette = 12=#5fafff
+palette = 13=#ff87ff
+palette = 14=#00d7d7
+palette = 15=#ffffff
+background = 000000
+foreground = b3b3b3
+cursor-color = d7005f
+selection-background = ffaf00
+selection-foreground = ffffff
