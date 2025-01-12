@@ -127,12 +127,12 @@ def _ri(s, n): s=re.sub('^[ ]*\n', '', s);s=re.sub('\n[ ]*$', '', s);\
     ls=s.split('\n');i=len(re.match('(^[ ]*)', ls[0]).group(0));\
     return '\n'.join((n * ' ') + re.sub(f'^[ ]{{{i}}}', '', ll) for ll in ls)
 cwd=os.path.abspath(os.curdir); cli()
-if len(args) == 0: print(f"{_c(1)}commands:{_c(0)}"); [print(' '.join([
-    f'  {_c(96)}{f.__name__}{_c(0)}',
+if len(args) == 0: print(f"{_c(32)}{_c(1)}Commands:{_c(0)}"); [print(' '.join([
+    f'  {_c(96)}{_c(1)}{f.__name__}{_c(0)}',
     *[f'{_c(36)}[{a}{d[1]}]{_c(0)}' if d[0] else f'{_c(36)}{a}{_c(0)}' \
         for a,d in ((a,_default(i, spec)) for i, a in enumerate(spec.args))],
     *([f'[...{spec.varargs}]'] if spec.varargs is not None else []),
-    *([f'\n{_c(2)}{_ri(f.__doc__, 4)}{_c(0)}'] if f.__doc__ else [])
+    *([f'\n{_c(37)}{_ri(f.__doc__, 4)}{_c(0)}'] if f.__doc__ else [])
 ])) for spec, f in((inspect.getfullargspec(f), f) for f in commands)];exit(0)
 matching_commands = [f for f in commands if f.__name__ == args[0]]
 if len(matching_commands)==0:print(f'Unknown command "{args[0]}"');sys.exit(1)
